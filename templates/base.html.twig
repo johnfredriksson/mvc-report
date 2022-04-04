@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+            <a href="/report">REPORT</a>
+        </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div class="footer">
+            <p>John Fredriksson MVC 2022 BTH</p>
+        </div>
+    </body>
+</html>

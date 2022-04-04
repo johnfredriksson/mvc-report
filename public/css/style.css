@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+html {
+    background-color: rgb(37, 37, 37);
+    color: white;
+}
+
+.content {
+    background-color: rgb(49, 49, 49);
+    width:80vw;
+    margin: auto;
+    padding: 20px;
+    min-height: 70vh;
+}
+
+.navbar {
+    width: 80vw;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(90, 30, 67);
+    padding: 10px 50px;
+    margin: 10px;
+    border-radius: 20px;
+    transition: 0.5s ease all;
+    font-size: 1.2em;
+}
+
+.navbar a:hover {
+    background-color: rgb(43, 43, 75);
+}
+
+.footer {
+    text-align: center;
+    height: 7vh;
+    margin-top: 20px;
+    background-color: rgb(31, 31, 31);
+}
+
+.footer p {
+    margin-top: 10px;
+}
+
+h1, h2, h3, h4 ,h5, h6, .title, a, .footer p {
+    font-family: 'Unica One', cursive;
+}
+
+.title {
+    font-size: 4em;
+}
+
+.text {
+    font-size: 1.3em;
+    line-height: 1.4em;
+    max-width: 30vw;
+    display: inline-block;
+}
+
+.texter {
+    width: 40vw;
+    border-right: 1px solid rgb(36, 36, 36);
+    padding-right: 30px;
+    font-size: 1.1em;
+}
+
+.footer p {
+    color: rgb(85, 85, 85);
+    font-size: 2em;
+}
+
+.content img {
+    width: 400px;
+    float: right;
+}

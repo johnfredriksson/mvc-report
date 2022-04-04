@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Report{% endblock %}
+
+{% block content %}
+<div class="texter">
+    <p class="title">REPORT</p>
+
+    {{ include("report/kmom01.markdown.twig")|markdown_to_html }}
+
+</div>
+{% endblock %}

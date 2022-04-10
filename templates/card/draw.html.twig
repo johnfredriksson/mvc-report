@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw{% endblock %}
+
+{% block content %}
+
+<div class="test exercises">
+    <h1>{{ title }}</h1>
+    {% for card in cards %}
+        <img class="card" src="{{ asset("img/cards/") }}{{card}}">
+    {% endfor %}
+    <p>Cards left: {{ cardsLeft }}</p>
+    <form>
+        <input type="submit" value="Draw">
+    </form>
+</div>
+
+{% endblock %}

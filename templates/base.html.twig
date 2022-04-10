@@ -4,13 +4,15 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="favicon.ico">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     </head>
     <body>
         <div class="navbar">
-            <a href="/">HOME</a>
-            <a href="/about">ABOUT</a>
-            <a href="/report">REPORT</a>
+            <a href="{{ path('home') }}">HOME</a>
+            <a href="{{ path('about') }}">ABOUT</a>
+            <a href="{{ path('report') }}">REPORT</a>
+            <a href="{{ path('exercise') }}">EXERCISE</a>
+            <a href="{{ path('card-home') }}">CARD</a>
         </div>
         <div class="content">
             {% block content %}{% endblock %}
@@ -18,6 +20,7 @@
 
         <div class="footer">
             <p>John Fredriksson MVC 2022 BTH</p>
+            <a href="https://github.com/johnfredriksson/mvc">Github Repository</a>
         </div>
     </body>
 </html>

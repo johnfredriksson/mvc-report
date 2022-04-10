@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw{% endblock %}
+
+{% block content %}
+
+<div class="test exercises">
+    <h1>{{ title }}</h1>
+    <p>Cards left: {{ cardsLeft }}</p>
+    <p>Cards in hand: {{cardsHand}}</p>
+    <form method="post">
+        <input type="submit" value="Draw" name="drawit">
+        <input type="submit" value="Add" name="addit">
+        <input type="submit" value="Remove" name="removeit">
+        <input type="submit" value="Shuffle" name="shuffleit">
+    </form>
+    {% for card in cards %}
+        <img class="card" src="{{ asset("img/cards/") }}{{card}}">
+    {% endfor %}
+</div>
+
+{% endblock %}

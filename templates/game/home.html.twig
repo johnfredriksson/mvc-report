@@ -1,0 +1,93 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Game{% endblock %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+<div class="text exercises">
+    <h3>Inledning</h3>
+    <p>
+        I det tredje kursmomentet har jag valt att skapa spelet Blackjack. Spelet har två spelare, användaren och datorn. Båda parter blir tilldelade två kort var, datorns kort är dolda. 
+        Målet är att samla 21 poäng, alternativt så nära som möjligt utan att gå över. Kortens värde speglar det värde som är på korten med undantag för klädda kort som alla är värda 10 samt 
+        ess som går som både 1 och 11.
+    </p>
+        
+    <p>
+        När korten är utdelade så får användaren valet om hen vill få fler kort eller stanna. När spelaren har stannat, fått 21 eller gått över så får datorn visa 
+        sina kort. Så länge datorn har värde under 17 så måste den dra ett nytt kort. Vinnaren är spelaren som är närmst 21. Om båda har gått över så delas potten, om spelaren får 21 på två första 
+        korten så vinner spelaren.
+    </p>
+    <h3>Flödesschema</h3>
+    <a href="{{ asset("img/21.drawio.png") }}"><img class="small-img" src="{{ asset("img/21.drawio.png") }}"></a>
+    <em style="font-size:14px;">(Klickbar)</em>
+
+    <h3>Klasser</h3>
+    <ul>
+        <li><p>Game - Håller spelet.</p></li>
+        <li><p>Rules - Håller spelregler.</p></li>
+        <li><p>Deck - Håller kortleken.</p></li>
+        <li><p>Hand - Håller spelarens eller datorns kort.</p></li>
+    </ul>
+
+    <h3>Psuedokod</h3>
+    <p>Flödet för spelet i psuedokod</p>
+    <ul>
+        <li><p>Game->start() - Spelet startas, två object av typen Hand skapas.</p></li>
+        <li><p>Game->deal() - Metoden kallar vidare på Hand.</p></li>
+        <li><p>Hand->deal() - Kort delas ut till båda händer.</p></li>
+        <li><em>21 poäng på två kort</em>
+            <ul>
+                <li>Game->win() - Spelaren vinner.</li>
+            </ul>
+        </li>
+        <li><em>dra kort</em>
+            <ul>
+                <li><p>Hand->draw() - spelaren får ett till kort.</p></li>
+            </ul>
+        </li>
+        <li><em>över 21</em>
+            <ul>
+                <li><p>Game->lose() - Spelaren förlorar.</p></li>
+            </ul>
+        </li>
+        <li><em>stanna</em>
+            <ul>
+                <li><p>Hand->stay() - Spelaren stannar.</p></li>
+            </ul>
+        </li>
+        <li><p>Game->showDealer() - Dealer visar sina kort.</p></li>
+        <li><em>under 17</em>
+            <ul>
+                <li>Hand->draw()</li>
+            </ul>
+        </li>
+        <li><em>över 21</em>
+            <ul>
+                <li>game->win() - Spelaren vinner.</li>
+            </ul>
+        </li>
+        <li><em>över 17</em>
+            <ul>
+                <li>Game->compare()</li>
+                <li><em>spelaren närmst 21</em>
+                    <ul>
+                        <li>Game->win() - Spelaren vinner.</li>
+                    </ul>
+                </li>
+                <li><em>Dealer närmst 21</em>
+                    <ul>
+                        <li>Game->lost() - Spelaren förlorar.</li>
+                    </ul>
+                </li>
+                <li><em>Lika poäng</em>
+                    <ul>
+                        <li>Game->equal()</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}

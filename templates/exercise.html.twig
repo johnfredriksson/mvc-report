@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<p class="title">Exercises</p>
+<div class="text exercises">
+    <h3>Dice</h3>
+    <ul>
+        <li><a href="{{path('dice-home')}}">/dice</a></li>
+        <li><a href="{{path('dice-graphic-home')}}">/dice/graphic</a></li>
+        <li><a href="{{path('dice-hand-home')}}">/dice/hand</a></li>
+    </ul>
+</div>
+{% endblock %}

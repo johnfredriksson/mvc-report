@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card{% endblock %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+<div class="text exercises">
+    <ul>
+        <li><a href="{{ path('card-deck') }}">/deck</a></li>
+        <li><a href="{{ path('card-shuffle') }}">/shuffle</a></li>
+        <li><a href="{{ path('card-draw') }}">/draw</a></li>
+        <li><a href="{{ path('card-number', {'number': '0'}) }}">/draw number</a></li>
+        <li><a href="{{ path('card-deal', {'players': '0', 'cards': '0'}) }}">/deal</a></li>
+        <li><a href="{{ path('deck-json') }}">/api/deck</a></li>
+        <li><a href="{{ path('game-home') }}">/game</a></li>
+    </ul>
+</div>
+
+{% endblock %}

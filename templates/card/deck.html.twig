@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deck{% endblock %}
+
+{% block content %}
+
+<div class="test exercises">
+    <h1>{{ title }}</h1>
+    {% for card in cards %}
+        <img class="card" src="../img/cards/{{card}}">
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -45,6 +45,17 @@ html {
     margin-top: 10px;
 }
 
+.footer a {
+    font-size: 1.5em;
+    position: relative;
+    bottom: 30px;
+    transition: 0.5s ease all;
+}
+
+.footer a:hover {
+    color: blue;
+}
+
 h1, h2, h3, h4 ,h5, h6, .title, a, .footer p {
     font-family: 'Unica One', cursive;
 }
@@ -72,7 +83,26 @@ h1, h2, h3, h4 ,h5, h6, .title, a, .footer p {
     font-size: 2em;
 }
 
-.content img {
+.content .memage {
     width: 400px;
     float: right;
+}
+
+.exercises a, .link {
+    color: rgb(95, 59, 81);
+}
+
+.card {
+    width: 110px;
+}
+
+.player {
+    padding: 20px;
+    border: 2px solid black;
+    display: inline-block;
+    margin: 10px;
+}
+
+.small-img {
+    width: 200px;
 }

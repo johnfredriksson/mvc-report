@@ -31,4 +31,12 @@ class ReportController extends AbstractController
     {
         return $this->render('report.html.twig');
     }
+
+    /**
+     * @Route("/exercise", name="exercise")
+     */
+    public function exercise(): Response
+    {
+        return $this->render('exercise.html.twig');
+    }
 }

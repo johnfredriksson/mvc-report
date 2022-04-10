@@ -120,12 +120,12 @@ class CardController extends AbstractController
         $shuffle = $request->request->get('shuffleit');
 
         if (!is_int($session->get("number"))) {
-            $session->set("number", 1);
-            return $this->redirect("/");
+            $session->set("number", 0);
+            return $this->redirectToRoute("card-number", ['number' => $session->get("number")]);
         }
 
         if ($draw) {
-            return $this->redirect('/card/deck/draw/' . $session->get("number"));
+            return $this->redirectToRoute("card-number", ['number' => $session->get("number")]);
         } elseif ($add) {
             $session->set("number", $session->get("number") + 1);
         } elseif ($remove) {
@@ -154,11 +154,13 @@ class CardController extends AbstractController
     ): Response {
         if (!is_int($session->get("cards"))) {
             $session->set("cards", 0);
-            return $this->redirect("/card/deck/deal/" . $session->get("players") . "/" . $session->get("cards"));
+
+            return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" => $session->get("cards")]);
         }
         if (!is_int($session->get("players"))) {
             $session->set("players", 0);
-            return $this->redirect("/card/deck/deal/" . $session->get("players") . "/" . $session->get("cards"));
+
+            return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" => $session->get("cards")]);
         }
 
         $dealer = [];
@@ -197,7 +199,9 @@ class CardController extends AbstractController
         $shuffle = $request->request->get('shuffleit');
 
         if ($draw) {
-            return $this->redirect("/card/deck/deal/" . $session->get("players") . "/" . $session->get("cards"));
+    
+            return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" => $session->get("cards")]);
+
         } elseif ($add) {
             $session->set("cards", $session->get("cards") + 1);
         } elseif ($remove) {
@@ -218,7 +222,9 @@ class CardController extends AbstractController
             'players' => $session->get("players"),
             'dealer' => []
         ];
-        return $this->redirect("/card/deck/deal/" . $session->get("players") . "/" . $session->get("cards"));
+
+        return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" => $session->get("cards")]);
+
     }
 
     /**

@@ -155,14 +155,14 @@ class CardController extends AbstractController
         if (!is_int($session->get("cards"))) {
             $session->set("cards", 0);
 
-            return $this->redirectToRoute("card-deal", ["players" => $session->get("players")
-                , "cards" => $session->get("cards")]);
+            return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" =>
+             $session->get("cards")]);
         }
         if (!is_int($session->get("players"))) {
             $session->set("players", 0);
 
-            return $this->redirectToRoute("card-deal", ["players" => $session->get("players")
-                , "cards" => $session->get("cards")]);
+            return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" =>
+             $session->get("cards")]);
         }
 
         $dealer = [];
@@ -201,8 +201,7 @@ class CardController extends AbstractController
         $shuffle = $request->request->get('shuffleit');
 
         if ($draw) {
-            return $this->redirectToRoute("card-deal", ["players" => $session->get("players")
-                , "cards" => $session->get("cards")]);
+            return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" => $session->get("cards")]);
         } elseif ($add) {
             $session->set("cards", $session->get("cards") + 1);
         } elseif ($remove) {
@@ -224,8 +223,7 @@ class CardController extends AbstractController
             'dealer' => []
         ];
 
-        return $this->redirectToRoute("card-deal", ["players" => $session->get("players")
-            , "cards" => $session->get("cards")]);
+        return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" => $session->get("cards")]);
     }
 
     /**

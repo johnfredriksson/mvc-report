@@ -202,7 +202,8 @@ class CardController extends AbstractController
 
         if ($draw) {
             return $this->redirectToRoute(
-                "card-deal", ["players" => $session->get("players"), "cards" => $session->get("cards")]
+                "card-deal",
+                ["players" => $session->get("players"), "cards" => $session->get("cards")]
             );
         } elseif ($add) {
             $session->set("cards", $session->get("cards") + 1);
@@ -226,7 +227,8 @@ class CardController extends AbstractController
         ];
 
         return $this->redirectToRoute(
-            "card-deal", ["players" => $session->get("players"), "cards" => $session->get("cards")]
+            "card-deal",
+            ["players" => $session->get("players"), "cards" => $session->get("cards")]
         );
     }
 

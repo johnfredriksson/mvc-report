@@ -19,4 +19,16 @@ class GameController extends AbstractController
 
         return $this->render('game/home.html.twig', $data);
     }
+
+    /**
+     * @Route("/game/table", name="game-table")
+     **/
+    public function table(): Response
+    {
+        $data = [
+            "title" => "TABLE"
+        ];
+
+        return $this->render("game/table.html.twig", $data);
+    }
 }

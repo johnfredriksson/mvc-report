@@ -52,7 +52,7 @@ class GameController extends AbstractController
         SessionInterface $session
         ): Response
         {
-            $session->clear();
+            // $session->clear();
 
             if (!$session->get("game")) {
                 $this->setGame($session);
@@ -60,8 +60,6 @@ class GameController extends AbstractController
         
         $game = $session->get("game");
 
-        
-        $this->debugSession($session);
         $data = [
             "title" => "TABLE",
             "balance" => $game->getBalance(),
@@ -88,7 +86,8 @@ class GameController extends AbstractController
     $playerSum = $game->getSum($game->getPlayerObject());
 
     if ($game->rules->blackjack($game->getPlayerObject())) {
-        $this->addFlash("notice", "BlackJack!");
+        $this->addFlash("win", "BlackJack!");
+        $game->setBalance($wage * 3, "+");
         return $this->redirectToRoute("game-table-end");
 
     }
@@ -128,7 +127,7 @@ class GameController extends AbstractController
     }
     
     if ($game->rules->fat($game->getPlayerObject())) {
-        $this->addFlash("notice", "Bust");
+        $this->addFlash("lose", "You Lose. Bust");
         return $this->redirectToRoute("game-table-end");
     }
 
@@ -170,36 +169,28 @@ class GameController extends AbstractController
     }
 
     if ($game->rules->blackjack($game->getDealerObject())) {
-        $this->addFlash("You Lost.", "Dealer BlackJack.");
+        $this->addFlash("lose", "You lost. Dealer BlackJack.");
         return $this->redirectToRoute("game-table-end");
     }
 
     if ($game->rules->fat($game->getDealerObject())) {
-        $this->addFlash("You Win!", "Dealer Bust.");
+        $this->addFlash("win", "You Win! Dealer Bust.");
         return $this->redirectToRoute("game-table-end");
     }
 
     if ($dealerSum > $playerSum) {
-        $this->addFlash("You Lost.", "Dealer has stronger cards.");
+        $this->addFlash("lose", "You Lose. Dealer has stronger cards.");
         return $this->redirectToRoute("game-table-end");
     }
 
-    $this->addFlash("You Win!", "You have stronger cards.");
+    if ($dealerSum == $playerSum) {
+        $this->addFlash("draw", "No Winner. Push.");
+        return $this->redirectToRoute("game-table-end");
+    }
+
+    $this->addFlash("win", "You Win! You have stronger cards.");
     return $this->redirectToRoute("game-table-end");
 
-    
-    
-        $data = [
-            "title" => "TABLE",
-            "balance" => $game->getBalance(),
-            "wage" => $wage,
-            "player" => $game->getCardFaces($game->getPlayer()),
-            "dealer" => $game->getCardFaces($game->getDealer()),
-            "playerSum" => $playerSum,
-            "dealerSum" => $dealerSum[0]
-        ];
-
-        return $this->render('game/stay.html.twig', $data);
     }
 
     /**
@@ -232,6 +223,6 @@ class GameController extends AbstractController
             "dealerSum" => $dealerSum
         ];
 
-        return $this->render('game/stay.html.twig', $data);
+        return $this->render('game/end.html.twig', $data);
     }
 }

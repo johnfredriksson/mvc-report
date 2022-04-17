@@ -139,7 +139,39 @@ h1, h2, h3, h4 ,h5, h6, .title, a, .footer p {
     left: 15vw;
 }
 
+.controls a {
+    color: white;
+    border: 1px solid white;
+    padding: 3px;
+}
+
+.controls a:hover {
+    color: rgb(95, 111, 216);
+    border: 1px solid rgb(95, 111, 216);
+    padding: 3px;
+}
+
 .table img {
     width: 130px;
     display: inline-block;
+}
+
+.flash {
+    position: absolute;
+    right: 80px;
+    top: 30vh;
+    font-size: 2em;
+    padding: 10px;
+}
+
+.flash-win {
+    color: rgb(7, 39, 7);
+}
+
+.flash-lose {
+    color: rgb(51, 8, 8);
+}
+
+.flash-draw {
+    color: rgb(22, 22, 55);
 }

@@ -11,6 +11,7 @@
             {% for card in dealer %}
                 <img class="card" src="{{ asset("img/cards/") }}{{card}}">
             {% endfor %}
+            <p>{{ dealerSum }}</p>
         </div>
         <div class="t-player">
             {% for card in player %}
@@ -26,16 +27,12 @@
             <img src="{{ asset('img/cards/back.png') }}">
             {# <p>Cards left: </p> #}
         </div>
-
         {{ include('game/flash-message.html.twig') }}
 
         <div class="controls">
             <p>Balance: {{ balance }}</p>
             <p>Wage: {{ wage }}</p>
-            <form method="post" action="{{ path("game-table-choose") }}">
-                <input type="submit" name="hit" value="Hit">
-                <input type="submit" name="stay" value="Stay">
-            </form>
+            <a href="{{ path("game-table") }}">Continue >>></a>
         </div>
 
 

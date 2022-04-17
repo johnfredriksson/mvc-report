@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Table{% endblock %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+<div class="text exercises">
+    <div class="table">
+        <div class="dealer">
+            {% for card in dealer %}
+                <img class="card" src="{{ asset("img/cards/") }}{{card}}">
+            {% endfor %}
+            <p>{{ dealerSum }}</p>
+        </div>
+        <div class="t-player">
+            {% for card in player %}
+                <img class="card" src="{{ asset("img/cards/") }}{{card}}">
+            {% endfor %}
+            {% for val in playerSum %}
+                {% if val != 0 %}
+                    <p>{{ val }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="deck">
+            <img src="{{ asset('img/cards/back.png') }}">
+            {# <p>Cards left: </p> #}
+        </div>
+        {{ include('game/flash-message.html.twig') }}
+
+        <div class="controls">
+            <p>Balance: {{ balance }}</p>
+            <p>Wage: {{ wage }}</p>
+            <form method="post" action="{{ path("game-table-choose") }}">
+                <input type="submit" name="hit" value="Hit">
+                <input type="submit" name="stay" value="Stay">
+            </form>
+        </div>
+
+
+    </div>
+    
+</div>
+
+{% endblock %}

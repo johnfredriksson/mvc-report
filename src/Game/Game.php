@@ -41,7 +41,7 @@ class Game {
 
     public function getDealerObject()
     {
-        return $this->player;
+        return $this->dealer;
     }
 
     public function getPlayer()
@@ -71,6 +71,11 @@ class Game {
     public function drawCardPlayer()
     {
         $this->player->addCard($this->deck->drawCardFull(1));
+    }
+
+    public function drawCardDealer()
+    {
+        $this->dealer->addCard($this->deck->drawCardFull(1));
     }
 
     public function getCardFaces($hand)

@@ -88,15 +88,11 @@ class GameController extends AbstractController
     $playerSum = $game->getSum($game->getPlayerObject());
 
     if ($game->rules->blackjack($game->getPlayerObject())) {
-        echo "blackjack";
+        $this->addFlash("notice", "BlackJack!");
         return $this->redirectToRoute("game-table-end");
 
     }
 
-
-    $this->debugSession($session);
-
-        
         $data = [
             "title" => "TABLE",
             "balance" => $game->getBalance(),
@@ -128,14 +124,12 @@ class GameController extends AbstractController
     }
     
     if ($stay) {
-        // return $this->redirectToRoute("game-table-stay");
-        $this->addFlash('Gz!', 'You Win');
-        return $this->redirectToRoute("game-table-end");
-
+        return $this->redirectToRoute("game-table-stay");
     }
     
     if ($game->rules->fat($game->getPlayerObject())) {
-        echo "fat";
+        $this->addFlash("notice", "Bust");
+        return $this->redirectToRoute("game-table-end");
     }
 
     // $playerSum = $game->getSum($game->getPlayer());
@@ -167,22 +161,45 @@ class GameController extends AbstractController
     $hit = $request->request->get("hit");
     $stay = $request->request->get("stay");
     
-    // $playerSum = $game->getSum($game->getPlayer());
     $playerSum = $game->getSum($game->getPlayerObject());
-
     $dealerSum = $game->getSum($game->getDealerObject());
 
+    while ($dealerSum[0] < 17) {
+        $game->drawCardDealer();
+        $dealerSum = $game->getSum($game->getDealerObject());
+    }
+
+    if ($game->rules->blackjack($game->getDealerObject())) {
+        $this->addFlash("You Lost.", "Dealer BlackJack.");
+        return $this->redirectToRoute("game-table-end");
+    }
+
+    if ($game->rules->fat($game->getDealerObject())) {
+        $this->addFlash("You Win!", "Dealer Bust.");
+        return $this->redirectToRoute("game-table-end");
+    }
+
+    if ($dealerSum > $playerSum) {
+        $this->addFlash("You Lost.", "Dealer has stronger cards.");
+        return $this->redirectToRoute("game-table-end");
+    }
+
+    $this->addFlash("You Win!", "You have stronger cards.");
+    return $this->redirectToRoute("game-table-end");
+
+    
     
         $data = [
             "title" => "TABLE",
             "balance" => $game->getBalance(),
             "wage" => $wage,
             "player" => $game->getCardFaces($game->getPlayer()),
-            "dealer" => $game->getDealer(),
-            "playerSum" => $playerSum
+            "dealer" => $game->getCardFaces($game->getDealer()),
+            "playerSum" => $playerSum,
+            "dealerSum" => $dealerSum[0]
         ];
 
-        return $this->render('game/deal.html.twig', $data);
+        return $this->render('game/stay.html.twig', $data);
     }
 
     /**
@@ -201,6 +218,7 @@ class GameController extends AbstractController
     $playerSum = $game->getSum($game->getPlayerObject());
 
     $dealerSum = $game->getSum($game->getDealerObject());
+    $dealerSum = $dealerSum[0];
 
 
     
@@ -210,9 +228,10 @@ class GameController extends AbstractController
             "wage" => $wage,
             "player" => $game->getCardFaces($game->getPlayer()),
             "dealer" => $game->getCardFaces($game->getDealer()),
-            "playerSum" => $playerSum
+            "playerSum" => $playerSum,
+            "dealerSum" => $dealerSum
         ];
 
-        return $this->render('game/end.html.twig', $data);
+        return $this->render('game/stay.html.twig', $data);
     }
 }

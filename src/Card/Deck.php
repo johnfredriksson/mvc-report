@@ -38,6 +38,20 @@ class Deck
         return $res;
     }
 
+    public function drawCardFull($amount)
+    {
+        $res = [];
+        for ($i = 0; $i < $amount; $i++) {
+            $size = count($this->cards);
+            if ($size > 0) {
+                $card = $this->cards[0];
+                array_splice($this->cards, 0, 1);
+                array_push($res, $card);
+            }
+        }
+        return $res;
+    }
+
     public function shuffleDeck()
     {
         shuffle($this->cards);

@@ -35,6 +35,11 @@ class Card
         return $this->img . ".png";
     }
 
+    public function getValue()
+    {
+        return $this->value;
+    }
+
     public function getObject()
     {
         $res = [

@@ -106,3 +106,40 @@ h1, h2, h3, h4 ,h5, h6, .title, a, .footer p {
 .small-img {
     width: 200px;
 }
+
+.table {
+    width: 80vw;
+    height: 70vh;
+    background-color: rgb(19, 67, 19);
+    border-radius: 20vw;
+    position: relative;
+}
+
+.t-player {
+    position: absolute;
+    left: 32vw;
+    bottom: 50px;
+}
+
+.dealer {
+    position: absolute;
+    left: 32vw;
+    top: 50px;
+}
+
+.deck {
+    position: absolute;
+    left: 80px;
+    top: 15vh;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0px;
+    left: 15vw;
+}
+
+.table img {
+    width: 130px;
+    display: inline-block;
+}

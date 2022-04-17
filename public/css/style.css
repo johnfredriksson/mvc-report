@@ -154,6 +154,13 @@ h1, h2, h3, h4 ,h5, h6, .title, a, .footer p {
 .table img {
     width: 130px;
     display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+.table img:hover {
+    transform: scale(1.1) rotate(5deg);
+    -webkit-box-shadow: 0px 0px 18px 8px rgba(0,0,0,0.52); 
+    box-shadow: 0px 0px 18px 8px rgba(0,0,0,0.52);
 }
 
 .flash {

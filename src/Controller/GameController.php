@@ -36,12 +36,12 @@ class GameController extends AbstractController
     }
     
     /**
-     * Route("/game/reset", name="game-reset")
+     * @Route("/game/reset", name="game-reset")
      */
     public function reset(SessionInterface $session): Response
     {
         $session->clear();
-        return redirect("game-home");
+        return $this->redirectToRoute("game-table");
     }
     
     /**
@@ -80,6 +80,7 @@ class GameController extends AbstractController
 
     $wage = $session->get("wage");
     $game = $session->get("game");
+    $game->setDeck();
     $game->setBalance($session->get("wage"), "-");
     $game->dealCards();
     // $playerSum = $game->getSum($game->getPlayer());
@@ -175,6 +176,7 @@ class GameController extends AbstractController
 
     if ($game->rules->fat($game->getDealerObject())) {
         $this->addFlash("win", "You Win! Dealer Bust.");
+        $game->setBalance($wage * 2, "+");
         return $this->redirectToRoute("game-table-end");
     }
 
@@ -185,10 +187,12 @@ class GameController extends AbstractController
 
     if ($dealerSum == $playerSum) {
         $this->addFlash("draw", "No Winner. Push.");
+        $game->setBalance($wage, "+");
         return $this->redirectToRoute("game-table-end");
     }
 
     $this->addFlash("win", "You Win! You have stronger cards.");
+    $game->setBalance($wage * 2, "+");
     return $this->redirectToRoute("game-table-end");
 
     }
@@ -210,6 +214,7 @@ class GameController extends AbstractController
 
     $dealerSum = $game->getSum($game->getDealerObject());
     $dealerSum = $dealerSum[0];
+    $playerSum = $playerSum[0];
 
 
     

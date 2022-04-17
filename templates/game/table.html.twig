@@ -13,14 +13,14 @@
         </div>
         <div class="deck">
             <img src="{{ asset('img/cards/back.png') }}">
-            {# <p>Cards left: </p> #}
         </div>
         <div class="controls">
             <p>Balance: {{ balance }}</p>
             <form method="post" action="{{ path("game-table-bet") }}">
-                <input type="number" max="{{ balance }}" name="wage" placeholder="Enter wage..">
+                <input type="number" required="true" max="{{ balance }}" name="wage" placeholder="Enter wage..">
                 <input type="submit" name="bet" value="Bet">
             </form>
+            <a href="{{ path("game-reset") }}">RESET</a>
         </div>
 
 

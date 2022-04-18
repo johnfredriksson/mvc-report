@@ -2,7 +2,8 @@
 
 namespace App\Game;
 
-class Hand {
+class Hand
+{
     protected $cards;
 
     public function __construct($cards)
@@ -20,7 +21,8 @@ class Hand {
         return $this->cards;
     }
 
-    public function getSum() {
+    public function getSum()
+    {
         $sum = 0;
         $sum2 = 0;
         $check = false;

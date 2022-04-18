@@ -17,11 +17,7 @@
             {% for card in player %}
                 <img class="card" src="{{ asset("img/cards/") }}{{card}}">
             {% endfor %}
-            {% for val in playerSum %}
-                {% if val != 0 %}
-                    <p>{{ val }}</p>
-                {% endif %}
-            {% endfor %}
+            <p>{{ playerSum }}</p>
         </div>
         <div class="deck">
             <img src="{{ asset('img/cards/back.png') }}">

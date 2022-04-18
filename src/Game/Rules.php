@@ -2,16 +2,14 @@
 
 namespace App\Game;
 
-class Rules {
-    public function blackjack($hand)
+class Rules
+{
+    public function blackjack(Hand $hand): bool
     {
-        // if (count($hand) == 2 && $hand->getSum()[0] == 21) {
-        //     return "blackjack";
-        // }
         return (count($hand->getCards()) == 2 && $hand->getSum()[0] == 21);
     }
-    
-    public function fat($hand)
+
+    public function fat(Hand $hand): bool
     {
         $check = true;
         foreach ($hand->getSum() as $sum) {

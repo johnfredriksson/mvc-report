@@ -6,13 +6,13 @@ use App\Card\Deck;
 use App\Game\Hand;
 use App\Game\Rules;
 
-
-class Game {
-    protected $deck;
-    protected $balance;
-    protected $player;
-    protected $dealer;
-    public $rules;
+class Game
+{
+    protected Deck $deck;
+    protected intval $balance;
+    protected Hand $player;
+    protected Hand $dealer;
+    public Rules $rules;
 
     public function __construct($balance)
     {
@@ -25,7 +25,6 @@ class Game {
     {
         $this->deck = new Deck();
         $this->deck->shuffleDeck();
-
     }
 
     public function dealCards()
@@ -88,8 +87,9 @@ class Game {
 
         return $res;
     }
-    
-    public function getSum($hand) {
+
+    public function getSum($hand)
+    {
         return $hand->getSum();
     }
 }

@@ -20,8 +20,9 @@ class GameController extends AbstractController
     private function debugSession($session)
     {
         echo "<h3> PHP List All Session Variables</h3>";
-        foreach ($session as $key=>$val)
-        echo json_encode($key)." ".json_encode($val)."<br/>";
+        foreach ($session as $key=>$val) {
+            echo json_encode($key)." ".json_encode($val)."<br/>";
+        }
     }
     /**
      * @Route("/game/card", name="game-home")
@@ -31,10 +32,10 @@ class GameController extends AbstractController
         $data = [
             'title' => 'GAME'
         ];
-        
+
         return $this->render('game/home.html.twig', $data);
     }
-    
+
     /**
      * @Route("/game/reset", name="game-reset")
      */
@@ -43,21 +44,18 @@ class GameController extends AbstractController
         $session->clear();
         return $this->redirectToRoute("game-table");
     }
-    
+
     /**
      * @Route("/game/table", name="game-table")
      **/
     public function table(
         Request $request,
         SessionInterface $session
-        ): Response
-        {
-            // $session->clear();
+    ): Response {
+        if (!$session->get("game")) {
+            $this->setGame($session);
+        }
 
-            if (!$session->get("game")) {
-                $this->setGame($session);
-            }
-        
         $game = $session->get("game");
 
         $data = [
@@ -75,23 +73,20 @@ class GameController extends AbstractController
         Request $request,
         SessionInterface $session,
     ): Response {
-        
-    $session->set("wage", $request->request->get("wage"));
+        $session->set("wage", $request->request->get("wage"));
 
-    $wage = $session->get("wage");
-    $game = $session->get("game");
-    $game->setDeck();
-    $game->setBalance($session->get("wage"), "-");
-    $game->dealCards();
-    // $playerSum = $game->getSum($game->getPlayer());
-    $playerSum = $game->getSum($game->getPlayerObject());
+        $wage = $session->get("wage");
+        $game = $session->get("game");
+        $game->setDeck();
+        $game->setBalance($session->get("wage"), "-");
+        $game->dealCards();
+        $playerSum = $game->getSum($game->getPlayerObject());
 
-    if ($game->rules->blackjack($game->getPlayerObject())) {
-        $this->addFlash("win", "BlackJack!");
-        $game->setBalance($wage * 3, "+");
-        return $this->redirectToRoute("game-table-end");
-
-    }
+        if ($game->rules->blackjack($game->getPlayerObject())) {
+            $this->addFlash("win", "BlackJack!");
+            $game->setBalance($wage * 3, "+");
+            return $this->redirectToRoute("game-table-end");
+        }
 
         $data = [
             "title" => "TABLE",
@@ -112,37 +107,32 @@ class GameController extends AbstractController
         Request $request,
         SessionInterface $session,
     ): Response {
+        $wage = $session->get("wage");
+        $game = $session->get("game");
+        $hit = $request->request->get("hit");
+        $stay = $request->request->get("stay");
 
-    $wage = $session->get("wage");
-    $game = $session->get("game");
-    $hit = $request->request->get("hit");
-    $stay = $request->request->get("stay");
-    
-    
-    if ($hit) {
-        $game->drawCardPlayer();
-    }
-    
-    if ($stay) {
-        return $this->redirectToRoute("game-table-stay");
-    }
-    
-    if ($game->rules->fat($game->getPlayerObject())) {
-        $this->addFlash("lose", "You Lose. Bust");
-        return $this->redirectToRoute("game-table-end");
-    }
 
-    // $playerSum = $game->getSum($game->getPlayer());
-    $playerSum = $game->getSum($game->getPlayerObject());
+        if ($hit) {
+            $game->drawCardPlayer();
+        }
 
-    
+        if ($stay) {
+            return $this->redirectToRoute("game-table-stay");
+        }
+
+        if ($game->rules->fat($game->getPlayerObject())) {
+            $this->addFlash("lose", "You Lose. Bust");
+            return $this->redirectToRoute("game-table-end");
+        }
+
         $data = [
             "title" => "TABLE",
             "balance" => $game->getBalance(),
             "wage" => $wage,
             "player" => $game->getCardFaces($game->getPlayer()),
             "dealer" => $game->getDealer(),
-            "playerSum" => $playerSum
+            "playerSum" => $game->getSum($game->getPlayerObject())
         ];
 
         return $this->render('game/deal.html.twig', $data);
@@ -155,46 +145,42 @@ class GameController extends AbstractController
         Request $request,
         SessionInterface $session,
     ): Response {
+        $wage = $session->get("wage");
+        $game = $session->get("game");
 
-    $wage = $session->get("wage");
-    $game = $session->get("game");
-    $hit = $request->request->get("hit");
-    $stay = $request->request->get("stay");
-    
-    $playerSum = $game->getSum($game->getPlayerObject());
-    $dealerSum = $game->getSum($game->getDealerObject());
-
-    while ($dealerSum[0] < 17) {
-        $game->drawCardDealer();
+        $playerSum = $game->getSum($game->getPlayerObject());
         $dealerSum = $game->getSum($game->getDealerObject());
-    }
 
-    if ($game->rules->blackjack($game->getDealerObject())) {
-        $this->addFlash("lose", "You lost. Dealer BlackJack.");
-        return $this->redirectToRoute("game-table-end");
-    }
+        while ($dealerSum[0] < 17) {
+            $game->drawCardDealer();
+            $dealerSum = $game->getSum($game->getDealerObject());
+        }
 
-    if ($game->rules->fat($game->getDealerObject())) {
-        $this->addFlash("win", "You Win! Dealer Bust.");
+        if ($game->rules->blackjack($game->getDealerObject())) {
+            $this->addFlash("lose", "You lost. Dealer BlackJack.");
+            return $this->redirectToRoute("game-table-end");
+        }
+
+        if ($game->rules->fat($game->getDealerObject())) {
+            $this->addFlash("win", "You Win! Dealer Bust.");
+            $game->setBalance($wage * 2, "+");
+            return $this->redirectToRoute("game-table-end");
+        }
+
+        if ($dealerSum[0] > $playerSum[0]) {
+            $this->addFlash("lose", "You Lose. Dealer has stronger cards.");
+            return $this->redirectToRoute("game-table-end");
+        }
+
+        if ($dealerSum == $playerSum) {
+            $this->addFlash("draw", "No Winner. Push.");
+            $game->setBalance($wage, "+");
+            return $this->redirectToRoute("game-table-end");
+        }
+
+        $this->addFlash("win", "You Win! You have stronger cards.");
         $game->setBalance($wage * 2, "+");
         return $this->redirectToRoute("game-table-end");
-    }
-
-    if ($dealerSum > $playerSum) {
-        $this->addFlash("lose", "You Lose. Dealer has stronger cards.");
-        return $this->redirectToRoute("game-table-end");
-    }
-
-    if ($dealerSum == $playerSum) {
-        $this->addFlash("draw", "No Winner. Push.");
-        $game->setBalance($wage, "+");
-        return $this->redirectToRoute("game-table-end");
-    }
-
-    $this->addFlash("win", "You Win! You have stronger cards.");
-    $game->setBalance($wage * 2, "+");
-    return $this->redirectToRoute("game-table-end");
-
     }
 
     /**
@@ -204,20 +190,19 @@ class GameController extends AbstractController
         Request $request,
         SessionInterface $session,
     ): Response {
+        $wage = $session->get("wage");
+        $game = $session->get("game");
+        $hit = $request->request->get("hit");
+        $stay = $request->request->get("stay");
 
-    $wage = $session->get("wage");
-    $game = $session->get("game");
-    $hit = $request->request->get("hit");
-    $stay = $request->request->get("stay");
-    
-    $playerSum = $game->getSum($game->getPlayerObject());
+        $playerSum = $game->getSum($game->getPlayerObject());
 
-    $dealerSum = $game->getSum($game->getDealerObject());
-    $dealerSum = $dealerSum[0];
-    $playerSum = $playerSum[0];
+        $dealerSum = $game->getSum($game->getDealerObject());
+        $dealerSum = $dealerSum[0];
+        $playerSum = $playerSum[0];
 
 
-    
+
         $data = [
             "title" => "TABLE",
             "balance" => $game->getBalance(),

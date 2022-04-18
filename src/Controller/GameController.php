@@ -13,14 +13,15 @@ class GameController extends AbstractController
 {
     private function setGame(SessionInterface $session): void
     {
-        $session->set("game", new Game(1000));
+        $session->set("game", new \App\Game\Game(1000));
     }
 
     /**
      * @Route("/game/card", name="game-home")
      */
-    public function home(): Response
+    public function home(SessionInterface $session): Response
     {
+        $session->set("game", new \App\Game\Game(100));
         $data = [
             'title' => 'GAME'
         ];

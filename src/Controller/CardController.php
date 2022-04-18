@@ -150,19 +150,21 @@ class CardController extends AbstractController
     ): Response {
         if (!is_int($session->get("cards"))) {
             $session->set("cards", 0);
-
-            return $this->redirectToRoute(
-                "card-deal",
-                ["players" => $session->get("players"), "cards" => $session->get("cards")]
-            );
+            if (!is_int($session->get("players"))) {
+                $session->set("players", 0);
+            }
+            $sPlayers = $session->get("players");
+            $sCards = $session->get("cards");
+            return $this->redirectToRoute("card-deal", ["players" => $sPlayers, "cards" => $sCards]);
         }
         if (!is_int($session->get("players"))) {
             $session->set("players", 0);
-
-            return $this->redirectToRoute(
-                "card-deal",
-                ["players" => $session->get("players"), "cards" => $session->get("cards")]
-            );
+            if (!is_int($session->get("cards"))) {
+                $session->set("cards", 0);
+            }
+            $sPlayers = $session->get("players");
+            $sCards = $session->get("cards");
+            return $this->redirectToRoute("card-deal", ["players" => $sPlayers, "cards" => $sCards]);
         }
 
         $dealer = [];

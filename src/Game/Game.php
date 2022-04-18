@@ -18,19 +18,19 @@ class Game
     {
         $this->balance = $balance;
         $this->setDeck();
-        $this->rules = new Rules();
+        $this->rules = new \App\Game\Rules();
     }
 
     public function setDeck(): void
     {
-        $this->deck = new Deck();
+        $this->deck = new \App\Card\Deck();
         $this->deck->shuffleDeck();
     }
 
     public function dealCards(): void
     {
-        $this->player = new Hand($this->deck->drawCardFull(2));
-        $this->dealer = new Hand($this->deck->drawCardFull(2));
+        $this->player = new \App\Game\Hand($this->deck->drawCardFull(2));
+        $this->dealer = new \App\Game\Hand($this->deck->drawCardFull(2));
     }
 
     public function getPlayerObject(): Hand

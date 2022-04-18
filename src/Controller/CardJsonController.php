@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\HttpFoundation\Request;
+use App\Card\Deck;
 
 class CardJsonController extends AbstractController
 {
@@ -15,10 +16,9 @@ class CardJsonController extends AbstractController
      * @Route("/card/api/deck", name="deck-json")
      *
      */
-    public function home(
-        Request $request
-    ): Response {
-        $deck = new \App\Card\Deck();
+    public function home(): Response
+    {
+        $deck = new Deck();
 
         $data = [
             'title' => 'Card',

@@ -4,24 +4,24 @@ namespace App\Game;
 
 class Hand
 {
-    protected $cards;
+    protected array $cards;
 
-    public function __construct($cards)
+    public function __construct(array $cards)
     {
         $this->cards = $cards;
     }
 
-    public function addCard($card)
+    public function addCard(array $card)
     {
         array_push($this->cards, $card[0]);
     }
 
-    public function getCards()
+    public function getCards(): array
     {
         return $this->cards;
     }
 
-    public function getSum()
+    public function getSum(): array
     {
         $sum = 0;
         $sum2 = 0;

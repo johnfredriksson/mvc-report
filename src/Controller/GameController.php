@@ -7,23 +7,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-
 use App\Game\Game;
 
 class GameController extends AbstractController
 {
-    private function setGame($session)
+    private function setGame(SessionInterface $session): void
     {
         $session->set("game", new Game(1000));
     }
 
-    private function debugSession($session)
-    {
-        echo "<h3> PHP List All Session Variables</h3>";
-        foreach ($session as $key=>$val) {
-            echo json_encode($key)." ".json_encode($val)."<br/>";
-        }
-    }
     /**
      * @Route("/game/card", name="game-home")
      */
@@ -47,9 +39,9 @@ class GameController extends AbstractController
 
     /**
      * @Route("/game/table", name="game-table")
+     * 
      **/
     public function table(
-        Request $request,
         SessionInterface $session
     ): Response {
         if (!$session->get("game")) {
@@ -142,7 +134,6 @@ class GameController extends AbstractController
      * @Route("/game/table/stay", name="game-table-stay")
      */
     public function gameStay(
-        Request $request,
         SessionInterface $session,
     ): Response {
         $wage = $session->get("wage");
@@ -192,16 +183,10 @@ class GameController extends AbstractController
     ): Response {
         $wage = $session->get("wage");
         $game = $session->get("game");
-        $hit = $request->request->get("hit");
-        $stay = $request->request->get("stay");
-
         $playerSum = $game->getSum($game->getPlayerObject());
-
         $dealerSum = $game->getSum($game->getDealerObject());
         $dealerSum = $dealerSum[0];
         $playerSum = $playerSum[0];
-
-
 
         $data = [
             "title" => "TABLE",

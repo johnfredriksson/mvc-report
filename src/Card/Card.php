@@ -4,12 +4,12 @@ namespace App\Card;
 
 class Card
 {
-    protected $suit;
-    protected $value;
-    protected $img;
-    protected $title;
+    protected string $suit;
+    protected string $value;
+    protected string $img;
+    protected string $title;
 
-    public function __construct($suit, $value)
+    public function __construct(string $suit, string $value)
     {
         $this->suit = $suit;
         $this->value = $value;
@@ -19,28 +19,32 @@ class Card
         }
         if ($suit == "C") {
             $this->title = $value . " of Clubs";
-        } elseif ($suit == "D") {
+        }
+        if ($suit == "D") {
             $this->title = $value . " of Diamonds";
-        } elseif ($suit == "H") {
+        }
+        if ($suit == "H") {
             $this->title = $value . " of Hearts";
-        } elseif ($suit == "S") {
+        }
+        if ($suit == "S") {
             $this->title = $value . " of Spades";
-        } else {
+        }
+        if (str_contains("2345678910", $value)) {
             $this->title = $suit . " " . $value;
         }
     }
 
-    public function getImgUrl()
+    public function getImgUrl(): string
     {
         return $this->img . ".png";
     }
 
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }
 
-    public function getObject()
+    public function getObject(): array
     {
         $res = [
             "suit" => $this->suit,

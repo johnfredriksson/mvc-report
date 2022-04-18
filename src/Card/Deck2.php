@@ -6,7 +6,7 @@ use App\Card\Deck;
 
 class Deck2 extends Deck
 {
-    public function addJoker()
+    public function addJoker(): void
     {
         $newCards = ["BJ", "RJ"];
         foreach ($newCards as $card) {

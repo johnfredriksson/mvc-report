@@ -9,15 +9,17 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Card\Deck;
+use App\Card\Deck2;
 
 class CardController extends AbstractController
 {
-    private function setDeck($session)
+    private function setDeck(SessionInterface $session)
     {
         if (!$session->get("deck")) {
-            $session->set("deck", new \App\Card\Deck());
+            $session->set("deck", new Deck());
         } elseif ($session->get("deck")->countDeck() == 0) {
-            $session->set("deck", new \App\Card\Deck());
+            $session->set("deck", new Deck());
         }
     }
 
@@ -25,7 +27,6 @@ class CardController extends AbstractController
      * @Route("/card", name="card-home")
      */
     public function home(
-        Request $request,
         SessionInterface $session
     ): Response {
         $this->setDeck($session);
@@ -40,7 +41,7 @@ class CardController extends AbstractController
      */
     public function deck(): Response
     {
-        $deck = new \App\Card\Deck();
+        $deck = new Deck();
         $cardsImg = [];
 
         foreach ($deck->getDeck() as $card) {
@@ -57,10 +58,9 @@ class CardController extends AbstractController
      * @Route("/card/deck/shuffle", name="card-shuffle")
      */
     public function shuffle(
-        Request $request,
         SessionInterface $session
     ): Response {
-        $session->set("deck", new \App\Card\Deck());
+        $session->set("deck", new Deck());
         $deck = $session->get("deck");
         $deck->shuffleDeck();
         $cardsImg = [];
@@ -78,7 +78,6 @@ class CardController extends AbstractController
      * @Route("/card/deck/draw", name="card-draw")
      */
     public function draw(
-        Request $request,
         SessionInterface $session
     ): Response {
         $data = [
@@ -94,7 +93,6 @@ class CardController extends AbstractController
      */
     public function drawNumber(
         int $number,
-        Request $request,
         SessionInterface $session
     ): Response {
         $data = [
@@ -112,7 +110,6 @@ class CardController extends AbstractController
     public function drawNumberPost(
         Request $request,
         SessionInterface $session,
-        int $number
     ): Response {
         $draw  = $request->request->get('drawit');
         $add  = $request->request->get('addit');
@@ -131,7 +128,7 @@ class CardController extends AbstractController
         } elseif ($remove) {
             $session->set("number", $session->get("number") - 1);
         } elseif ($shuffle) {
-            $session->set("deck", new \App\Card\Deck());
+            $session->set("deck", new Deck());
             $session->get("deck")->shuffleDeck();
         }
         $data = [
@@ -149,20 +146,23 @@ class CardController extends AbstractController
     public function deal(
         int $cards,
         int $players,
-        Request $request,
         SessionInterface $session
     ): Response {
         if (!is_int($session->get("cards"))) {
             $session->set("cards", 0);
 
-            return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" =>
-             $session->get("cards")]);
+            return $this->redirectToRoute(
+                "card-deal",
+                ["players" => $session->get("players"), "cards" => $session->get("cards")]
+            );
         }
         if (!is_int($session->get("players"))) {
             $session->set("players", 0);
 
-            return $this->redirectToRoute("card-deal", ["players" => $session->get("players"), "cards" =>
-             $session->get("cards")]);
+            return $this->redirectToRoute(
+                "card-deal",
+                ["players" => $session->get("players"), "cards" => $session->get("cards")]
+            );
         }
 
         $dealer = [];
@@ -191,7 +191,6 @@ class CardController extends AbstractController
     public function dealPost(
         Request $request,
         SessionInterface $session,
-        int $cards
     ): Response {
         $draw  = $request->request->get('drawit');
         $add  = $request->request->get('addit');
@@ -214,17 +213,9 @@ class CardController extends AbstractController
         } elseif ($premove) {
             $session->set("players", $session->get("players") - 1);
         } elseif ($shuffle) {
-            $session->set("deck", new \App\Card\Deck());
+            $session->set("deck", new Deck());
             $session->get("deck")->shuffleDeck();
         }
-        $data = [
-            'title' => 'Card',
-            'cards' => [],
-            'cardsLeft' => $session->get("deck")->countDeck(),
-            'cardsHand' => $session->get("cards"),
-            'players' => $session->get("players"),
-            'dealer' => []
-        ];
 
         return $this->redirectToRoute(
             "card-deal",
@@ -237,7 +228,7 @@ class CardController extends AbstractController
      */
     public function deck2(): Response
     {
-        $deck = new \App\Card\Deck2();
+        $deck = new Deck2();
         $deck->addjoker();
         $cardsImg = [];
 

@@ -6,9 +6,9 @@ use App\Card\Card;
 
 class Deck
 {
-    protected $suits = ["C", "D", "H", "S"];
-    protected $values = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
-    protected $cards = [];
+    protected array $suits = ["C", "D", "H", "S"];
+    protected array $values = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+    protected array $cards = [];
 
     public function __construct()
     {
@@ -19,12 +19,12 @@ class Deck
         }
     }
 
-    public function getDeck()
+    public function getDeck(): array
     {
         return $this->cards;
     }
 
-    public function drawCard($amount)
+    public function drawCard(int $amount): array
     {
         $res = [];
         for ($i = 0; $i < $amount; $i++) {
@@ -38,7 +38,7 @@ class Deck
         return $res;
     }
 
-    public function drawCardFull($amount)
+    public function drawCardFull(int $amount): array
     {
         $res = [];
         for ($i = 0; $i < $amount; $i++) {
@@ -57,12 +57,12 @@ class Deck
         shuffle($this->cards);
     }
 
-    public function countDeck()
+    public function countDeck(): int
     {
         return count($this->cards);
     }
 
-    public function getJson()
+    public function getJson(): string
     {
         $res = [];
         foreach ($this->cards as $card) {

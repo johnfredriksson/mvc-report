@@ -1,0 +1,31 @@
+.KMOM03 {
+------
+
+Under veckan som gått så har jag byggt färdigt mitt kortspel. Valet föll på en någorlunda korrekt BlackJack. I det förra kursmomentet så valde jag att utföra de delar 
+som handlade om pseudokod och konceptuell modellering. När jag sedan gick vidare med att koda spelet så upplever jag att jag drog stor nytta av att ha utfört de stegen.
+Redan ett kursmoment innan så var jag redan mentalt förberedd och med en hyffsat klar bild av hur spelet skulle byggas. Jag upplever att min kod blev rätt lik den som jag 
+hade i den konceptuella delen, slutprodukten hade dock många fler metoder. Men klasserna var de samma och även det övergripande spelflödet.
+
+Grunden var rätt enkel att skapa då jag försökt hålla min kod så dynamisk som möjligt, jag har till exempel i både kursmoment 2 och 3 endast haft en metod för att dra ett nytt kort som 
+tar en parameter för hur många kort som ska dras. I en implementation av ett blackjack-spel så är det smidigt att dra 2 kort till båda spelarna för att sedan dra ett kort i taget med hjälp av 
+parametern. Jag lät spelaren och datorn dra två kort var och höll sedan datorns kort gömda tills spelaren har tagit sina beslut. Sedan visas datorns kort i samma stund som datorn utför sin logik 
+för hur kort ska dras. I Rules har jag två metoder för att kolla om en hand har blackjack eller om handen har ett värde över 22.
+
+En Hand håller en spelares kort. I klassen hittar vi även en metod för att få ut summan av korten. Har var det svåra att räkna med ess då det har dubbla värden. I metoden så letar den reda på om 
+ett ess finns i handen och bygger två variabler med summa. Den ena summan räknar med att ess är värt 1 och i den andra summan räknar vi ess som 11. Metoden returnerar en array med summa, om det finns 
+ett ess så returneras en array med en enda summa, om det finns ett ess och den högra summan inte är över 21 så returneras en array med båda summorna, annars en enkel summa med ess som 1.
+
+Klassen Game håller metoder för spelflödet. Det är även den som håller händer, regler och saldo. Jag är rätt nöjd över min konstruktion i uppgiften, jag har försökt tänka på att skriva så snygg 
+kod som möjligt i den mån jag behärskar det. Jag tror dock att jag hade kunna smalna av min kontroller mer. När det kommer till PHPSTAN så tycker jag att den kan vara lite svår att förstå i vissa lägen. 
+Jag rättade till de fel jag fick upp som kändes logiska, det var mest att jag inte hade typat mina parametrar och returvärden. Men jag fick en himla massa fel som berättar om 
+"return type has no value type specified in iterable type array." och "Cannot call method setBalance() on mixed.". Vid googling på dessa så blev jag inte mycket klokare, det var smalt med info och de 
+lösningar som fungerade för vissa kändes rätt avancerade så jag låter det vara tills nästa föreläsning eller feedback på min uppgift.
+
+Jag börjar verkligen känna mig hemma i Symfony och tycker det är en väldigt trevlig miljö att sitta i. Arbetsflödet börjar göra sig förstått och jag tycker det blir smidigare för varje uppgift. Även 
+PHP i sin helhet växer hos mig. Jag gillar dokumentationen i Symfony då den för det mesta har varit ok att förstå och det finns mycket trådar från användare som har behövt och fått hjälp.
+
+Veckans TIL går till att jag har lärt mig att jag kan mer än jag tror. Att jag kommit rätt långt som programmerare på den här tiden på BTH och faktiskt kan bygga rätt coola saker. Mitt tänkesätt har blivit 
+starkare på att tänka ut konstruktioner redan innan jag bygger dom. En TIL får också gå till att jag aldrig ska spela BlackJack med riktiga pengar.
+
+}
+------

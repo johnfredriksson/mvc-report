@@ -29,6 +29,7 @@ class CardController extends AbstractController
     public function home(
         SessionInterface $session
     ): Response {
+        $session->start();
         $this->setDeck($session);
         $data = [
             'title' => 'Card',

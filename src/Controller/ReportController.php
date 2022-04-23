@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ReportController extends AbstractController
 {
@@ -14,6 +15,17 @@ class ReportController extends AbstractController
     public function home(): Response
     {
         return $this->render('home.html.twig');
+    }
+
+    /**
+     * @Route("/reset", name="reset")
+     */
+    public function reset(SessionInterface $session): Response
+    {
+        // $session->clear();
+        $session->invalidate();
+
+        return redirectToRoute("home");
     }
 
     /**

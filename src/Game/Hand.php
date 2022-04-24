@@ -41,6 +41,9 @@ class Hand
             $sum += intval($card->getValue());
             $sum2 += intval($card->getValue());
         }
+        if ($sum == 2 && $sum2 == 22) {
+            return [12, 2];
+        }
         if ($check && $sum2 < 22) {
             $res = [$sum, $sum2];
             rsort($res);

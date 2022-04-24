@@ -29,9 +29,6 @@ class Card
         if ($suit == "S") {
             $this->title = $value . " of Spades";
         }
-        if (str_contains("2345678910", $value)) {
-            $this->title = $suit . " " . $value;
-        }
     }
 
     public function getImgUrl(): string

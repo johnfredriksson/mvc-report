@@ -1,0 +1,25 @@
+.KMOM03 {
+------
+
+Testa på testning, kul!
+
+I veckans kursmoment så var fokuset på testning med PHPUnit. Övningarna och guiderna var bra och hjälpte en snabbt att komma igång med att skriva egna tester.
+Jag har inte speciellt mycket erfarenhet i testning av kod, det enda jag jobbat med är de testerna vi fick göra i OOPython. När jag kom igång med PHPUnit och började 
+skriva tester för mina klasser så såg jag stora likheter i hur det fungerar jämfört med Python. Detta underlättade övergången. Det var kul att arbeta igenom all min kod 
+i klasserna för spelet och kortleken, att kunna hitta buggar som jag tidigare inte tänkt på.
+
+I en metod där jag returnerar summorna av en hand i BlackJack så krävdes det en del tester för att täcka in alla möjliga utfall. Metoden tar en hand med kort och skapar två summor.
+Den ena summan räknar alla Ess som 1 och den andra summan räknar alla Ess som 11. Om det inte förekommer Ess i handen så returneras en array med endast den första summan. Om det förekommer Ess 
+och summan där Ess räknas som 11 inte överstiger 21 så returneras en array med båda summor, är summan där Ess är 11 över 21 så returneras en array med den mindre summan. Jag byggde tester 
+för alla möjliga kombinationer av kort sett till numrerad, klädd eller ess. Då upptäckte jag att om jag har två ess returneras bara en array med summan 2, då den högre summan är 22. Här vill 
+vi få en array med 12 och 2 istället för att det ska bli korrekt. Testerna hjälpte mig att hitta problemet och att fixa det.
+
+Jag försökte nå så högt i min kodtäckning som möjligt, och det lyckades jag med. Jag har inte gjort tester för mina controller men i mina klasser för kortlek och hand har jag 100% på rader 
+och metoder. Det mesta koden känns väldigt testbar, möjligtvis att Game-klassen har många funktioner som inte returnerar något, utan bara modifierar ett attribut i sig själv. Dessa går dock att 
+testa genom andra metoder då de är viktiga för att de andra metoderna ska fungera. Min tanke är att testbar kod är snygg kod, jag är rätt säker på att jag kommer skriva starkare kod i testbart 
+syfte framöver och det kommer ge mig en mer lättläst och smidig kod.
+
+Veckans TIL landar hos PHPUnit och framförallt hur kul det är att skriva tester. Kul att lära sig mer om processen att arbeta som programerare och hur testning går till.
+
+}
+------

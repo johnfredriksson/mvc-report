@@ -33,8 +33,8 @@ class DeckTest extends TestCase
 
     /**
      * Test to draw a single card two times.
-     * 
-     * Checks if card gets correct value and 
+     *
+     * Checks if card gets correct value and
      * deck gets smaller
      */
     public function testDeckDrawSingleCard()
@@ -55,8 +55,8 @@ class DeckTest extends TestCase
 
     /**
      * Test to draw multiple cards two times.
-     * 
-     * Checks if cards gets correct values and 
+     *
+     * Checks if cards gets correct values and
      * deck gets smaller
      */
     public function testDeckDrawMultipleCards()
@@ -84,7 +84,7 @@ class DeckTest extends TestCase
 
     /**
      * Test to draw from empty deck
-     * 
+     *
      */
     public function testDeckDrawEmpyDeck()
     {
@@ -100,8 +100,8 @@ class DeckTest extends TestCase
 
     /**
      * Test to draw a single card two times.
-     * 
-     * Checks if card gets correct value and 
+     *
+     * Checks if card gets correct value and
      * deck gets smaller
      */
     public function testDeckDrawSingleCardObject()
@@ -122,8 +122,8 @@ class DeckTest extends TestCase
 
     /**
      * Test to draw multiple cards two times.
-     * 
-     * Checks if cards gets correct values and 
+     *
+     * Checks if cards gets correct values and
      * deck gets smaller
      */
     public function testDeckDrawMultipleCardsObject()
@@ -151,7 +151,7 @@ class DeckTest extends TestCase
 
     /**
      * Test to draw from empty deck
-     * 
+     *
      */
     public function testDeckDrawEmpyDeckObject()
     {

@@ -40,7 +40,7 @@ class GameController extends AbstractController
 
     /**
      * @Route("/game/table", name="game-table")
-     * 
+     *
      **/
     public function table(
         SessionInterface $session

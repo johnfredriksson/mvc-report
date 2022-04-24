@@ -54,7 +54,7 @@ class GameTest extends TestCase
     public function testGameGetBalance()
     {
         $game = new Game(1337);
-        
+
         $this->assertEquals($game->getBalance(), 1337);
     }
 
@@ -65,7 +65,7 @@ class GameTest extends TestCase
     {
         $game = new Game(1337);
         $game->setBalance(663, "+");
-        
+
         $this->assertEquals($game->getBalance(), 2000);
     }
 
@@ -76,7 +76,7 @@ class GameTest extends TestCase
     {
         $game = new Game(1337);
         $game->setBalance(337, "-");
-        
+
         $this->assertEquals($game->getBalance(), 1000);
     }
 
@@ -154,7 +154,6 @@ class GameTest extends TestCase
 
         $this->assertIsArray($sum);
         $this->assertIsInt($sum[0]);
-
     }
 
     /**
@@ -171,6 +170,5 @@ class GameTest extends TestCase
 
         $this->assertIsArray($sum);
         $this->assertIsInt($sum[0]);
-
     }
 }

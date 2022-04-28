@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ book.name }}{% endblock %}
+
+{% block content %}
+<div class="library-navigation">
+    <a href="{{ path("app_library") }}">Tillbaka</a>
+</div>
+<div class="library-single">
+    <h1>{{ book.name }}</h1>
+    <em>författad av {{ book.author }}</em>
+    <img src="{{ book.image }}" alt="{{ book.name }} book cover">
+    <em>ISBN: {{ book.isbn }}</em>
+</div>
+{% endblock %}

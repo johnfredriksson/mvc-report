@@ -50,6 +50,7 @@ html {
     position: relative;
     bottom: 30px;
     transition: 0.5s ease all;
+    color: white;
 }
 
 .footer a:hover {
@@ -89,7 +90,8 @@ h1, h2, h3, h4 ,h5, h6, .title, a, .footer p {
 }
 
 .exercises a, .link {
-    color: rgb(95, 59, 81);
+    /* color: rgb(95, 59, 81); */
+    color: white;
 }
 
 .card {
@@ -181,4 +183,93 @@ h1, h2, h3, h4 ,h5, h6, .title, a, .footer p {
 
 .flash-draw {
     color: rgb(22, 22, 55);
+}
+
+.library-navigation a {
+    margin-bottom: 20px;
+    color: white;
+    border: 1px solid white;
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.library-navigation a:hover {
+    background-color: black;
+}
+
+.library-gallery {
+    width: 100%;
+}
+
+.library-gallery-card {
+    display: inline-block;
+    height: 250px;
+    width: 180px;
+    background-size: cover;
+    transition: 0.1s ease-in-out all;
+    position: relative;
+}
+
+.library-gallery-card a {
+    display: block;
+    color: white;
+    font-size: 0.8em;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px 10px 5px 10px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.library-gallery-card a:hover {
+    background-color: white;
+    color: black;
+}
+
+.library-gallery-card:hover {
+    transform: scale(1.3);
+    z-index: 10000;
+}
+
+.library-gallery-card:hover .library-gallery-card-controls {
+    /* display: block; */
+    opacity: 100%;
+
+}
+
+.library-gallery-card-controls {
+    opacity: 0%;
+    transition: 0.5s ease-in-out all;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.892);
+    position: absolute;
+    bottom: 0;
+}
+
+.library-single {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.library-single img {
+    display: block;
+    margin: auto;
+    width: 400px;
+}
+
+.library-delete {
+    display: inline-block;
+    border: 2px solid red;
+    padding: 20px;
+    margin: auto;
+}
+
+.library-form-create input {
+    border: none;
+    display: block;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 20px;
 }

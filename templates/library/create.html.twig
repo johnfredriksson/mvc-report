@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Skapa Bok{% endblock %}
+
+{% block content %}
+<div class="library-navigation">
+    <a href="{{ path("app_library") }}">Tillbaka</a>
+</div>
+<h1>SKAPA NY BOK</h1>
+<div class="library-form-create">
+<p>
+    Fyll i nedanstående fält för att lägga till en bok i biblioteket.
+</p>
+    <form method="POST">
+        <input name="name" type="text" placeholder="Titel.." required>
+        <input name="isbn" type="number" placeholder="ISBN 13 siffror.." maxlength="13" minlength="13" required>
+        <input name="author" type="text" placeholder="Författare.." required>
+        <input name="image" type="text" placeholder="Bildlänk..">
+        <input type="submit" name="doit" value="Skapa">
+    </form>
+</div>
+{% endblock %}

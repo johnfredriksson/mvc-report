@@ -14,9 +14,9 @@ use App\Card\Deck2;
 
 class CardController extends AbstractController
 {
-    private function setDeck(SessionInterface $session)
+    private function setDeck($session)
     {
-        if (!$session->get("deck")) {
+        if (!$session->has("deck") || $session->get("deck") == null) {
             $session->set("deck", new Deck());
         } elseif ($session->get("deck")->countDeck() == 0) {
             $session->set("deck", new Deck());
@@ -29,7 +29,6 @@ class CardController extends AbstractController
     public function home(
         SessionInterface $session
     ): Response {
-        $session->start();
         $this->setDeck($session);
         $data = [
             'title' => 'Card',
@@ -81,6 +80,7 @@ class CardController extends AbstractController
     public function draw(
         SessionInterface $session
     ): Response {
+        $this->setDeck($session);
         $data = [
             'title' => 'Card',
             'cards' => $session->get("deck")->drawCard(1),
@@ -96,6 +96,7 @@ class CardController extends AbstractController
         int $number,
         SessionInterface $session
     ): Response {
+        $this->setDeck($session);
         $data = [
             'title' => 'Card',
             'cards' => $session->get("deck")->drawCard($number),
@@ -149,6 +150,7 @@ class CardController extends AbstractController
         int $players,
         SessionInterface $session
     ): Response {
+        $this->setDeck($session);
         if (!is_int($session->get("cards"))) {
             $session->set("cards", 0);
             if (!is_int($session->get("players"))) {

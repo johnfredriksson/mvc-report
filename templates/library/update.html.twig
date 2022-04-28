@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Uppdatera Bok{% endblock %}
+
+{% block content %}
+<div class="library-navigation">
+    <a href="{{ path("app_library") }}">Tillbaka</a>
+</div>
+<h1>UPPDATERA BOK</h1>
+<div class="library-form-create">
+<p>
+    Fyll i nedanstående fält för att lägga till en bok i biblioteket.
+</p>
+    <form method="POST">
+        <input name="name" value="{{ book.name }}" type="text" placeholder="Titel.." required>
+        <input name="isbn" value="{{ book.isbn }}" type="number" placeholder="ISBN 13 siffror.." maxlength="13" minlength="13" required>
+        <input name="author" value="{{ book.author }}" type="text" placeholder="Författare.." required>
+        <input name="image" value="{{ book.image }}" type="text" placeholder="Bildlänk..">
+        <input type="submit" name="doit" value="Uppdatera">
+    </form>
+</div>
+{% endblock %}

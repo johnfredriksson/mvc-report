@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ book.name }}{% endblock %}
+
+{% block content %}
+<div class="library-navigation">
+    <a href="{{ path("app_library") }}">Tillbaka</a>
+</div>
+<div class="library-delete">
+    <img src="{{ book.image }}" alt="{{ book.name }} book cover">
+    <p>Är du säker på att du vill ta bort <em>{{ book.name }}</em>?</p>
+    <p>Åtgärden går inte att ångra</p>
+    <form method="POST">
+        <input type="submit" value="Ta bort">
+    </form>
+</div>
+{% endblock %}

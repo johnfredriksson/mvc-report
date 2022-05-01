@@ -52,7 +52,7 @@ class LibraryController extends AbstractController
 
         $book = new Book();
         $book->setName($request->request->get("name"));
-        $book->setIsbn($request->request->get("isbn"));
+        $book->setIsbn(intval($request->request->get("isbn")));
         $book->setAuthor($request->request->get("author"));
         $book->setImage($request->request->get("image"));
 

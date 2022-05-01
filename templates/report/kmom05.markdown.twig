@@ -6,7 +6,24 @@ Det var ett spännande moment då jag inte kände till eller hört talas om tekn
 så var inte fallet. Guiden och övningen för att få en inblick i ORM var mycket bra och hjälpte en att snabbt komma igång med egna konstruktioner.
 
 Jag började med att skapa en ny databas med entiteten "book". En bok fick kolumner för namn, isbn, författare och en bildlänk. Därefter genererade jag en kontroller för 
-min biblioteks-route. 
+min biblioteks-route. När jag byggde strukturen för min CRUD så valde jag att på index-sidan skriva ut namnet på alla böcker för att se om där fanns något, därefter 
+byggde jag sidan för att skapa en ny bok. Ett formulär med fyra fält, ett för varje kolumn i databasen som sedan skickas med POST till routern som med hjälp av doctrine 
+lägger till mitt nya innehåll i databasen. Tillbaka på index så ser jag nu att jag kan både visa upp och skapa ny data.
+
+Jag jobbade vidare med att putsa till index, visade upp bilder, info och en navigation där vi ser knappar för att visa, uppdatera och ta bort den valda boken. I nästa steg byggde jag 
+sidan för att visa enstaka böcker som fungerar på samma sätt som index men istället för att hämta alla böcker så hämtar jag endast den med det önskade id. I uppdatera-sidan återanvände 
+jag samma formulär som för skapa-sidan, med skillnaden att jag hämtar ut alla data från boken och fyller fälten i förväg med det info som finns för boken. Med en POST till ny router så 
+skriver vi över raderna i databasen för boken med den data vi fått från formuläret. Att bygga ta bort-funktionen var smidig, jag återanvände sidan för att visa enstaka böcker, lade till 
+passande stil samt ett formulär som frågar om vi verkligen vill ta bort boken. Vid tryck på "Ta bort"-knappen så skickas vi till en route som tar bort objektet från databasen.
+
+Jag har inte jobbat på extrauppgifterna denna veckan, jag sparar det till projektet. En sak jag ska läsa igenom tills dess är hash, verify och gravatar då det är tekniker som jag inte jobbat med än.
+Annars har jag jobbat med CRUD för användare i olika språk sedan tidigare.
+
+
+ORM har verkligen varit spännande att jobba med, och jag ser fram emot att djupdyka ner mer i tekniken. Det påminner mycket om lagrade procedurer i SQL då vi inte riktigt behöver skriva SQL
+när vi jobbar med webbplatsen. Även om SQL är kul och skriva så känns det bra att lära sig lite alternativa vägar beroende på vilkte behov vi har av databasen.
+
+Veckans TIL går till att jag lärt mig ett nytt sätt att arbeta och kommunicera mot databaser. Jag har väldigt mycket kvar att lära mig i området, men nu känner jag mig trygg i CRUD.
 
 }
 ------

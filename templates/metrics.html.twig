@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block content %}
+<p class="title">METRICS</p>
+<div class="text exercises">
+    {{ include("metrics/metrics.markdown.twig")|markdown_to_html }}  
+</div>
+{% endblock %}

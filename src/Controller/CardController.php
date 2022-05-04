@@ -125,11 +125,14 @@ class CardController extends AbstractController
 
         if ($draw) {
             return $this->redirectToRoute("card-number", ['number' => $session->get("number")]);
-        } elseif ($add) {
+        }
+        if ($add) {
             $session->set("number", $session->get("number") + 1);
-        } elseif ($remove) {
+        }
+        if ($remove) {
             $session->set("number", $session->get("number") - 1);
-        } elseif ($shuffle) {
+        }
+        if ($shuffle) {
             $session->set("deck", new Deck());
             $session->get("deck")->shuffleDeck();
         }

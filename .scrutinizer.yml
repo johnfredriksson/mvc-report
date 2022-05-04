@@ -1,9 +1,9 @@
 imports:
     - php
 
-filter:
-    excluded_paths:
-        - [vendor/*, test/*, tools/*]
+# filter:
+#     excluded_paths:
+#         - [vendor/*, test/*, tools/*]
 
 paths:
     - src/

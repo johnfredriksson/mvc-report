@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for /Users/johnfredriksson/dbwebb-kurser/mvc/me/report/src/Card</title>
+  <title>Dashboard for /Users/johnfredriksson/dbwebb-kurser/mvc/me/report/src/Repository</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
@@ -17,7 +17,7 @@
       <nav aria-label="breadcrumb">
        <ol class="breadcrumb">
          <li class="breadcrumb-item"><a href="../index.html">/Users/johnfredriksson/dbwebb-kurser/mvc/me/report/src</a></li>
-         <li class="breadcrumb-item"><a href="index.html">Card</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Repository</a></li>
          <li class="breadcrumb-item active">(Dashboard)</li>
 
        </ol>
@@ -58,6 +58,8 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="BookRepository.php.html#19">App\Repository\BookRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProductRepository.php.html#19">App\Repository\ProductRepository</a></td><td class="text-right">0%</td></tr>
 
        </tbody>
       </table>
@@ -74,6 +76,8 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="BookRepository.php.html#19">App\Repository\BookRepository</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="ProductRepository.php.html#19">App\Repository\ProductRepository</a></td><td class="text-right">30</td></tr>
 
        </tbody>
       </table>
@@ -111,6 +115,12 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="BookRepository.php.html#21"><abbr title="App\Repository\BookRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="BookRepository.php.html#30"><abbr title="App\Repository\BookRepository::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="BookRepository.php.html#42"><abbr title="App\Repository\BookRepository::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProductRepository.php.html#21"><abbr title="App\Repository\ProductRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProductRepository.php.html#30"><abbr title="App\Repository\ProductRepository::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ProductRepository.php.html#42"><abbr title="App\Repository\ProductRepository::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
 
        </tbody>
       </table>
@@ -127,6 +137,10 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="BookRepository.php.html#30"><abbr title="App\Repository\BookRepository::add">add</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="BookRepository.php.html#42"><abbr title="App\Repository\BookRepository::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ProductRepository.php.html#30"><abbr title="App\Repository\ProductRepository::add">add</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="ProductRepository.php.html#42"><abbr title="App\Repository\ProductRepository::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
 
        </tbody>
       </table>
@@ -155,7 +169,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#classCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,3], "Class Coverage"))
+      .datum(getCoverageDistributionData([2,0,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -173,7 +187,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#methodCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,12], "Method Coverage"))
+      .datum(getCoverageDistributionData([6,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -223,7 +237,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[100,9,"<a href=\"Card.php.html#5\">App\\Card\\Card<\/a>"],[100,14,"<a href=\"Deck.php.html#7\">App\\Card\\Deck<\/a>"],[100,2,"<a href=\"Deck2.php.html#7\">App\\Card\\Deck2<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[0,5,"<a href=\"BookRepository.php.html#19\">App\\Repository\\BookRepository<\/a>"],[0,5,"<a href=\"ProductRepository.php.html#19\">App\\Repository\\ProductRepository<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -247,7 +261,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[100,6,"<a href=\"Card.php.html#12\">App\\Card\\Card::__construct<\/a>"],[100,1,"<a href=\"Card.php.html#34\">App\\Card\\Card::getImgUrl<\/a>"],[100,1,"<a href=\"Card.php.html#39\">App\\Card\\Card::getValue<\/a>"],[100,1,"<a href=\"Card.php.html#44\">App\\Card\\Card::getObject<\/a>"],[100,3,"<a href=\"Deck.php.html#13\">App\\Card\\Deck::__construct<\/a>"],[100,1,"<a href=\"Deck.php.html#22\">App\\Card\\Deck::getDeck<\/a>"],[100,3,"<a href=\"Deck.php.html#27\">App\\Card\\Deck::drawCard<\/a>"],[100,3,"<a href=\"Deck.php.html#41\">App\\Card\\Deck::drawCardFull<\/a>"],[100,1,"<a href=\"Deck.php.html#55\">App\\Card\\Deck::shuffleDeck<\/a>"],[100,1,"<a href=\"Deck.php.html#60\">App\\Card\\Deck::countDeck<\/a>"],[100,2,"<a href=\"Deck.php.html#65\">App\\Card\\Deck::getJson<\/a>"],[100,2,"<a href=\"Deck2.php.html#9\">App\\Card\\Deck2::addJoker<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[0,1,"<a href=\"BookRepository.php.html#21\">App\\Repository\\BookRepository::__construct<\/a>"],[0,2,"<a href=\"BookRepository.php.html#30\">App\\Repository\\BookRepository::add<\/a>"],[0,2,"<a href=\"BookRepository.php.html#42\">App\\Repository\\BookRepository::remove<\/a>"],[0,1,"<a href=\"ProductRepository.php.html#21\">App\\Repository\\ProductRepository::__construct<\/a>"],[0,2,"<a href=\"ProductRepository.php.html#30\">App\\Repository\\ProductRepository::add<\/a>"],[0,2,"<a href=\"ProductRepository.php.html#42\">App\\Repository\\ProductRepository::remove<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);

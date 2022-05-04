@@ -1,4 +1,5 @@
 {
+    "description": "Class material for mvc",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
@@ -101,7 +102,8 @@
             "@phpstan",
             "@phpcs"
         ],
-        "phpdoc": "tools/phpdoc/phpdoc"
+        "phpdoc": "tools/phpdoc/phpdoc",
+        "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=phpmetrics.json"
     },
     "conflict": {
         "symfony/symfony": "*"

@@ -1,6 +1,28 @@
 INTRODUKTION
 ------
-text
+I denna rapport kommer jag analysera och diskutera kring validatorers syn på min kod i arbetet för krusmoment 1 till 6.
+Vi tittar närmre på de 4 C som står för Coverage, Complexity, Cohesion och Coupling.
+
+Coverage - Täckning innebär den mängd kod som mina tester faktiskt testar.
+
+Complexity - Komplexiteten i koden syftar på hur många jämförelser och kontroller som sker. Utgångsläget i en metod är 1, för varje 
+if-sats eller while-loop så ökar vi komplexiteten med 1.
+
+Cohesion - Sammanhållningen i en klass visar hur en klass riktar sig till ett relevant område och inte spretar ut mot andra. Vi vill ha en 
+hög sammanhållning för att ha klasser som är lätta att förstå och att underhålla.
+
+Coupling - Ihopkoppling menar hur våra klasser kommunicerar med varandra och hur de är kopplade. Vi undviker Tight Coupling som till exempel att 
+klasserna pratar direkt med varandra och hämtar data där, vi vill ha en loose coupling där kommunikationen går via ett interface.
+
+I min täckning så har jag 21.05% för hela projektet. Siffran kan tyckas vara låg men om vi tittar närmre på vilka klasser som har täckning så är det Card och Game 
+som uppnår 100% vardera. I kmom05 var fokus på att skriva tester för just dessa klasser, de övriga har 0%. Kollar vi på komplexitet så försöker vi ligga så lågt som möjligt. 
+För klasser så har min CardController högst med 32, på plats två är det GameController som har 18. Efter dessa så minskar komplexiteten hastigt. Jag försöker hålla mig under 
+10 när jag skriver metoder, min högsta är Hand::getSum() med 8 i komplexitet, på plats två är det CardController::dealPost() med 7. Därefter ligger metoder mellan 1-6.
+
+För Cohesion så tittar jag på betyget A-F för mina klasser och metoder på Scrutinizer. Jag har betyget 9.82 för min kod vilket jag tar som ett gott tecken då jag försökt att 
+skapa nya klasser för specifika ändamål. När jag inspekterar resultatet från PHP Metrics för Coupling så är mina två högsta Afferent Coupling, (antal klasses som påverkas av den nämnda klassen), 
+Deck och Dice med 4. Därefter ligger siffran på mellan 1-2. Efferent Coupling syftar på hur många klasser som nämnd klass påverkas av, de 14 första är Controllers och Repositories med värden mellan 
+3-7. Min klasser ligger mellan 1-3.
 
 PHPMETRICS
 ------

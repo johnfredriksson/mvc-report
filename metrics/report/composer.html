@@ -1,0 +1,3121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhpMetrics report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/milligram.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/roboto.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/material-icons.css">
+</head>
+<body>
+
+
+<header class="headerbar">
+    <div class="headerbarInner">
+        <div class="float-left navigation-title">
+            <a href="https://github.com/phpmetrics/phpmetrics">
+                <h1 class="title">PhpMetrics</h1>
+                <span class="subtitle">
+                Static analyzer for PHP
+            </span>
+            </a>
+        </div>
+        <ul class="navigation-list float-right">
+            <li class="navigation-item">
+                <a class="navigation-link" href="https://www.github.com/phpmetrics/phpmetrics">Support</a>
+                <a class="navigation-link" href="https://phpmetrics.github.io/website/">Documentation</a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<a class="hidden-xs github" href="https://github.com/phpmetrics/phpmetrics"
+   title="PhpMetrics on Github" target="blank">
+    <svg width="80" height="80" viewBox="0 0 250 250" class="github">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
+
+<div class="page">
+    <div class="content content-first">
+        <div class="report-details">
+            Created at 2022-05-04 13:09:37        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+        </div>
+
+        
+<div class="row">
+    <div class="column">
+        <div class="bloc">
+            <h4>46 Composer dependencies</h4>
+
+            <div class="list">
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/doctrine/annotations">
+                                doctrine/annotations                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                Docblock Annotations Parser                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^1.0</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.13.2</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.13.2</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">6,405</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">224</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">39</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">255,897,058</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">6,524,067</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/doctrine/doctrine-bundle">
+                                doctrine/doctrine-bundle                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">symfony-bundle</span>
+                                Symfony DoctrineBundle                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^2.6</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.6.1</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.6.3</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">4,327</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">423</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">18</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">103,111,159</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,373,610</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/doctrine/doctrine-migrations-bundle">
+                                doctrine/doctrine-migrations-bundle                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">symfony-bundle</span>
+                                Symfony DoctrineMigrationsBundle                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^3.2</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.2.2</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.2.2</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3,858</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">213</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">28</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">67,807,799</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,866,526</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/doctrine/orm">
+                                doctrine/orm                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Object-Relational-Mapper for PHP                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^2.11</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.11.2</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.12.2</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">9,200</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,399</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,403</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">123,650,171</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,743,731</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/friendsofphp/php-cs-fixer">
+                                friendsofphp/php-cs-fixer                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">application</span>
+                                A tool to automatically fix PHP code style                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^3.8</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.8.0</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.8.0</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">10,999</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,399</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">431</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">72,608,462</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,793,835</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/league/commonmark">
+                                league/commonmark                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Highly-extensible PHP Markdown parser which fully supports the CommonMark spec and GitHub-Flavored Markdown (GFM)                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^2.2</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.2.3</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.3.0</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,231</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">172</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">12</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">86,992,177</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">4,575,436</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/BSD-3-Clause.html">BSD-3-Clause</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/phpdocumentor/reflection-docblock">
+                                phpdocumentor/reflection-docblock                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^5.3</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">5.3.0</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">5.3.0</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">9,018</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">98</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">17</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">377,313,289</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">10,931,303</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/phpmd/phpmd">
+                                phpmd/phpmd                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                PHPMD is a spin-off project of PHP Depend and aims to be a PHP equivalent of the well known Java tool PMD.                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^2.12</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.12.0</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.12.0</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,038</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">345</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">132</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">47,816,489</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,060,216</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/BSD-3-Clause.html">BSD-3-Clause</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/phpmetrics/phpmetrics">
+                                phpmetrics/phpmetrics                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                Static analyzer tool for PHP : Coupling, Cyclomatic complexity, Maintainability Index, Halstead's metrics... and more !                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^2.8</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.8.1</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.8.1</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,204</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">251</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">31</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">5,315,790</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">187,982</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/phpstan/phpdoc-parser">
+                                phpstan/phpdoc-parser                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                PHPDoc parser with support for nullable, intersection and generic types                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^1.4</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.4.2</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.4.5</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">747</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">36</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">11</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">44,945,710</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,431,639</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/phpstan/phpstan">
+                                phpstan/phpstan                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                PHPStan - PHP Static Analysis Tool                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^1.5</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.5.4</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.6.4</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">10,953</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">781</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">652</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">70,374,477</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">4,022,965</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/sebastian/phpcpd">
+                                sebastian/phpcpd                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                Copy/Paste Detector (CPD) for PHP code.                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^6.0</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.3</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.3</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,167</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">176</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">6</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">27,247,782</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">475,712</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/BSD-3-Clause.html">BSD-3-Clause</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/sensio/framework-extra-bundle">
+                                sensio/framework-extra-bundle                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">symfony-bundle</span>
+                                This bundle provides a way to configure your controllers with annotations                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^6.2</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.2.6</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.2.6</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3,269</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">273</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">79</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">96,907,038</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,110,384</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/squizlabs/php_codesniffer">
+                                squizlabs/php_codesniffer                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^3.6</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.6.2</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.6.2</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">9,298</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,437</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">300</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">136,172,202</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">4,122,029</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/BSD-3-Clause.html">BSD-3-Clause</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/asset">
+                                symfony/asset                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                Manages URL generation and versioning of web assets such as CSS stylesheets, JavaScript files and image files                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,823</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">14</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">49,517,014</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,892,014</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/console">
+                                symfony/console                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Eases the creation of beautiful and testable command line interfaces                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">9,118</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">240</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">442,560,955</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">12,557,846</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/doctrine-messenger">
+                                symfony/doctrine-messenger                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">symfony-messenger-bridge</span>
+                                Symfony Doctrine Messenger Bridge                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">182</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">10</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">10,795,579</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">906,485</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/dotenv">
+                                symfony/dotenv                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                Registers environment variables from a .env file                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.5</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.5</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3,332</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">27</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">61,314,810</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,515,792</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/expression-language">
+                                symfony/expression-language                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Provides an engine that can compile and evaluate expressions                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,481</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">38</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">61,432,159</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,222,153</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/flex">
+                                symfony/flex                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">composer-plugin</span>
+                                Composer plugin for Symfony                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^2</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.1.6</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">2.1.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3,816</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">171</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">12</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">54,002,551</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,222,545</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/form">
+                                symfony/form                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Allows to easily create, process and reuse HTML forms                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,463</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">106</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">47,714,744</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,685,130</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/framework-bundle">
+                                symfony/framework-bundle                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">symfony-bundle</span>
+                                Provides a tight integration between Symfony components and the Symfony full-stack framework                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3,144</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">112</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">68,340,910</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,662,428</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/http-client">
+                                symfony/http-client                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Provides powerful methods to fetch HTTP resources synchronously or asynchronously                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,483</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">39</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">61,746,478</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3,619,569</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/intl">
+                                symfony/intl                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Provides a PHP replacement layer for the C intl extension that includes additional data from the ICU library                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.5</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,372</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">38</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">64,974,574</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,180,906</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/mailer">
+                                symfony/mailer                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Helps sending emails                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">929</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">27</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">22,525,154</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,433,692</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/mime">
+                                symfony/mime                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Allows manipulating MIME messages                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,258</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">21</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">179,616,439</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">8,007,346</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/monolog-bundle">
+                                symfony/monolog-bundle                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">symfony-bundle</span>
+                                Symfony MonologBundle                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^3.0</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.7.1</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.7.1</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,586</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">213</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">43</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">105,114,254</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,433,337</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/notifier">
+                                symfony/notifier                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Sends notifications via one or more channels (email, SMS, ...)                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.6</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">534</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">14</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">6,814,367</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">456,317</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/process">
+                                symfony/process                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Executes commands in sub-processes                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">6,993</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">100</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">384,174,703</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">11,003,587</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/property-access">
+                                symfony/property-access                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Provides functions to read and write from/to an object or array using a simple string notation                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,429</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">23</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">92,083,277</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3,248,765</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/property-info">
+                                symfony/property-info                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                Extracts information about PHP class' properties using metadata of popular sources                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,814</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">15</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">60,395,005</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,891,037</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/proxy-manager-bridge">
+                                symfony/proxy-manager-bridge                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">symfony-bridge</span>
+                                Provides integration for ProxyManager with various Symfony components                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.6</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.6</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">530</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">9</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">26,356,048</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,538,707</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/runtime">
+                                symfony/runtime                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">composer-plugin</span>
+                                Enables decoupling PHP applications from global state                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">259</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">4</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">5,033,032</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">730,721</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/security-bundle">
+                                symfony/security-bundle                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">symfony-bundle</span>
+                                Provides a tight integration of the Security component into the Symfony full-stack framework                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.5</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,159</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">19</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">48,024,908</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,865,389</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/serializer">
+                                symfony/serializer                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,078</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">71</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">90,071,666</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3,137,616</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/string">
+                                symfony/string                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.3</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,097</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">16</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">145,325,035</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">9,395,319</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/translation">
+                                symfony/translation                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Provides tools to internationalize your application                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">6,250</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">73</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">328,368,434</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">9,016,981</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/twig-bundle">
+                                symfony/twig-bundle                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">symfony-bundle</span>
+                                Provides a tight integration of Twig into the Symfony full-stack framework                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.3</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,206</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">23</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">54,774,205</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,175,255</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/validator">
+                                symfony/validator                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Provides tools to validate values                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.7</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,299</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">88</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">90,870,535</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,937,216</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/web-link">
+                                symfony/web-link                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                Manages links between resources                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.3</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.3</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,183</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">8</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">25,646,552</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,119,899</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/webapp-meta">
+                                symfony/webapp-meta                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">metapackage</span>
+                                A meta package for the web app pack                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^1.0</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.0.0</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.0.0</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">14</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">166,543</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">60,241</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/webpack-encore-bundle">
+                                symfony/webpack-encore-bundle                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">symfony-bundle</span>
+                                Integration with your Symfony app & Webpack Encore!                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^1.14</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.14.0</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">1.14.1</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">761</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">73</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">40</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">15,893,407</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">793,601</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/symfony/yaml">
+                                symfony/yaml                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                Loads and dumps YAML files                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.*</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.3</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">6.0.3</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3,419</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">125</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">307,290,998</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">7,407,248</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/twig/extra-bundle">
+                                twig/extra-bundle                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">symfony-bundle</span>
+                                A Symfony bundle for extra Twig extensions                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^2.12|^3.0</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.3.8</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.3.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">568</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">6</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">16,151,795</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">953,474</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/twig/markdown-extra">
+                                twig/markdown-extra                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                <span class="badge">library</span>
+                                A Twig extension for Markdown                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^3.3</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.3.8</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.3.8</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">76</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">3</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">0</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">2,224,058</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">143,157</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/MIT.html">MIT</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                                    <div class="list-item">
+                        <div class="list-item-title">
+                            <a target="_blank" href="https://packagist.org/packages/twig/twig">
+                                twig/twig                            </a>
+                        </div>
+                        <div class="help">
+                            <div class="help-inner">
+                                                                    <span class="help-warning" style="position: absolute; right: 10px;">This package should be updated.</span>
+                                                                <span class="badge">library</span>
+                                Twig, the flexible, fast, and secure template language for PHP                            </div>
+                        </div>
+
+                        <div class="list-item-content">
+                                                        <table class="table-metrics">
+                                <tr>
+                                    <td width="11%">
+                                        <div class="card-number">^2.12|^3.0</div>
+                                        <div class="card-label">Required version</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.3.9</div>
+                                        <div class="card-label">Installed</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">3.3.10</div>
+                                        <div class="card-label">Latest</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">7,453</div>
+                                        <div class="card-label">Github stars</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">1,158</div>
+                                        <div class="card-label">Github forks</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">84</div>
+                                        <div class="card-label">Github open issues</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">192,278,266</div>
+                                        <div class="card-label">Total downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div
+                                            class="card-number">4,400,433</div>
+                                        <div class="card-label">Monthly downloads</div>
+                                    </td>
+                                    <td width="11%">
+                                        <div class="card-number">
+                                                                                            <a target="_blank"
+                                                   href="https://spdx.org/licenses/BSD-3-Clause.html">BSD-3-Clause</a>
+                                                                                    </div>
+                                        <div class="card-label">License(s)</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="content">
+        <div class="logo">
+            <a href="https://github.com/phpmetrics/phpmetrics"><img src="images/phpmetrics-maintenability.png"
+                                                 alt="Logo PhpMetrics"/></a>
+            <h1>PhpMetrics</h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path
+                                d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                        Overview
+                    </a>
+                </li>
+                <li>
+                    <a href="violations.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
+                        </svg>
+                        Violations (5)
+                    </a>
+                </li>
+                                    <li>
+                        <a href="composer.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                            Composer
+                        </a>
+                    </li>
+                                                <li>
+                    <a href="loc.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <defs>
+                                <path d="M0 0h24v24H0z" id="a"/>
+                            </defs>
+                            <clipPath id="b">
+                                <use overflow="visible" xlink:href="#a"/>
+                            </clipPath>
+                            <path clip-path="url(#b)"
+                                  d="M11 5.08V2c-5 .5-9 4.81-9 10s4 9.5 9 10v-3.08c-3-.48-6-3.4-6-6.92s3-6.44 6-6.92zM18.97 11H22c-.47-5-4-8.53-9-9v3.08C16 5.51 18.54 8 18.97 11zM13 18.92V22c5-.47 8.53-4 9-9h-3.03c-.43 3-2.97 5.49-5.97 5.92z"/>
+                        </svg>
+                        Size &amp; volume
+                    </a>
+                </li>
+                <li>
+                    <a href="complexity.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0V0z" fill="none"/>
+                            <path
+                                d="M19.07 4.93l-1.41 1.41C19.1 7.79 20 9.79 20 12c0 4.42-3.58 8-8 8s-8-3.58-8-8c0-4.08 3.05-7.44 7-7.93v2.02C8.16 6.57 6 9.03 6 12c0 3.31 2.69 6 6 6s6-2.69 6-6c0-1.66-.67-3.16-1.76-4.24l-1.41 1.41C15.55 9.9 16 10.9 16 12c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-1.86 1.28-3.41 3-3.86v2.14c-.6.35-1 .98-1 1.72 0 1.1.9 2 2 2s2-.9 2-2c0-.74-.4-1.38-1-1.72V2h-1C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-2.76-1.12-5.26-2.93-7.07z"/>
+                        </svg>
+                        Complexity &amp; defects
+                    </a>
+                </li>
+                <li>
+                    <a href="oop.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path
+                                d="M17 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zM5 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                        </svg>
+                        Object oriented metrics
+                    </a>
+                </li>
+                <li>
+                    <a href="relations.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path
+                                d="M14 4l2.29 2.29-2.88 2.88 1.42 1.42 2.88-2.88L20 10V4zm-4 0H4v6l2.29-2.29 4.71 4.7V20h2v-8.41l-5.29-5.3z"/>
+                        </svg>
+                        Object relations
+                    </a>
+                </li>
+                <li>
+                    <a href="coupling.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <defs>
+                                <path d="M0 0h24v24H0V0z" id="a"/>
+                            </defs>
+                            <clipPath id="b">
+                                <use overflow="visible" xlink:href="#a"/>
+                            </clipPath>
+                            <path clip-path="url(#b)"
+                                  d="M9.01 14H2v2h7.01v3L13 15l-3.99-4v3zm5.98-1v-3H22V8h-7.01V5L11 9l3.99 4z"/>
+                        </svg>
+                        Coupling
+                    </a>
+                </li>
+                <li>
+                    <a href="packages.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="M11 9.16V2c-5 .5-9 4.79-9 10s4 9.5 9 10v-7.16c-1-.41-2-1.52-2-2.84s1-2.43 2-2.84zM14.86 11H22c-.48-4.75-4-8.53-9-9v7.16c1 .3 1.52.98 1.86 1.84zM13 14.84V22c5-.47 8.52-4.25 9-9h-7.14c-.34.86-.86 1.54-1.86 1.84z"/>
+                        </svg>
+                        Package oriented metrics
+                    </a>
+                </li>
+                <li>
+                    <a href="package_relations.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 20.41L18.41 19 15 15.59 13.59 17 17 20.41zM7.5 8H11v5.59L5.59 19 7 20.41l6-6V8h3.5L12 3.5 7.5 8z"/>
+                        </svg>
+                        Package relations
+                    </a>
+                </li>
+                                <!--<li>
+                    <a href="all.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3v18h18V3H3zm8 16H5v-6h6v6zm0-8H5V5h6v6zm8 8h-6v-6h6v6zm0-8h-6V5h6v6z"/>
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                        </svg>
+                        All metrics
+                    </a>
+                </li>-->
+                <!--                <li>-->
+                <!--                    <a href="#">-->
+                <!--                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"-->
+                <!--                             xmlns="http://www.w3.org/2000/svg">-->
+                <!--                            <path-->
+                <!--                                d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>-->
+                <!--                            <path d="M0 0h24v24H0z" fill="none"/>-->
+                <!--                        </svg>-->
+                <!--                        Third party-->
+                <!--                    </a>-->
+                <!--                </li>-->
+                <!--<li class="sep">
+                    <a href="panel.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>
+                        </svg>
+                        TV Panel
+                    </a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript" src="js/d3.v3.js"></script>
+<script type="text/javascript" src="js/d3.hexbin.v0.js"></script>
+<script type="text/javascript" src="js/sort-table.min.js"></script>
+<script type="text/javascript" src="js/graph-maintainability.js"></script>
+<script type="text/javascript" src="js/graph-licenses.js"></script>
+<script type="text/javascript" src="js/FileSaver.min.js"></script>
+
+<script src="js/clusterize.min.js"></script>
+<link rel="stylesheet" href="css/clusterize.css">
+
+<script type="text/javascript" src="classes.js"></script>
+
+<script type="text/javascript">
+    var accessibilityEnabled = false;
+</script>
+
+</body>
+</html>

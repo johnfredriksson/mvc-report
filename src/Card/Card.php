@@ -29,7 +29,9 @@ class Card
             "C" => "Clubs",
             "D" => "Diamonds",
             "H" => "Hearts",
-            "S" => "Spades"
+            "S" => "Spades",
+            "B" => "Black",
+            "R" => "Red"
         ];
         $this->title = $value . " of " . $suits[$suit];
         if (str_contains("KQJ", $value)) {

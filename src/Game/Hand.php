@@ -59,11 +59,6 @@ class Hand
                 $check = true;
                 continue;
             }
-            if (str_contains("KQJ", $card->getValue())) {
-                $sum += 10;
-                $sum2 += 10;
-                continue;
-            }
             $sum += intval($card->getValue());
             $sum2 += intval($card->getValue());
         }

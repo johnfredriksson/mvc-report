@@ -24,23 +24,20 @@ class Card
     public function __construct(string $suit, string $value)
     {
         $this->suit = $suit;
-        $this->value = $value;
         $this->img = $suit . $value;
-        if ($this->value == "A") {
-            $value = "Ace";
+        $suits = [
+            "C" => "Clubs",
+            "D" => "Diamonds",
+            "H" => "Hearts",
+            "S" => "Spades"
+        ];
+        $this->title = $value . " of " . $suits[$suit];
+        if (str_contains("KQJ", $value)) {
+           $this->value = 10;
+            return;
         }
-        if ($suit == "C") {
-            $this->title = $value . " of Clubs";
-        }
-        if ($suit == "D") {
-            $this->title = $value . " of Diamonds";
-        }
-        if ($suit == "H") {
-            $this->title = $value . " of Hearts";
-        }
-        if ($suit == "S") {
-            $this->title = $value . " of Spades";
-        }
+        $this->value = $value;
+        return;
     }
 
     /**
@@ -60,7 +57,7 @@ class Card
     }
 
     /**
-     * Returns the whole card object
+     * Returns the whole card
      */
     public function getObject(): array
     {

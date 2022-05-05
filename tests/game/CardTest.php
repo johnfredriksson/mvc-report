@@ -30,7 +30,7 @@ class CardTest extends TestCase
         $card4 = new Card("S", "A");
 
         $this->assertEquals($card->getValue(), "10");
-        $this->assertEquals($card2->getValue(), "K");
+        $this->assertEquals($card2->getValue(), "10");
         $this->assertEquals($card3->getValue(), "9");
         $this->assertEquals($card4->getValue(), "A");
     }

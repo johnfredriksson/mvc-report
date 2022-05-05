@@ -2,6 +2,12 @@
 
 namespace App\Card;
 
+/**
+ * Class Card
+ * 
+ * Creates a card based on incoming parameters. It sets 
+ * the value, suit and generates a image url and title
+ */
 class Card
 {
     protected string $suit;
@@ -9,6 +15,12 @@ class Card
     protected string $img;
     protected string $title;
 
+    /**
+     * Constructor
+     * 
+     * Takes incoming parameters of suit and value and applies 
+     * it to a new card. Also generates a image url and a card title.
+     */
     public function __construct(string $suit, string $value)
     {
         $this->suit = $suit;
@@ -31,16 +43,25 @@ class Card
         }
     }
 
+    /**
+     * Returns the cards image url
+     */
     public function getImgUrl(): string
     {
         return $this->img . ".png";
     }
 
+    /**
+     * Returns the cards value
+     */
     public function getValue(): string
     {
         return $this->value;
     }
 
+    /**
+     * Returns the whole card object
+     */
     public function getObject(): array
     {
         $res = [

@@ -22,19 +22,54 @@ För klasser så har min CardController högst med 32, på plats två är det Ga
 För Cohesion så tittar jag på betyget A-F för mina klasser och metoder på Scrutinizer. Jag har betyget 9.82 för min kod vilket jag tar som ett gott tecken då jag försökt att 
 skapa nya klasser för specifika ändamål. När jag inspekterar resultatet från PHP Metrics för Coupling så är mina två högsta Afferent Coupling, (antal klasses som påverkas av den nämnda klassen), 
 Deck och Dice med 4. Därefter ligger siffran på mellan 1-2. Efferent Coupling syftar på hur många klasser som nämnd klass påverkas av, de 14 första är Controllers och Repositories med värden mellan 
-3-7. Min klasser ligger mellan 1-3.
+3-7. Min klasser ligger mellan 0-3.
 
 PHPMETRICS
 ------
-text
+Resultat från PHPMetrics.
+
+Coverage - Jag kikar på Comment Weight för att se att min kod är väldokumenterad. Jag vill minnas att jag skrivit många kommentarer genom veckorna men upptäcker att samtliga klasser utanför kontrollerna 
+har noll kommentarer. Jag ser gärna att koden är väldokumenterad för att vara lättare att förstå när man vid ett senare skede sätter sig ner framför projektet. En god siffra för mig skulle vara 25.
+
+Complexity - I Average cyclomatic complexity by class så har jag 4.12 i värde. Vi ser genomsnittet på beslutspunkter över alla mina klasser. Snittet ser bra ut vid första ögonkastet. Klassen med 
+högst komplexitet har 23, CardController. Näst på listan är GameController med 11. Jag hade gärna fått ner CardController en aning men jag har många viktiga beslutspunkter beroende på vilka val användaren 
+gör. Kanske skulle klassen delats upp i flera olika, uppgifter beskrevs som att göra en CardController med viss funktionalitet.
+
+Coupling - Afferent Coupling 0-4, Efferent Coupling 0-7. Jag har haft visionen att bygga smala kontrollers med tjocka klasser. I detta så har jag valt att lägga vissa klasser så att de har direkt 
+kommunikation med varandra, där det känns logiskt. Game håller en kortlek som håller kort, Game håller även en hand som i sin tur också håller kort.
+
+Cohesion - 11 klasser är röda, 4 gula och 11 gröna. Av de klasser som jag skapat, som inte är exempel från övningar så är 8 röda, 3 gula och 5 gröna. Det stora bovarna är Controllers för Game och 
+Card, med klasserna Hand och Deck i täten. Jag upplever att mina klasser håller sig till sitt specifika område trots allt. CardController håller routes för alla sidor som har med Card-uppgiften att göra, 
+GameController håller alla routes för de som har med spelet att göra. Deck skapar och håller en kortlek med metoder för att dra kort och visa kort. Handen håller kort för en spelare med metoder för att visa sin hand 
+och räkna summan bland annat.
 
 SCRUTINIZER
 ------
-text
+Resultat från Scrutinizer.
+
+Coverage - Här får jag data för mina testers kodtäckning, 22%. Som jag påpekat ovan så är kodtäckningen för Card- och Game-klasserna 100%. Jag får kika på hur vi testar Controllers.
+
+Complexity - För Klassers komplexitet är CardController i botten med 32. De som följer är GameController - 18, Game - 16, Deck - 14, Hand - 11. Därefter ligger komplexiteten på 10 eller mindre.
+Jag känner mig nöjd med siffrorna, enda synpunkten skulle vara att minska ner min controllers för att fylla på i klasserna. I vissa fall så behöver jag några if-satser för att kunna se vilket val 
+användaren gjorde i föregående formulär. Alla klasser har komplexitet 8 eller mindre, vilket jag är nöjd med.
+
+Coupling - Som ovanför, Afferent Coupling 0-4, Efferent Coupling 0-7. Jag har haft visionen att bygga smala kontrollers med tjocka klasser. I detta så har jag valt att lägga vissa klasser så att de har direkt 
+kommunikation med varandra, där det känns logiskt. Game håller en kortlek som håller kort, Game håller även en hand som i sin tur också håller kort.
+
+Cohesion - Som ovanför, Cohesion - 11 klasser är röda, 4 gula och 11 gröna. Av de klasser som jag skapat, som inte är exempel från övningar så är 8 röda, 3 gula och 5 gröna. Det stora bovarna är Controllers för Game och 
+Card, med klasserna Hand och Deck i täten. Jag upplever att mina klasser håller sig till sitt specifika område trots allt. CardController håller routes för alla sidor som har med Card-uppgiften att göra, 
+GameController håller alla routes för de som har med spelet att göra. Deck skapar och håller en kortlek med metoder för att dra kort och visa kort. Handen håller kort för en spelare med metoder för att visa sin hand 
+och räkna summan bland annat.
+
+Ett annat testvärde som jag fann intressant var helhetsbetyget 9.82. Detta var uppmuntrande då andra tester har pekat ut många brister, kanske är vi lite känsliga som programmerare när någon poängterar 
+kring vår kod, men det var kul att få se att bra helhetsbetyg.
+
+Tre saker som jag vill förbättra är bättre kommentarstäckning, högre testtäckning och se över komplexiteten i minst en klass.
 
 FÖRBÄTTRINGAR
 ------
-text
+Jag tänker utöka mina tester för att nå högre resultat i andra klasser, se över mina filer och fylla i kommentarer där det känns lämpligt, se över komplexiteten i minst en klass.
+Resultatet föväntar jag höja mitt betyg för Comment Weight, sänka komplexitet och öka täckning i koden.
 
 DISKUSSION
 ------

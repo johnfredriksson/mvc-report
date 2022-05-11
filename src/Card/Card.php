@@ -59,6 +59,14 @@ class Card
     }
 
     /**
+     * Returns the cards value
+     */
+    public function getSuit(): string
+    {
+        return $this->suit;
+    }
+
+    /**
      * Returns the whole card
      */
     public function getObject(): array

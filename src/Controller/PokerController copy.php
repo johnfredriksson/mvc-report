@@ -18,29 +18,62 @@ use App\Repository\UsersRepository;
 
 class PokerController extends AbstractController
 {
-    public function bankMakeChoice(
+    // /**
+    //  * @Route("/proj/poker/banklogic", name="poker-banklogic")
+    //  */
+    // public function bankMakeChoice(
+    //     SessionInterface $session
+    // ): Response
+    // {
+    //     $blind = $session->get("pokerBlind");
+    //     $session->set("answer", false);
+    //     $bankDecision = $session->get("bankLogic")->bet();
+        
+    //     if ($bankDecision == "check") {
+    //         $this->addFlash("label", "Bank checks.");
+    //         $session->get("pokerGame")->addToPot($session->get("callAmount"));
+    //         $session->set("callAmount", 0);
+    //         return $this->redirectToRoute("poker-preflop");
+    //     }
+    //     if ($bankDecision == "fold") {
+    //         $this->addFlash("label", "Bank folds. You win!");
+    //         return $this->redirectToRoute("poker-end");
+    //     }
+    //     if ($bankDecision == "raise") {
+    //         $playerBalance = $session->get("user")->getBalance();
+    //         $raise = $session->get("bankLogic")->raise($blind, $playerBalance);
+    //         $this->addFlash("label", "Bank raises " . $raise . " sek.");
+    //         $session->set("answer", true);
+    //         $session->set("callAmount", $raise);
+    //         $session->get("pokerGame")->addToPot($raise + $blind);
+
+    //         return $this->redirectToRoute("poker-blind");
+    //     }
+    // }
+
+
+    public function bankMakeChoiceNoRoute(
         SessionInterface $session
     )
     {
         $blind = $session->get("pokerBlind");
-        $session->set("answer", false); //
+        $session->set("answer", false);
         $bankDecision = $session->get("bankLogic")->bet();
-
+        
         if ($bankDecision == "check") {
+            $this->addFlash("label", "Bank checks.");
             $session->get("pokerGame")->addToPot($session->get("callAmount"));
             $session->set("callAmount", 0);
-            if ($session->get("callAmount")) {
-                $this->addFlash("label", "Bank calls.");
-                return "call";
-            }
-            $this->addFlash("label", "Bank checks.");
-            return "check";
+            $session->set("bankChoice", "check");
+            return;
         }
         if ($bankDecision == "fold") {
             $this->addFlash("label", "Bank folds. You win!");
-            return "fold";
+            $session->set("bankChoice", "fold");
+            return;
         }
         if ($bankDecision == "raise") {
+            $session->set("bankChoice", "check");
 
             $playerBalance = $session->get("user")->getBalance();
             $raise = $session->get("bankLogic")->raise($blind, $playerBalance);
@@ -48,10 +81,15 @@ class PokerController extends AbstractController
             $this->addFlash("label", "Bank raises " . $raise . " sek.");
 
             $session->set("answer", true);
-
+            if (!$session->get("blindPaid")) {
+                $session->get("pokerGame")->addToPot($raise + $blind);
+                $session->set("blindPaid", true);
+                $session->set("callAmount", $raise);
+                return;
+            }
             $session->get("pokerGame")->addToPot($raise + $session->get("callAmount"));
             $session->set("callAmount", $raise);
-            return "raise";
+            return;
         }
     }
 
@@ -88,6 +126,8 @@ class PokerController extends AbstractController
         Request $request
     ): Response
     {
+        $session->set("blindPaid", false);
+
         if ($request->request->get("stake")) {
             $session->set("pokerBlind", $request->request->get("stake"));
         }
@@ -95,15 +135,97 @@ class PokerController extends AbstractController
         $blind = $session->get("pokerBlind");
         
         $session->set("pokerGame", new Poker());
-        $session->set("callAmount", 0);
 
-        // Dra spelares pengar
-        $session->get("pokerGame")->addToPot($blind * 2);
-        
-        return $this->redirectToRoute("poker-preflop");
+        if ($session->get("blindTurn") == "bank") {
+            $session->get("pokerGame")->addToPot($blind);
+            $session->set("blindPaid", true);
+            return $this->redirectToRoute("poker-blind");
+        }
+        $session->get("pokerGame")->addToPot($blind);
+        $session->set("callAmount", $blind);
 
+        $res = $this->bankMakeChoiceNoRoute($session);
+        $routes = [
+            "check" => "poker-preflopmiddle",
+            "fold" => "poker-end",
+            "raise" => "poker-blind"
+        ];
+        return $this->redirectToRoute($routes[$session->get("bankChoice")]);
     }
-    
+
+    /**
+     * @Route("proj/poker/blind", name="poker-blind", methods={"GET"})
+     */
+    public function pokerBlind(
+        SessionInterface $session,
+        Request $request
+    ): Response
+    {
+        $data = [
+            "loggedInStatus" => $session->get("loggedInStatus"),
+            "user" => $session->get("user"),
+            "blind" => $session->get("pokerBlind"),
+            "blindTurn" => $session->get("blindTurn"),
+            "pot" => $session->get("pokerGame")->getPot(),
+            "answer" => $session->get("answer"),
+            "callAmount" => $session->get("callAmount")
+        ];
+
+        return $this->render("poker/blind.html.twig", $data);
+    }
+
+    /**
+     * @Route("proj/poker/blind", name="poker-blind-process", methods={"POST"})
+     */
+    public function pokerBlindProcess(
+        SessionInterface $session,
+        Request $request
+    ): Response
+    {
+        $session->set("answer", false);
+
+        if ($request->request->get("check")) {
+            return $this->redirectToRoute("poker-preflop");
+        }
+        if ($request->request->get("call")) {
+            // dra pengar
+            $session->get("pokerGame")->addToPot($session->get("callAmount"));
+            return $this->redirectToRoute("poker-preflop");
+        }
+        if ($request->request->get("fold")) {
+            $this->addFlash("label", "Hand folded, You lost.");
+            return $this->redirectToRoute("poker-end");
+        }
+        
+        $raise = $request->request->get("wage");
+        $callAmount = $session->get("callAmount");
+        // dra pengar
+        $session->get("pokerGame")->addToPot($raise);
+        $session->set("callAmount", $raise - $callAmount);
+        $res = $this->bankMakeChoiceNoRoute($session);
+        $routes = [
+            "check" => "poker-preflop",
+            "fold" => "poker-end",
+            "raise" => "poker-blind"
+        ];
+        if ($res == "check" && $session->get("blindTurn") == "you") {
+            return $this->redirectToRoute("poker-preflop-process", [], 307);
+        }
+        return $this->redirectToRoute($routes[$session->get("bankChoice")]);
+    }
+
+    /**
+     * @Route("proj/poker/preflopmiddle", name="poker-preflopmiddle")
+     */
+    public function pokerPreflopmiddle(
+        SessionInterface $session
+    ): Response
+    {
+        if ($session->get("blindTurn") == "you") {
+            $this->bankMakeChoiceNoRoute($session);
+        }
+        return $this->redirectToRoute("poker-preflop");
+    }
 
     /**
      * @Route("proj/poker/preflop", name="poker-preflop", methods={"GET"})
@@ -114,11 +236,7 @@ class PokerController extends AbstractController
     ): Response
     {
         if ($session->get("blindTurn") == "you") {
-            $choice = $this->bankMakeChoice($session);
-            if ($choice == "call") {
-                $session->get("pokerGame")->flop();
-                return $this->redirectToRoute("poker-flop");
-            }
+            $this->bankMakeChoiceNoRoute($session);
         }
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus"),
@@ -145,49 +263,49 @@ class PokerController extends AbstractController
     {
         $session->set("answer", false);
 
-        if ($request->request->get("check") && $session->get("blindTurn") == "you") {
-            $session->get("pokerGame")->flop();
-            return $this->redirectToRoute("poker-flop");
-        }
         if ($request->request->get("check")) {
-            $choice = $this->bankMakeChoice($session);
-            if ($choice == "check") {
-                $session->get("pokerGame")->flop();
-                return $this->redirectToRoute("poker-flop");
-            }
-            return $this->redirectToRoute("poker-preflop");
+            return $this->redirectToRoute("poker-flop");
         }
         if ($request->request->get("call")) {
             // dra pengar
-            $session->get("pokerGame")->flop();
             $session->get("pokerGame")->addToPot($session->get("callAmount"));
-            $session->set("callAmount", 0);
-            $session->set("answer", false);
             return $this->redirectToRoute("poker-flop");
         }
         if ($request->request->get("fold")) {
             $this->addFlash("label", "Hand folded, You lost.");
             return $this->redirectToRoute("poker-end");
         }
-        // Raise case //
+        
         $raise = $request->request->get("wage");
         $callAmount = $session->get("callAmount");
-        $session->get("pokerGame")->addToPot($raise);
-
         // dra pengar
+        $session->get("pokerGame")->addToPot($raise);
         $session->set("callAmount", $raise - $callAmount);
-        if ($session->get("blindTurn") == "you") {
-            return $this->redirectToRoute("poker-preflop");
+        $res = $this->bankMakeChoiceNoRoute($session);
+        $routes = [
+            "check" => "poker-flopmiddle",
+            "fold" => "poker-end",
+            "raise" => "poker-preflop"
+        ];
+        if ($req == "check" && $session->get("blindTurn") == "you") {
+            return $this->redirectToRoute("poker-flop-process");
         }
-
-        $choice = $this->bankMakeChoice($session);
-        if ($choice == "call" || $choice == "check") {
-            $session->get("pokerGame")->flop();
-            return $this->redirectToRoute("poker-flop");
-        }
-        return $this->redirectToRoute("poker-preflop");
+        return $this->redirectToRoute($routes[$res]);
     }
 
+    /**
+     * @Route("proj/poker/flopmiddle", name="poker-flopmiddle")
+     */
+    public function pokerFlopmiddle(
+        SessionInterface $session
+    ): Response
+    {
+        $session->get("pokerGame")->flop();
+        if ($session->get("blindTurn") == "you") {
+            return $this->redirectToRoute("poker-flop-process", [], 307);
+        }
+        return $this->redirectToRoute("poker-flop");
+    }
 
     /**
      * @Route("proj/poker/flop", name="poker-flop", methods={"GET"})
@@ -197,13 +315,6 @@ class PokerController extends AbstractController
         Request $request
     ): Response
     {
-        if ($session->get("blindTurn") == "you") {
-            $choice = $this->bankMakeChoice($session);
-            if ($choice == "call") {
-                $session->get("pokerGame")->turn();
-                return $this->redirectToRoute("poker-turn");
-            }
-        }
         
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus"),
@@ -228,51 +339,24 @@ class PokerController extends AbstractController
         Request $request
     ): Response
     {
-        $session->set("answer", false);
-
-        if ($request->request->get("check") && $session->get("blindTurn") == "you") {
-            $session->get("pokerGame")->turn();
-            return $this->redirectToRoute("poker-turn");
-        }
+        $session->get("pokerGame")->turn();
         if ($request->request->get("check")) {
-            $choice = $this->bankMakeChoice($session);
-            if ($choice == "check") {
-                $session->get("pokerGame")->turn();
-                return $this->redirectToRoute("poker-turn");
-            }
-            return $this->redirectToRoute("poker-flop");
-        }
-        if ($request->request->get("call")) {
-            // dra pengar
-            $session->get("pokerGame")->turn();
-            $session->get("pokerGame")->addToPot($session->get("callAmount"));
-            $session->set("callAmount", 0);
-            $session->set("answer", false);
             return $this->redirectToRoute("poker-turn");
         }
-        if ($request->request->get("fold")) {
-            $this->addFlash("label", "Hand folded, You lost.");
-            return $this->redirectToRoute("poker-end");
-        }
-        // Raise case //
-        $raise = $request->request->get("wage");
-        $callAmount = $session->get("callAmount");
-        $session->get("pokerGame")->addToPot($raise);
-
-        // dra pengar
-        $session->set("callAmount", $raise - $callAmount);
-        if ($session->get("blindTurn") == "you") {
-            return $this->redirectToRoute("poker-flop");
-        }
-
-        $choice = $this->bankMakeChoice($session);
-        if ($choice == "call" || $choice == "check") {
-            $session->get("pokerGame")->turn();
-            return $this->redirectToRoute("poker-turn");
-        }
-        return $this->redirectToRoute("poker-flop");
     }
 
+    /**
+     * @Route("proj/poker/turnmiddle", name="poker-turnmiddle")
+     */
+    public function pokerTurnmiddle(
+        SessionInterface $session
+    ): Response
+    {
+        if ($session->get("blindTurn") == "you") {
+            $this->bankMakeChoiceNoRoute($session);
+        }
+        return $this->redirectToRoute("poker-turn");
+    }
 
     /**
      * @Route("proj/poker/turn", name="poker-turn", methods={"GET"})
@@ -282,13 +366,6 @@ class PokerController extends AbstractController
         Request $request
     ): Response
     {
-        if ($session->get("blindTurn") == "you") {
-            $choice = $this->bankMakeChoice($session);
-            if ($choice == "call") {
-                $session->get("pokerGame")->river();
-                return $this->redirectToRoute("poker-river");
-            }
-        }
         
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus"),
@@ -313,49 +390,23 @@ class PokerController extends AbstractController
         Request $request
     ): Response
     {
-        $session->set("answer", false);
-
-        if ($request->request->get("check") && $session->get("blindTurn") == "you") {
-            $session->get("pokerGame")->river();
-            return $this->redirectToRoute("poker-river");
-        }
+        $session->get("pokerGame")->river();
         if ($request->request->get("check")) {
-            $choice = $this->bankMakeChoice($session);
-            if ($choice == "check") {
-                $session->get("pokerGame")->river();
-                return $this->redirectToRoute("poker-river");
-            }
-            return $this->redirectToRoute("poker-turn");
-        }
-        if ($request->request->get("call")) {
-            // dra pengar
-            $session->get("pokerGame")->river();
-            $session->get("pokerGame")->addToPot($session->get("callAmount"));
-            $session->set("callAmount", 0);
-            $session->set("answer", false);
             return $this->redirectToRoute("poker-river");
         }
-        if ($request->request->get("fold")) {
-            $this->addFlash("label", "Hand folded, You lost.");
-            return $this->redirectToRoute("poker-end");
-        }
-        // Raise case //
-        $raise = $request->request->get("wage");
-        $callAmount = $session->get("callAmount");
-        $session->get("pokerGame")->addToPot($raise);
+    }
 
-        // dra pengar
-        $session->set("callAmount", $raise - $callAmount);
+    /**
+     * @Route("proj/poker/rivermiddle", name="poker-rivermiddle")
+     */
+    public function pokerRivermiddle(
+        SessionInterface $session
+    ): Response
+    {
         if ($session->get("blindTurn") == "you") {
-            return $this->redirectToRoute("poker-turn");
+            $this->bankMakeChoiceNoRoute($session);
         }
-
-        $choice = $this->bankMakeChoice($session);
-        if ($choice == "call" || $choice == "check") {
-            $session->get("pokerGame")->river();
-            return $this->redirectToRoute("poker-river");
-        }
-        return $this->redirectToRoute("poker-turn");
+        return $this->redirectToRoute("poker-river");
     }
 
     /**
@@ -365,12 +416,6 @@ class PokerController extends AbstractController
         SessionInterface $session
     ): Response
     {
-        if ($session->get("blindTurn") == "you") {
-            $choice = $this->bankMakeChoice($session);
-            if ($choice == "call") {
-                return $this->redirectToRoute("poker-end");
-            }
-        }
         
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus"),
@@ -395,45 +440,9 @@ class PokerController extends AbstractController
         Request $request
     ): Response
     {
-        $session->set("answer", false);
-
-        if ($request->request->get("check") && $session->get("blindTurn") == "you") {
-            return $this->redirectToRoute("poker-end");
-        }
         if ($request->request->get("check")) {
-            $choice = $this->bankMakeChoice($session);
-            if ($choice == "check") {
-                return $this->redirectToRoute("poker-end");
-            }
-            return $this->redirectToRoute("poker-river");
-        }
-        if ($request->request->get("call")) {
-            // dra pengar
-            $session->get("pokerGame")->addToPot($session->get("callAmount"));
-            $session->set("callAmount", 0);
-            $session->set("answer", false);
             return $this->redirectToRoute("poker-end");
         }
-        if ($request->request->get("fold")) {
-            $this->addFlash("label", "Hand folded, You lost.");
-            return $this->redirectToRoute("poker-end");
-        }
-        // Raise case //
-        $raise = $request->request->get("wage");
-        $callAmount = $session->get("callAmount");
-        $session->get("pokerGame")->addToPot($raise);
-
-        // dra pengar
-        $session->set("callAmount", $raise - $callAmount);
-        if ($session->get("blindTurn") == "you") {
-            return $this->redirectToRoute("poker-river");
-        }
-
-        $choice = $this->bankMakeChoice($session);
-        if ($choice == "call" || $choice == "check") {
-            return $this->redirectToRoute("poker-end");
-        }
-        return $this->redirectToRoute("poker-river");
     }
 
     /**

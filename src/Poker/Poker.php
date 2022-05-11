@@ -32,7 +32,7 @@ class Poker
 
     public function flop()
     {
-        $this->community = new Hand($this->deck->drawCardFull(3));
+        $this->community->addCard($this->deck->drawCardFull(3));
     }
 
     public function turn()

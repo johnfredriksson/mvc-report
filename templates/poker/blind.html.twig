@@ -6,11 +6,6 @@
             <img src="{{ asset("img/cards/back.png") }}">
         </div>
         <div class="poker-community">
-            {# <img src="{{ asset("img/cards/back.png") }}">
-            <img src="{{ asset("img/cards/back.png") }}">
-            <img src="{{ asset("img/cards/back.png") }}">
-            <img src="{{ asset("img/cards/back.png") }}">
-            <img src="{{ asset("img/cards/back.png") }}"> #}
         </div>
         <div class="poker-player">
             <img src="{{ asset("img/cards/back.png") }}">
@@ -22,7 +17,7 @@
             <em class="balance">Balance: {{ user.balance }}</em>
         </div>
         <div class="poker-controls">
-            <form method="POST" action="{{ path("poker-blind-check") }}">
+            <form method="POST">
                 <input type="submit" value="Fold" name="fold">
                 {% if answer ?? false %}
                     <input readonly>
@@ -37,5 +32,6 @@
                 {% endif %}
             </form>
         </div>
+        {{ include('poker/flash-message.html.twig') }}
     </div>
 {% endblock %}

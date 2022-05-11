@@ -111,15 +111,18 @@ class CasinoController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
+        $repository = $doctrine->getRepository(Users::class);
+        $user = $repository->findOneBy(["username" => $request->request->get("username")]);
+
         $session->set("loggedInStatus", true);
-        $session->set("user", $usersRepository->find($request->request->get("username")));
+        $session->set("user", $user);
 
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
             "user" => $session->get("user") ?? false
         ];
 
-        return $this->render("casino/register.html.twig", $data);
+        return $this->redirectToRoute("casino-account");
     }
 
     /**

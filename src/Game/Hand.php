@@ -25,9 +25,11 @@ class Hand
     /**
      * Recieves a card as a parameter, adds this to attribute cards
      */
-    public function addCard(array $card)
+    public function addCard(array $cards)
     {
-        array_push($this->cards, $card[0]);
+        foreach ($cards as $card) {
+            array_push($this->cards, $card);
+        }
     }
 
     /**

@@ -21,6 +21,7 @@ class Poker
         $this->player = new Hand($this->deck->drawCardFull(2));
         $this->bank = new Hand($this->deck->drawCardFull(2));
         $this->pot = 0;
+        $this->community = new Hand([]);
     }
 
     public function setDeck()

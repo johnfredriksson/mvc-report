@@ -314,5 +314,27 @@ input:-webkit-autofill:active{
     left: 18vw;
 }
 
+.flash {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.264);
+    width: 8vw;
+    min-height: 8vh;
+    position: absolute;
+    right: 10%;
+    top: 43%;
+    padding-bottom: 20px;
+    color: white;
+}
+
+.log-title {
+    font-family: "bangers", cursive;
+    font-size: 1.5em;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.264);
+    display: inline-block;
+    color: white;
+    margin-bottom: 20px;
+    width: 8vw;
+    text-align: center;
+}
+
 
 

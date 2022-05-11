@@ -26,6 +26,9 @@ class PokerController extends AbstractController
             return $this->redirectToRoute("casino-login");
         }
 
+        $session->set("bankLogic", new BankLogic());
+        $session->set("blindTurn", "you");
+
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus"),
             "user" => $session->get("user")
@@ -43,9 +46,19 @@ class PokerController extends AbstractController
         Request $request
     ): Response
     {
+        if ($request->request->get("stake")) {
+            $session->set("pokerBlind", $request->request->get("stake"));
+        }
+
+        if ($session->get("blindTurn") == "bank") {
+            $session->set("blindTurn", "you");
+        } elseif ($session->get("blindTurn") == "you") {
+            $session->set("blindTurn", "bank");
+        }
+        
+        $this->addFlash("lose", "You Lose. Dealer has stronger cards.");
+
         $session->set("pokerGame", new Poker());
-        $session->set("pokerBlind", $request->request->get("stake"));
-        $session->set("blindTurn", "you");
 
         return $this->redirectToRoute("poker-blind",[], 307);
     }
@@ -63,8 +76,8 @@ class PokerController extends AbstractController
             "blind" => $session->get("pokerBlind"),
             "blindTurn" => $session->get("blindTurn"),
             "pot" => $session->get("pokerGame")->getPot(),
-            // "answer" => true,
-            // "callAmount" => 1300
+            "answer" => $session->get("blindTurn") == "bank" && $session->get("bankLogic")->bet() == "raise",
+            "callAmount" => 1300
         ];
 
         return $this->render("poker/blind.html.twig", $data);
@@ -250,4 +263,18 @@ class PokerController extends AbstractController
 
         return $this->render("poker/end.html.twig", $data);
     }
+
+    /**
+     * @Route("proj/poker/end", name="poker-end-process", methods={"POST"})
+     */
+    public function pokerEndProcess(
+        SessionInterface $session,
+        Request $request
+    ): Response
+    {
+        if ($request->request->get("changeBlind")) {
+            return $this->redirectToRoute("poker-index");
+        }
+        return $this->redirectToRoute("poker-index-process", [], 307);
+    }   
 }

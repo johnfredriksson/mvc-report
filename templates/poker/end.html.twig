@@ -23,17 +23,12 @@
         </div>
         <div class="poker-controls">
             <form method="POST">
-                <input type="submit" value="Fold" name="fold">
-                <input type="submit" value="Check" name="check">
-                {% if answer ?? false %}
-                    <input type="submit" value="Call {{ callAmount ?? "" }}" name="call">
-                    <input type="submit" value="Raise" name="raise">
-                    <input type="number" min="{{ callAmount }}" value="{{ callAmount }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
-                {% else %}
-                    <input readonly>
-                    <input type="submit" value="Raise" name="raise">
-                    <input type="number" min="{{ blind }}" value="{{ blind }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
-                {% endif %}
+                <input readonly>
+                <input type="submit" value="Fortsätt" name="continue">
+                <input readonly>
+                <input type="submit" value="Ändra insats" name="changeBlind">
+                <input readonly>
+                
             </form>
         </div>
     </div>

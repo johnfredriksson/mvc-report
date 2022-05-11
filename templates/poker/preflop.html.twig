@@ -23,17 +23,19 @@
         <div class="poker-controls">
             <form method="POST">
                 <input type="submit" value="Fold" name="fold">
-                <input type="submit" value="Check" name="check">
                 {% if answer ?? false %}
+                    <input readonly>
                     <input type="submit" value="Call {{ callAmount ?? "" }}" name="call">
                     <input type="submit" value="Raise" name="raise">
                     <input type="number" min="{{ callAmount }}" value="{{ callAmount }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
                 {% else %}
+                    <input type="submit" value="Check" name="check">
                     <input readonly>
                     <input type="submit" value="Raise" name="raise">
                     <input type="number" min="{{ blind }}" value="{{ blind }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
                 {% endif %}
             </form>
         </div>
+        {{ include('poker/flash-message.html.twig') }}
     </div>
 {% endblock %}

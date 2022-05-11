@@ -16,7 +16,7 @@ class BankLogic
             return "fold";
         }
 
-        if ($number > 80) {
+        if ($number > 10) {
             return "raise";
         }
 

@@ -19,7 +19,7 @@ class Poker
     {
         $this->setDeck();
         $this->player = new Hand($this->deck->drawCardFull(2));
-        $this->dealer = new Hand($this->deck->drawCardFull(2));
+        $this->bank = new Hand($this->deck->drawCardFull(2));
         $this->pot = 0;
     }
 

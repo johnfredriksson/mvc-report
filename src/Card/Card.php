@@ -4,8 +4,8 @@ namespace App\Card;
 
 /**
  * Class Card
- * 
- * Creates a card based on incoming parameters. It sets 
+ *
+ * Creates a card based on incoming parameters. It sets
  * the value, suit and generates a image url and title
  */
 class Card
@@ -17,8 +17,8 @@ class Card
 
     /**
      * Constructor
-     * 
-     * Takes incoming parameters of suit and value and applies 
+     *
+     * Takes incoming parameters of suit and value and applies
      * it to a new card. Also generates a image url and a card title.
      */
     public function __construct(string $suit, string $value)
@@ -35,7 +35,7 @@ class Card
         ];
         $this->title = $value . " of " . $suits[$suit];
         if (str_contains("KQJ", $value)) {
-           $this->value = 10;
+            $this->value = 10;
             return;
         }
         $this->value = $value;

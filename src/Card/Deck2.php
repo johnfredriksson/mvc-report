@@ -6,7 +6,7 @@ use App\Card\Deck;
 
 /**
  * Class Deck2
- * 
+ *
  * A class that inherits from Deck, made to create a Deck with jokers added
  */
 class Deck2 extends Deck

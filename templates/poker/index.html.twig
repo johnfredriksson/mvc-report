@@ -1,0 +1,17 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+    {% if user.balance < 100 %}
+        <div class="poker">
+            <p>Minsta insats är 100, vänligen sätt in mer pengar på ditt saldo</p>
+            <a href="{{ path("casino-account") }}">Till din profil</a>
+        </div>
+    {% else %}
+        <div class="poker">
+            <p>Välkommen till Texas Hold'em, slå dig ner och välj insats</p>
+            <form class="stake" method="POST">
+                <input type="number" min="100" step="100" value="100" name="stake">
+                <input type="submit" value="Starta">
+            <form>
+        </div>
+    {% endif %}
+{% endblock %}

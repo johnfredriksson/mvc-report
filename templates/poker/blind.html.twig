@@ -1,0 +1,40 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+    <div class="poker">
+        <div class="poker-bank">
+            <img src="{{ asset("img/cards/back.png") }}">
+            <img src="{{ asset("img/cards/back.png") }}">
+        </div>
+        <div class="poker-community">
+            {# <img src="{{ asset("img/cards/back.png") }}">
+            <img src="{{ asset("img/cards/back.png") }}">
+            <img src="{{ asset("img/cards/back.png") }}">
+            <img src="{{ asset("img/cards/back.png") }}">
+            <img src="{{ asset("img/cards/back.png") }}"> #}
+        </div>
+        <div class="poker-player">
+            <img src="{{ asset("img/cards/back.png") }}">
+            <img src="{{ asset("img/cards/back.png") }}">
+        </div>
+        <div class="pot">
+            <h2 class="pot-value">{{ pot }} sek</h2>
+            <em class="blind-value">Blind is: {{ blind }} by {{ blindTurn }}</em><br>
+            <em class="balance">Balance: {{ user.balance }}</em>
+        </div>
+        <div class="poker-controls">
+            <form method="POST" action="{{ path("poker-blind-check") }}">
+                <input type="submit" value="Fold" name="fold">
+                <input type="submit" value="Check" name="check">
+                {% if answer ?? false %}
+                    <input type="submit" value="Call {{ callAmount ?? "" }}" name="call">
+                    <input type="submit" value="Raise" name="raise">
+                    <input type="number" min="{{ callAmount }}" value="{{ callAmount }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
+                {% else %}
+                    <input readonly>
+                    <input type="submit" value="Raise" name="raise">
+                    <input type="number" min="{{ blind }}" value="{{ blind }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

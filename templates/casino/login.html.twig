@@ -1,0 +1,10 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+<div class="register">
+    <form method="POST">
+        <input type="text" name="username" placeholder="Användarnamn.." required>
+        <input type="password" name="password" placeholder="Lösenord.." required>
+        <input type="submit" value="Logga in" name="login">
+    </form>
+</div>
+{% endblock %}

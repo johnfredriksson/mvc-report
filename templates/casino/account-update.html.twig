@@ -1,0 +1,16 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+<div class="register">
+    <form method="POST">
+        <em>Förnamn</em>
+        <input value="{{ user.firstname }}" type="text" name="firstname" placeholder="Förnamn.." required>
+        <em>Efternamn</em>
+        <input value="{{ user.lastname }}" type="text" name="lastname" placeholder="Efternamn.." required>
+        <em>E-post</em>
+        <input value="{{ user.email }}" type="text" name="email" placeholder="E-post.." required>
+        <em>Profilbild-url</em>
+        <input value="{{ user.image }}" type="text" name="image" placeholder="Profilbild..">
+        <input type="submit" value="Uppdatera" name="update">
+    </form>
+</div>
+{% endblock %}

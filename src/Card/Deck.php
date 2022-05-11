@@ -6,7 +6,7 @@ use App\Card\Card;
 
 /**
  * Class Deck
- * 
+ *
  * Holds a deck of cards with functions to draw cards from the deck and shuffle it
  */
 class Deck
@@ -17,7 +17,7 @@ class Deck
 
     /**
      * Constructor
-     * 
+     *
      * Uses arrays of its attributes to generate a new card of each combination with suit and value.
      * Sets result as attribute cards.
      */
@@ -39,7 +39,7 @@ class Deck
     }
 
     /**
-     * Draws from the first cards in the deck, removing the card(s) from the deck and 
+     * Draws from the first cards in the deck, removing the card(s) from the deck and
      * returns said card(s) image url.
      * Incoming parameter amount decides how many cards will be drawn
      */
@@ -58,7 +58,7 @@ class Deck
     }
 
     /**
-     * Draws from the first cards in the deck, removing the card(s) from the deck and 
+     * Draws from the first cards in the deck, removing the card(s) from the deck and
      * returns said card(s) object(s).
      * Incoming parameter amount decides how many cards will be drawn
      */

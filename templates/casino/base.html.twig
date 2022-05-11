@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="{{ asset("css/casino/style.css") }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="navbar">
+            <p class="title">< DBWEGA$ ></p>
+            <div class="games">
+                <a class="nav-link" href="{{ path("casino-index") }}">Hem</a>
+                <a class="nav-link" href="">Black Jack</a>
+                <a class="nav-link" href="{{ path("poker-index") }}">Texas Hold'Em</a>
+            </div>
+            {% if loggedInStatus %}
+                <div class="nav-account">
+                    <p>Välkommen, {{ user.username }}</p>
+                    <p>Balance: {{ user.balance }}</p>
+                    <a href="{{ path("casino-account") }}">Konto</a>
+                    <a href="{{ path("casino-logout") }}">Logga ut</a>
+                </div>
+            {% else %}
+                <form class="index-login" method="POST" action="{{ path("casino-login-process") }}">
+                    <input type="text" name="username" placeholder="Användarnamn.." required>
+                    <input type="password" name="password" placeholder="Lösenord.." required>
+                    <input type="submit" name="login" value="Logga in">
+                </form>
+            {% endif %}
+        </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div class="footer">
+            <p class="title">< / DBWEGA$ ></p>
+        </div>
+    </body>
+</html>

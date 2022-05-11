@@ -1,0 +1,17 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+<div class="register">
+    <form method="POST">
+        <input type="text" name="firstname" placeholder="Förnamn.." required>
+        <input type="text" name="lastname" placeholder="Efternamn.." required>
+        <input type="text" name="email" placeholder="E-post.." required>
+        <input type="text" name="username" placeholder="Användarnamn.." required>
+        <input type="password" name="password" placeholder="Lösenord.." required>
+        <div class="accept">
+            <p>Jag har läst igenom användaravtalet och är över 18 år</p>
+            <input type="checkbox" required>
+        </div>
+        <input type="submit" value="Registrera" name="register">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,318 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* background-color: rgb(67, 80, 64); */
+    background: linear-gradient(90deg, rgb(213, 147, 49), rgb(225, 201, 83));
+}
+
+.title {
+    color: purple;
+    font-size: 4em;
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    margin-top: 2vh;
+    text-shadow: 4px 2px #ff0000;
+}
+
+.navbar {
+    width: 100vw;
+    height: 10vh;
+    border-bottom: 3px solid purple;
+}
+
+.footer {
+    width: 100vw;
+    height: 10vh;
+    border-top: 3px solid purple;
+    position: absolute;
+    bottom: 0;
+}
+
+input {
+    border: 3px solid purple;
+    background-color: purple;
+    color: white;
+    padding: 4px;
+    border-radius: 14px;
+    width: 8vw;
+    -webkit-box-shadow: 5px 5px 0px 0px #ff0000; 
+    box-shadow: 5px 5px 0px 0px #ff0000;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out all;
+    text-align: center;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.506);
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+}
+
+input[type="submit"]:hover {
+    letter-spacing: 6px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px purple inset !important;
+    box-shadow: 0 0 0 30px purple inset !important;
+    -webkit-text-fill-color: rgb(255, 255, 255) !important;
+}
+
+.index-login {
+    text-align: right;
+    position: absolute;
+    top: 4vh;
+    right: 10vw;
+}
+
+.nav-link {
+    border: 3px solid purple;
+    background-color: purple;
+    color: white;
+    padding: 4px;
+    border-radius: 14px;
+    width: 8vw;
+    -webkit-box-shadow: 5px 5px 0px 0px #ff0000; 
+    box-shadow: 5px 5px 0px 0px #ff0000;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out all;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    letter-spacing: 10px;
+}
+
+.games {
+    position: absolute;
+    left: 10vw;
+    top: 4vh;
+}
+
+.welcome {
+    color: purple;
+    font-size: 3em;
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    margin-top: 10vh;
+}
+
+.welcome p {
+    margin-bottom: 3vh;
+}
+
+.welcome a {
+    border: 3px solid purple;
+    background-color: purple;
+    color: white;
+    padding: 0.5vw;
+    border-radius: 2vw;
+    width: 8vw;
+    -webkit-box-shadow: 5px 5px 0px 0px #ff0000; 
+    box-shadow: 5px 5px 0px 0px #ff0000;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out all;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.7em;
+}
+
+.welcome a:hover {
+    letter-spacing: 10px;
+    -webkit-box-shadow: 10px 10px 0px 0px #ff0000; 
+    box-shadow: 10px 10px 0px 0px #ff0000;
+}
+
+.register {
+    margin-top: 15vh;
+    display: flex;
+    justify-content: center;
+}
+
+.register input[type="text"], .register input[type="password"], .register input[type="submit"] {
+    display: block;
+    margin-top: 2vh;
+    width: 18vw;
+    height: 4vh;
+}
+
+.register input[type="checkbox"] {
+    -webkit-box-shadow: none; 
+    box-shadow: none;
+    width: auto;
+}
+
+.register em {
+   padding: 0;
+   position: relative;
+   top: 20px;
+}
+
+.accept p {
+    max-width: 18vw;
+}
+
+.register p {
+    display: inline-block;
+    margin-top: 6vh;
+}
+
+.nav-account {
+    border: 3px solid purple;
+    background-color: purple;
+    color: white;
+    padding: 4px;
+    border-radius: 14px;
+    min-width: 8vw;
+    width: auto;
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-box-shadow: 5px 5px 0px 0px #ff0000; 
+    box-shadow: 5px 5px 0px 0px #ff0000;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out all;
+    text-align: center;
+    text-decoration: none;
+    text-align: right;
+    position: absolute;
+    top: 2vh;
+    right: 10vw;
+}
+
+.nav-account a {
+    color: #ff0000;
+}
+
+.nav-account a:hover {
+    color: #d88c8c;
+}
+
+.account-page {
+    max-width: 50vw;
+    margin: auto;
+}
+
+.account-page img {
+    display: inline;
+    margin-top: 50px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.account-page p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.account-page a, .poker a {
+    border: 3px solid purple;
+    background-color: purple;
+    color: white;
+    padding: 0.5vw;
+    border-radius: 2vw;
+    width: 8vw;
+    -webkit-box-shadow: 5px 5px 0px 0px #ff0000; 
+    box-shadow: 5px 5px 0px 0px #ff0000;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out all;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.7em;
+}
+
+.poker {
+    background-color: rgb(33, 57, 33);
+    width: 80vw;
+    height: 70vh;
+    margin: auto;
+    margin-top: 3vh;
+    border: 20px solid rgb(90, 44, 10);
+    border-radius: 15vw;
+    position: relative;
+}
+
+.poker p {
+    font-family: "bangers", cursive;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    position: relative;
+    top: 20vh;
+}
+
+.poker a {
+    position: absolute;
+    top: 50vh;
+    left: 45vw;
+}
+
+.stake {
+    text-align: center;
+    position: relative;
+    top: 30vh;
+}
+
+.poker img {
+    width: 5vw;
+    height: auto;
+}
+
+.poker-bank {
+    position: absolute;
+    top: 5%;
+    left: 43%;
+}
+
+.poker-player {
+    position: absolute;
+    bottom: 7%;
+    left: 43%;
+}
+
+.poker-community {
+    position: absolute;
+    top: 40%;
+    left: 33%;
+}
+
+.pot {
+    position: absolute;
+    left: 10%;
+    top: 45%;
+}
+
+.pot-value {
+    color: white;
+}
+
+.blind-value {
+    color: white;
+}
+
+.balance {
+    color: rgba(255, 255, 255, 0.63);
+}
+
+.poker-controls {
+    position: absolute;
+    bottom: 1vh;
+    left: 18vw;
+}
+
+
+

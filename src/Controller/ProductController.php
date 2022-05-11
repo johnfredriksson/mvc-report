@@ -5,11 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\ProductRepository;
-
 
 class ProductController extends AbstractController
 {
@@ -26,19 +24,18 @@ class ProductController extends AbstractController
      */
     public function createProduct(
         ManagerRegistry $doctrine
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
 
         $product = new Product();
-        $product->setName("Keyboard_num_" . rand(1,9));
+        $product->setName("Keyboard_num_" . rand(1, 9));
         $product->setValue(rand(100, 999));
 
         $entityManager->persist($product);
 
         $entityManager->flush();
 
-        return new Response("Saved new product with id ".$product->getId());
+        return new Response("Saved new product with id " . $product->getId());
     }
 
     /**
@@ -46,8 +43,7 @@ class ProductController extends AbstractController
      */
     public function showProduct(
         ProductRepository $productRepository
-    ): Response
-    {
+    ): Response {
         $products = $productRepository
             ->findAll();
 
@@ -60,8 +56,7 @@ class ProductController extends AbstractController
     public function showProductById(
         ProductRepository $productRepository,
         int $id
-    ): Response
-    {
+    ): Response {
         $product = $productRepository
             ->find($id);
 
@@ -74,14 +69,13 @@ class ProductController extends AbstractController
     public function deleteProductById(
         ManagerRegistry $doctrine,
         int $id
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $product = $entityManager->getRepository(Product::class)->find($id);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                "No product found for id ".$id
+                "No product found for id " . $id
             );
         }
 
@@ -98,14 +92,13 @@ class ProductController extends AbstractController
         ManagerRegistry $doctrine,
         int $id,
         int $value
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $product = $entityManager->getRepository(Product::class)->find($id);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                "No product found for id ".$id
+                "No product found for id " . $id
             );
         }
 

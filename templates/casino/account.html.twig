@@ -1,0 +1,16 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+    <div class="account-page">
+        <img src="{{ user.image ?? "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAMAAADQmBKKAAAAMFBMVEXk5ueutLfFycvn6eqrsbTc3+DY29y1ur3IzM7Lz9HT1ti6v8Gxt7qorrLg4uPQ09W9gE50AAADH0lEQVR4nO2b0bKcIAxAlQgoIP7/3xbUWW/3uktAE+mU87QPnemZJEQg3K5rNBqNRqPRaDQajUaj8b8D8P7jSQDkIoSNiNH4h53AK9sPgT4Sf7hRdY85AUx6dzkYBmueMYJunN9tNub+CSVQ+lxnDZPlz9s4f9RZlRZmI/s5PLvRyKnjv6TrZST4YuRdUmc1YhPSGB/GGCHyxWkEI9YnGCl6I1Df1/vfOE8uhC2gPUSWOkQg8AmLzORJy0lYxNLq5AYo1jWpkMzUCWjKnMGSG6AQIkkplB8g2u6o8gMUckbnk9OkD2bCnNkCn7AzIsuZL/EJrYhMSOZ2xQ1H5dMVLPoVqiLKb9M7VKciKKrpANUJpFRomKiEsrZCTagGoepqqLpVVlsf6kxlnbq+b1l1X/vq9kP17Rhr21PXd+qAqbJzWcnJ1ZHeNhSc7Q2lT5d/+0FZ0pH67odqu0HrwNR2x5iTtIFnLIROGtvNOWqywDntwLXHgfi+8weAmb4w+kSS8w7GWdCGSEwUqY4+HwHjvsxctecfA0MI0rnSQHYQSyu5k7m9np573gDe2NfDhu1pg3jwZcPmBGoS1mqtrRWTrOE9CsBu8frxpEonpVJmWTFGSfmQVvg/vTTCavcqnr2SnLbCKN9xVhJAdHHDrxV21HavueoJwKuw2Pvknij+E2s8caDCkrLuQzs8tXJ2oVOCTolPWfriNFtD4hSDk07UqVLo3bcrQWdc2W3V7hRK/Fahb592nFI/3helkKwL0TmUlnv6APjSy9dfSvqOYyyYslI+V7rhdi/52CzPqL+2lQSJfryE5spuEpYbivmdC8eRkgs8jFHpga14tJE0KjuTkPmsRlX5xF1AdojKLu3xRrl1BKWTKLxRXowKB1E5RnlNu3Dcm2WU8TiNtKAP8D7UBbSRceOHvEO8bITcRRJ9MU7ArjSmAGEHM3wBQj66BLYA4caxee+lr4KoouIHHkUghjO4v0i4C0RZ8zTFl1CyOTJ9NQ6SQgyf1Z/MqYwB5xrrMX9owS2UmImELjTwkqpqKZhZkkXETMqn0Wg0Go1/jT8wTSj/1AmGHgAAAABJRU5ErkJggg==" }}">
+        <p>{{ user.username }}</p>
+        <p>{{ user.firstname }} {{ user.lastname }}</p>
+        <p>Saldo: {{ user.balance }}</p>
+        <form method="POST">
+            <input type="number" min="100" step="100" value="100" name="amount">
+            <input type="submit" value="Sätt in">
+        </form>
+        <p>E-post: {{ user.email }}</p>
+        <p>Rättigheter: {{ user.admin }}</p>
+        <a href="{{ path("casino-account-update") }}">Uppdatera bio</a>
+    </div>
+{% endblock %}

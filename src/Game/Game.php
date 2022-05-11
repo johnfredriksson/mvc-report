@@ -8,9 +8,9 @@ use App\Game\Rules;
 
 /**
  * Game class
- * 
+ *
  * Class holds all parts of a game session.
- * 
+ *
  * Deck - playing deck
  * Hand - holds a set of cards
  * Rules - basic rules of BlackJack
@@ -25,8 +25,8 @@ class Game
 
     /**
      * Constructor
-     * 
-     * Set players balance to recieved parameter, 
+     *
+     * Set players balance to recieved parameter,
      * initiate a deck and couple game rules
      */
     public function __construct(int $balance)
@@ -37,7 +37,7 @@ class Game
     }
 
     /**
-     * Sets deck as a attribute and shuffles it, normally called 
+     * Sets deck as a attribute and shuffles it, normally called
      * between each round to start with a full and shuffled deck
      */
     public function setDeck(): void
@@ -96,7 +96,7 @@ class Game
     }
 
     /**
-     * Updates the balance. Based on win or loss the parameter 
+     * Updates the balance. Based on win or loss the parameter
      * "+" or "-" will be submited to change the balance in correct way
      */
     public function setBalance(int $amount, string $operator): void

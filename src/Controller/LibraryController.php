@@ -6,9 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-
 use Doctrine\Persistence\ManagerRegistry;
-
 use App\Entity\Book;
 use App\Repository\BookRepository;
 
@@ -19,21 +17,20 @@ class LibraryController extends AbstractController
      */
     public function index(
         BookRepository $bookRepository
-    ): Response
-    {
+    ): Response {
         $books = $bookRepository->findAll();
+        echo json_encode($books);
 
         return $this->render('library/index.html.twig', [
             'controller_name' => 'LibraryController',
             "books" => $books
         ]);
     }
-    
+
     /**
      * @Route("/library/create", name="book_create", methods={"GET"})
      */
-    public function createBook(
-    ): Response
+    public function createBook(): Response
     {
         return $this->render('library/create.html.twig', [
             'controller_name' => 'LibraryController'
@@ -46,8 +43,7 @@ class LibraryController extends AbstractController
     public function createBookPost(
         Request $request,
         ManagerRegistry $doctrine
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
 
         $book = new Book();
@@ -68,8 +64,7 @@ class LibraryController extends AbstractController
     public function singleBook(
         BookRepository $bookRepository,
         int $id
-    ): Response
-    {
+    ): Response {
         $book = $bookRepository->find($id);
 
         return $this->render('library/single.html.twig', [
@@ -84,8 +79,7 @@ class LibraryController extends AbstractController
     public function deleteBook(
         BookRepository $bookRepository,
         int $id
-    ): Response
-    {
+    ): Response {
         $book = $bookRepository->find($id);
 
         return $this->render('library/delete.html.twig', [
@@ -100,14 +94,13 @@ class LibraryController extends AbstractController
     public function deleteBookPost(
         ManagerRegistry $doctrine,
         int $id
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $book = $entityManager->getRepository(Book::class)->find($id);
 
         if (!$book) {
             throw $this->createNotFoundException(
-                "No book found for id ".$id
+                "No book found for id " . $id
             );
         }
 
@@ -123,8 +116,7 @@ class LibraryController extends AbstractController
     public function updateBook(
         BookRepository $bookRepository,
         int $id
-    ): Response
-    {
+    ): Response {
         $book = $bookRepository->find($id);
 
         return $this->render('library/update.html.twig', [
@@ -140,14 +132,13 @@ class LibraryController extends AbstractController
         ManagerRegistry $doctrine,
         Request $request,
         int $id
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $book = $entityManager->getRepository(Book::class)->find($id);
 
         if (!$book) {
             throw $this->createNotFoundException(
-                "No book found for id ".$id
+                "No book found for id " . $id
             );
         }
 

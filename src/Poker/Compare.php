@@ -47,17 +47,17 @@ class Compare
 
         foreach ($rules as $rule) {
             if ($player[$rule] > $bank[$rule]) {
-                return ["You", $this->prettyRules[$rule], $player[$rule]];
+                return ["You", $this->prettyRules[$rule]];
             }
             if ($player[$rule] < $bank[$rule]) {
-                return ["Bank", $this->prettyRules[$rule], $bank[$rule]];
+                return ["Bank", $this->prettyRules[$rule]];
             }
             if ($player[$rule] > 0) {
                 if ($player["highCard"] > $bank["highCard"]) {
-                    return ["Player", "High Card", $player["highCard"]];
+                    return ["Player", "High Card"];
                 }
                 if ($player["highCard"] < $bank["highCard"]) {
-                    return ["Bank", "High Card", $bank["highCard"]];
+                    return ["Bank", "High Card"];
                 }
                 return ["No One", "Draw"];
             }

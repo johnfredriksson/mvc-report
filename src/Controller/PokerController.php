@@ -9,8 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Poker\Poker;
 use App\Poker\BankLogic;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Poker\Rules;
+use App\Poker\Compare;
 use App\Entity\Users;
+use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\UsersRepository;
 
 // $this->addFlash("label", "");
@@ -368,7 +370,7 @@ class PokerController extends AbstractController
         if ($session->get("blindTurn") == "you") {
             $choice = $this->bankMakeChoice($session);
             if ($choice == "call") {
-                return $this->redirectToRoute("poker-end");
+                return $this->redirectToRoute("poker-compare", [], 307);
             }
         }
         
@@ -398,12 +400,12 @@ class PokerController extends AbstractController
         $session->set("answer", false);
 
         if ($request->request->get("check") && $session->get("blindTurn") == "you") {
-            return $this->redirectToRoute("poker-end");
+            return $this->redirectToRoute("poker-compare", [], 307);
         }
         if ($request->request->get("check")) {
             $choice = $this->bankMakeChoice($session);
             if ($choice == "check") {
-                return $this->redirectToRoute("poker-end");
+                return $this->redirectToRoute("poker-compare", [], 307);
             }
             return $this->redirectToRoute("poker-river");
         }
@@ -412,11 +414,11 @@ class PokerController extends AbstractController
             $session->get("pokerGame")->addToPot($session->get("callAmount"));
             $session->set("callAmount", 0);
             $session->set("answer", false);
-            return $this->redirectToRoute("poker-end");
+            return $this->redirectToRoute("poker-compare", [], 307);
         }
         if ($request->request->get("fold")) {
             $this->addFlash("label", "Hand folded, You lost.");
-            return $this->redirectToRoute("poker-end");
+            return $this->redirectToRoute("poker-compare", [], 307);
         }
         // Raise case //
         $raise = $request->request->get("wage");
@@ -431,9 +433,30 @@ class PokerController extends AbstractController
 
         $choice = $this->bankMakeChoice($session);
         if ($choice == "call" || $choice == "check") {
-            return $this->redirectToRoute("poker-end");
+            return $this->redirectToRoute("poker-compare", [], 307);
         }
         return $this->redirectToRoute("poker-river");
+    }
+
+    /**
+     * @Route("proj/poker/compare", name="poker-compare", methods={"POST"})
+     */
+    public function pokerCompare(
+        SessionInterface $session,
+    ): Response
+    {
+        $player     = $session->get("pokerGame")->getPlayerFull();
+        $bank       = $session->get("pokerGame")->getBankFull();
+        $community  = $session->get("pokerGame")->getCommunityFull();
+
+        $playerHand = new Rules($player, $community);
+        $bankHand   = new Rules($bank, $community);
+        $compare    = new Compare($playerHand, $bankHand);
+
+        $result = $compare->compareHands();
+        $this->addFlash("label", $result[0] . " win with " . $result[1]);
+
+        return $this->redirectToRoute("poker-end");
     }
 
     /**
@@ -446,15 +469,15 @@ class PokerController extends AbstractController
         
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus"),
-            "user" => $session->get("user"),
-            "blind" => $session->get("pokerBlind"),
-            "blindTurn" => $session->get("blindTurn"),
-            "pot" => $session->get("pokerGame")->getPot(),
-            "player" => $session->get("pokerGame")->getPlayer(),
-            "community" => $session->get("pokerGame")->getCommunity(),
-            "bank" => $session->get("pokerGame")->getBank(),
-            "answer" => $session->get("answer"),
-            "callAmount" => $session->get("callAmount")
+            "user"           => $session->get("user"),
+            "blind"          => $session->get("pokerBlind"),
+            "blindTurn"      => $session->get("blindTurn"),
+            "pot"            => $session->get("pokerGame")->getPot(),
+            "player"         => $session->get("pokerGame")->getPlayer(),
+            "community"      => $session->get("pokerGame")->getCommunity(),
+            "bank"           => $session->get("pokerGame")->getBank(),
+            "answer"         => $session->get("answer"),
+            "callAmount"     => $session->get("callAmount")
         ];
 
         return $this->render("poker/end.html.twig", $data);

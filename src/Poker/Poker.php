@@ -58,7 +58,24 @@ class Poker
 
     public function getCommunity()
     {
-        return $this->getCardFaces($this->community->getCards());    }
+        return $this->getCardFaces($this->community->getCards());
+    }
+
+    public function getPlayerFull()
+    {
+        // return $this->player->getCards();
+        return $this->player->getCards();
+    }
+
+    public function getBankFull()
+    {
+        return $this->bank->getCards();
+    }
+
+    public function getCommunityFull()
+    {
+        return $this->community->getCards();
+    }
 
     public function addToPot(int $amount)
     {

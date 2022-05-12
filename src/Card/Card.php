@@ -14,6 +14,7 @@ class Card
     protected string $value;
     protected string $img;
     protected string $title;
+    protected string $faceValue;
 
     /**
      * Constructor
@@ -25,6 +26,7 @@ class Card
     {
         $this->suit = $suit;
         $this->img = $suit . $value;
+        $this->faceValue = $value;
         $suits = [
             "C" => "Clubs",
             "D" => "Diamonds",
@@ -48,6 +50,22 @@ class Card
     public function getImgUrl(): string
     {
         return $this->img . ".png";
+    }
+
+    /**
+     * Returns suit + value as string
+     */
+    public function getSuitValue(): string
+    {
+        return $this->suit . $this->faceValue;
+    }
+
+    /**
+     * Returns value as string
+     */
+    public function getFaceValue(): string
+    {
+        return $this->faceValue;
     }
 
     /**

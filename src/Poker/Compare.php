@@ -54,7 +54,7 @@ class Compare
             }
             if ($player[$rule] > 0) {
                 if ($player["highCard"] > $bank["highCard"]) {
-                    return ["Player", "High Card"];
+                    return ["You", "High Card"];
                 }
                 if ($player["highCard"] < $bank["highCard"]) {
                     return ["Bank", "High Card"];

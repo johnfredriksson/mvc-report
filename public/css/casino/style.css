@@ -32,6 +32,30 @@ html {
     bottom: 0;
 }
 
+.footer a {
+    margin-left: 2vw;
+    position: relative;
+    bottom: 5vh;
+    border: 3px solid purple;
+    background-color: purple;
+    color: white;
+    padding: 4px;
+    border-radius: 14px;
+    width: 8vw;
+    -webkit-box-shadow: 5px 5px 0px 0px #ff0000; 
+    box-shadow: 5px 5px 0px 0px #ff0000;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out all;
+    text-align: center;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    background-color: #ff0000;
+    border: 3px solid #ff0000;
+}
+
 input {
     border: 3px solid purple;
     background-color: purple;
@@ -334,6 +358,24 @@ input:-webkit-autofill:active{
     margin-bottom: 20px;
     width: 8vw;
     text-align: center;
+}
+
+.flash-notice {
+    color: black;
+    border: 2px solid rgba(255, 0, 0, 0.334);
+    padding: 15px;
+    top: 15vh;
+    left: 46vw
+}
+
+.flash-notice h2 {
+    color: black;
+    border: none;
+    text-align: center;
+}
+
+.flash-notice p {
+    border: none;
 }
 
 

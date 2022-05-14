@@ -16,7 +16,7 @@ class BankLogic
             return "fold";
         }
 
-        if ($number > 50) {
+        if ($number > 70) {
             return "raise";
         }
 
@@ -29,6 +29,12 @@ class BankLogic
             return $playerBalance;
         }
 
-        return rand($blind, $playerBalance / 3) + $blind;
+        $amount = rand($blind, $blind * 3);
+
+        if ($amount >= $playerBalance) {
+            return $playerBalance;
+        }
+
+        return $amount;
     }
 }

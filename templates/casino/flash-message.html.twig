@@ -1,0 +1,9 @@
+{# read and display all flash messages #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            <h2 class="notis">Notis</h2><br>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}

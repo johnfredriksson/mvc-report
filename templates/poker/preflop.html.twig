@@ -27,12 +27,20 @@
                     <input readonly>
                     <input type="submit" value="Call {{ callAmount ?? "" }}" name="call">
                     <input type="submit" value="Raise" name="raise">
+                    {% if blind >= user.balance %}
+                    <input type="number" min="{{ user.balance }}" value="{{ user.balance }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
+                    {% else %}
                     <input type="number" min="{{ callAmount }}" value="{{ callAmount }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
+                    {% endif %}
                 {% else %}
                     <input type="submit" value="Check" name="check">
                     <input readonly>
                     <input type="submit" value="Raise" name="raise">
-                    <input type="number" min="{{ blind }}" value="{{ blind }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
+                    {% if blind >= user.balance %}
+                    <input type="number" min="{{ user.balance }}" value="{{ user.balance }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
+                    {% else %}
+                    <input type="number" min="{{ callAmount }}" value="{{ callAmount }}" max="{{ user.balance }}" name="wage" step="{{ blind / 2 }}">
+                    {% endif %}
                 {% endif %}
             </form>
         </div>

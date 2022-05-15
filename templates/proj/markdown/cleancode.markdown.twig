@@ -1,0 +1,36 @@
+# Att objektifiera objektorientad kod.
+
+## “Finns det verkligen ett begrepp som är ‘Snygg och god kod’? Kan en programmerare uppfatta kod som ‘snygg’ och vad innebär det och hur producerar man ‘snygg kod’?”
+
+I dagens samhälle så är vi ständigt i kontakt med kod vad vi än gör, allt från att vakna av väckarklockan, slå på kaffemaskinen till att stämpla in på jobbet. Mängden kod i vår värld ökar exponentiellt med tiden och när fler produkter som vi inte visste var dumma, nu blivit smarta så är vi mer omringade av kod.
+
+Som daglig konsument så ser vi aldrig koden, vi tar den för givet och är glada så länge inget fel uppstår med produkten. Men under ytan av våra vardagliga livsviktiga små enheter så döljer sig en hel värld med spår av teknikens utveckling genom åren.
+
+Att prata kod kan upplevas som väldigt abstrakt för många. I grunden så är det rätt primitivt, det finns ettor och nollor, på och av. Med språken som vi vanligtvis skriver i idag har vi ett annat lager av hjälp för att skriva program. Ändå är grundstenarna att vi kan spara ord och siffror, vi kan sätta ihop ord till en mening, räkna med våra siffror, räkna med operatorer, fråga om ett visst påstående är sant eller inte, samt med hjälp av en loop göra något med våra värden ett visst antal gånger.
+
+När vi pratar kod mellan programmerare så finns en helt annan frågeställning, *är det där snygg kod?*
+
+**Om vi ska bryta ner grundstenarna i vad snygg kod är så pratar vi om täckning, komplexitet, kohesion, koppling. Taget från engelskans *“4 C’s. Coverage, Complexity, Cohesion, Coupling”*.**
+
+Täckning syftar på hur stor del av vår kod som täcks i enhetstestning. Vi skriver tester för alla klasser, metoder och funktioner för att säkerställa att de fungerar som tänkt. Det kan vara lätt att stirra sig blind på hur många procent i täckning vi har i vår kod, med all rätt. Beroende på vad vi har för funktion så måste vi testa samma kod olika många gånger. En funktion som genererar ett spelkort till en kortlek behöver inte tvunget så många olika testfall då parametern in och värdet ut inte påverkas av några rörliga delar. En funktion som ska hantera ett värde som en användare skriver in i ett textfält kan behöva 10 gånger fler testfall för att säkerställa att vad användaren än knappar in på sitt tangentbord som kommer programmet fungera som tänkt och inga överraskningar väntar. Här räcker det alltså inte med 100% kodtäckning, utan vi kanske behöver 10 olika test för en och samma funktion.
+
+Komplexitet är precis vad det låter som. Hur komplex är vår kod. Dett gäller både för människan och datorn. Vad en person uppfattar som komplext är väldigt individuellt, men överlag ger långa funktioner, många jämförelser, loopar och nästlade jämförelser med loopar ett mer komplext intryck på oss. Även datorn vill ha så enkel kod som möjligt. Den ska vara snabb att processa utan några flaskhalsar. Precis som med människan så blir det svårare för varje jämförelseoperator och loop att genomföra koden och vi får en långsammare produkt.
+
+Mätvärdet för komplexitet börjar på 1 i en funktion. För varje jämförelse vi lägger till så ökar komplexiteten med 1. Alltså får en funktion med tre punkter där vi kollar om ett tal är större än det andra en komplexitet på 4. Det går snabbt att komma upp i ett högt mätvärde så vi försöker skriva smart och lättförstådd kod som är enkel för datorn att utföra.
+
+Ett viktigt begrepp inom objektorienterad programmering är kohesion. Det menar hur väl vår klass metoder håller ihop och känns på ett logiskt vis som “samma ämne”. I en klass har vi metoder för att kolla email, validera email, skicka email, skriva ut email och skriva ut adress. Den klassen visar låg kohesion, funktionaliteten sprider ut sig över ett väldigt brett område och snart har vi byggt en en Email-service med bara en klass. Låt oss istället dela upp denna klass på fyra nya. Vår första klass hanterar hur vi kollar email, den andra klassen validerar email, den tredje skickar email och den fjärde skriver ut ett email. Nu har vi 4 klasser med hög kohesion. Många klasser som täcker små områden.
+
+Det  fjärde och sista C’et landar oss hos koppling. Hur pratar dessa klasser vi nu skapat med varandra, hur bör de prata med varandra?
+Det finns tre nämnvärda steg i koppling. Dessa är ingen koppling, lös koppling och tajt koppling. När vi använder våra klasser som behöver många av dessa prata med varandra. Det vi i grunden vill undvika är många klasser som pratar med många andra klasser. Vi försöker minska informationsflödet och begränsa oss till de metoder vi har i vår klass för att inte andra klasser ska bli beroende av andra. Tajt koppling menar på högra beroende av andra, mer koordination och mer flöde av information. Håller vi en lös koppling genom vår kod så underlättar vi när vi modifierar i en klass senare då vi inte behöver oroa oss över hur fem andra klasser blev påverkade nu.
+
+Nu har vi gått igenom programmerares grundstenar för snygg kod, *men glömmer vi inte något?*
+
+De fyra C i all är men även om vi försöker skriva så smart kod som möjlig med små områden och låg komplexitet så är det inte alltid så självförklarande när vi visar koden för någon annan för första gången, inte ens för oss själva efter några veckor.
+
+Kommentarer.
+
+En kod som är välfylld med informerande och strukturerade kommentarer gör grunden för att en kod ska uppfattas som just snygg kod. Det är vårt bästa medel att dela med oss av vår tanke när vi skrev koden, vad vi vill att den ska göra, på vårt naturliga språk. Där är det lättast att uttrycka sig om vissa saker.
+
+Så nu kanske det är dags att de fyra nu blir fem C, **Coverage, Coupling, Cohesion, Complexity, *Comments*.**
+
+*John Fredriksson 15\5\22*

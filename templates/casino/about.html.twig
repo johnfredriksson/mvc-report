@@ -1,6 +1,50 @@
 {% extends "casino/base.html.twig" %}
 {% block content %}
 <div class="about">
-    <p>Om hamnar här</p>
+    <h2>Om DBWegas</h2>
+    <h3>Dokumentation</h3>
+    <ul>
+        <li><a href="http://www.student.bth.se/~jofr21/dbwebb-kurser/mvc/me/report/docs/api/">PHPDocs</a></li>
+        <li><a href="http://www.student.bth.se/~jofr21/dbwebb-kurser/mvc/me/report/docs/metrics/">Metrics</a></li>
+        <li><a href="https://github.com/johnfredriksson/mvc-report">Github Repo</a></li>
+        <li><a href="https://scrutinizer-ci.com/g/johnfredriksson/mvc-report/">Scrutinizer</a></li>
+        <li><a href="{{ path("casino-reset") }}">Återställ Databas</a></li>
+        <li><a href="{{ path("proj-article") }}">Artikel om Snygg Kod</a></li>
+    </ul>
+    <div class="about-section">
+        <h3>Projektet</h3>
+        <p>
+            DBWegas är produkten av ett slutprojekt i kursen MVC hos BTH där vi lär oss om objektorienterade webbteknologier.
+            Syftet med min webbplats är att visa upp kunskap i ämnet för modeller, vyer och kontroller. Projektet använder sig 
+            av PHP med ramverket Symfony, mycket session samt ORM Doctrine.
+        </p>
+        <p>
+            En användare kan registrera sig på hemsidan för att kunna spela kortspelet texas hold'em mot banken som sägs sitta 
+            på ett starkt pokeransikte. Användaren kan även sätta in låtsaspengar, uppdatera sin information och profilbild.
+        </p>
+    </div>
+    <div class="about-section">
+        <h3>Kodkvalitet</h3>
+        <p>
+            Koden bakom webbplatsen är byggd med termen kodkvalitet i bakhuvudet. Jag har fokuserat på att hålla mig till enklare och mindre 
+            metoder samt klasser som visar kohesion. Till min hjälp har jag använt mig av verktygen PHPUnit, PHPDocs, Metrics och Scrutinizer.
+            Även en del verktyg med fokus på kodkvalitet som CBF, PHPCS och PHPMD.
+        </p>
+        <p>
+            Två av mina stora fokusområden var bland annat att kommentare koden i bästa förmåga för att göra koden lättförstådd. Det andra är enhetstestning
+            där jag ligger på 95-100% för mina egenskapade klasser förutom doctrine och kontroller. Med ett kortspel som Texas Hold'em så är det av stor vikt 
+            att testa många olika utfall för att säkerställa att reglerna funkar som de ska.
+        </p>
+    </div>
+    <div class="about-section">
+        <h3>ORM</h3>
+        <p>
+            I databasväg har jag skapat två tabeller för kasinot. Den ena tabellen håller data för registrerade användare. Som utgångsläge finns admin admin och doe doe som användare.
+            Admin kan redigera info för alla användare, även ta bort och registrera nya användare. Den andra tabellen heter history. Den håller alla utfall från avslutade matcher i kortspelet.
+            Tabellerna har ett en till många-förhållande där en användare kan ha många history medan en history bara kan ha en användare. När en användare är inloggad kan en på sin profilsida 
+            se all historik från sina spelade spel
+        </p>
+        <img src="{{ asset("img/er.png") }}" alt="ER-diagram över databasen">
+    </div>
 </div>
 {% endblock %}

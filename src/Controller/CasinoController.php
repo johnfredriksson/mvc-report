@@ -91,21 +91,7 @@ class CasinoController extends AbstractController
      */
     public function casinoAbout(
         SessionInterface $session,
-        ManagerRegistry $doctrine,
     ) {
-        $entityManager = $doctrine->getManager();
-
-        $history = new History();
-        $history->setOutcome(rand(-100, 100));
-        $user = $session->get("user");
-        $user->addHistory($history);
-
-        $entityManager->merge($history);
-        $entityManager->flush();
-
-        echo($user->getHistory()[0]->getOutcome());
-        // var_dump($session->get("user")->getHistory());
-
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
             "user" => $session->get("user") ?? false

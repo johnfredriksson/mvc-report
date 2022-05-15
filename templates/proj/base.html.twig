@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="{{ asset("css/proj/style.css") }}">
+    </head>
+    <body>
+        <a href="{{ path("casino-about") }}">Tillbaka</a>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

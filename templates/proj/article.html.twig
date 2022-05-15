@@ -1,0 +1,6 @@
+{% extends "proj/base.html.twig" %}
+{% block content %}
+    <div class="proj-article">
+    {{ include("proj/markdown/cleancode.markdown.twig")|markdown_to_html }}
+    </div>
+{% endblock %}

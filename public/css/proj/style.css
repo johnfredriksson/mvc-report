@@ -1,0 +1,29 @@
+a {
+padding: 50px;
+border: 1px solid black;
+margin: 80px;
+color: black;
+text-decoration: none;
+margin-top: 200px;
+font-size: 2em;
+transition: all 0.2s ease;
+}
+a:hover {
+    background-color: black;
+    color: white;
+}
+
+.proj-article {
+    margin-top: 100px;
+    width: 50vw;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+h1 {
+    font-size: 5em;
+}
+
+html {
+    background: linear-gradient(90deg, rgb(255, 255, 255),rgb(255, 219, 197));
+}

@@ -1,0 +1,96 @@
+.KMOM10 {
+------
+
+### AVSLUTANDE PROJEKT
+
+#### PROJEKTFOKUS
+
+I mitt examinerande projekt i MVC har jag valt att gå på casino-valet.
+Jag har byggt en webbplats där en spelare kan spela klassisk Texas hold'em mot 
+datorn. Datorn har en inbyggd mekanik där den slumpar fram vad den ska göra som nästa 
+drag. Spelet börjar med att användaren väljer "blind bet". Sedan lägger spelaren in sin blind 
+och korten visas. Datorn kommer ta ett beslut på om det potten ska höjas, om den vill checka eller 
+lägga ner korten. Spelet fortsätter såhär tills alla 5 korten ligger i mitten av bordet och då avgörs vinnaren.
+
+#### STRUKTUR OCH INNEHÅLL
+
+Jag har använt mig av controllers med hög kohesion, för att uppnå detta så har jag skapat många olika controllerklasser som gör 
+sina egna specifika saker i sitt område. För casino har jag en kontroll för de allmänna sidorna som inte kräver inlogg, en kontroller för 
+inloggning och profil, en för administrativt gränssnitt, en för pokerspelet och en för min artikel.
+
+#### DATABAS MED ORM
+
+Webbplatsen har en databas byggd med doctrine som håller all data för användares uppgifter och utfall i poker-spelet. Det går även att återställa 
+databasen till dess ursprungliga läge genom länken i footern eller i om-sidan. admin admin och doe doe finns som inloggningsalternativ där admin har 
+admin-rättigheter och doe har rättigheter som en vanlig användare.
+
+#### UTSEENDE OCH ANVÄNDBARHET
+
+Jag har till casinot valt en aningen lekfullare stil som valdes efter lite eftersökning av de större webbcasinon i sverige. Jag upplever att användbarheten 
+är hög då navigering är mycket simpel och självförklarande, det är enkelt att klicka sig fram och hitta det användaren söker. Ett område för förbättring skulle kunna 
+vara att bygga stöd för färgblinda.
+
+#### KODSTIL
+
+Koden passerar PHPCS utan anmärkning.
+
+Jag valde att göra mitt spel med rätt stor omfattning och fick därför problem med komplexiteten i pokercontroller, poker och rules. Jag skrev om koden ett par gånger och lyckades få 
+ner komplexiteten avsevärt. Trots detta så har jag några metoder som ligger på 11 i komplexitet när gränsvärdet är 10 samt att totala komplexiteten överskrids i PokerKontroller. 
+Därför har jag stängt av utvalda varningar.
+
+#### ENHETSTESTNING OCH KODTÄCKNING
+
+Min klasser har kodteckning på mellan 95%-100% för klasserna förutom Entity, Repository och Controller. Det var väldigt kul att skriva enhetstester till projektet framförallt till Rules 
+där jag håller alla regler för Texas Hold'em. Det krävdes rätt många testafall och långa funderingar att få till det som jag ville ha det. Detta var första gången sen jag började kursen som 
+jag valde att skriva många enhetstester innan jag skrev själva koden. Jag började med att skapa två regler så att jag sedan visste vilken struktur jag skulle ha på testerna. Sedan skrev jag ner 
+de flesta av de andra testerna som krävdes för att få täckning på Rules.
+
+#### ARTIKEL OM SNYGG KODSTIL
+
+Under /proj/cleancode har jag sparat undan min artikel *Att objektifiera objektorienterad kod* där jag lyfter mina tankar och erfarenhet om syn på snyggkod efter 10 veckor i MVC.
+
+#### INLOGGNING
+
+I sidhuvudet finns ett formulär för att logga in som användare. Som utgångsläge finns admin admin och doe doe enligt instruktioner. Admin har full kontroll över alla användare och kan nyttja full 
+CRUD över tabellen users i databasen. Admin kan även justera andra användares adminrättigheter. När vi besöker hemsidan så blir vi erbjudna att registrera oss via ett formulär. Här fyller 
+vi i våra uppgifter och sedan har vi ett konto med en egen profilsida där vi har möjlighet att sätta in låtsaspengar, uppdatera vår info och profilbild. Lösenordet sparas hashat i databasen med 
+password_hash() och verifieras vid inloggning av password_verify().
+
+#### ORM MED RELATION
+
+Utöver tabellen users så har jag även skapat tabellen history med hjälp av doctrine's make:entity och på så vis länkat ihop tabellerna i ett one-to-many-förhållande, där en användare 
+kan har flera history och en history kan bara ha en användare. När en användare är inloggad kan hen på sin profil se en total historik över alla utfall från poker-bordet. Vid återställning av 
+databasen rensas även history.
+
+#### UTFÖRANDE
+
+Projektet har varit väldigt kul att genomföra och har överlag gått rätt smidigt. Jag bestämde mig rätt snabbt för vilket fokus jag skulle välja. Med casinot så hade jag redan en del saker klara 
+så som kortleken och handen. Då kunde jag lägga mer fokus på nya områden. Jag byggde sedan upp en ny struktur för casinodelen med en ny stylesheet för att skapa en annorlunda stil. 
+Sedan gick jag vidare med att bygga inloggningen för jag hade redan bestämt mig för att det bara skulle vara inloggade som skulle kunna spela och sätta in pengar.
+
+Inloggningen var mycket smidig att lösa efter kmom06 där vi övade på CRUD med doctrine. Jag känner mig väldigt imponerad av doctrine och tycker det är ett fantastiskt sätt att jobba på, det är 
+ett område jag kommer dyka ner i mer framöver.
+
+Sedan byggd jag själva kortspelet. Jag testade lite olika upplägg men kom fram till att jag ville ha en sån verklig upplevelse som möjligt. Detta resulterade i något högre komplexitet än vad 
+PHPMD rekomenderar. Men jag har svårt att se en lösning som drastiskt skulle få ner den siffran utan att skriva om hela projektet igen. Jag väljer att lyssna på Mos då han sa att bara för en 
+webbplats inte uppfyller alla önskemålen av till exempel scrutinizer så betyder det inte att det är dålig kod eller en dålig webbplats.
+
+Efter att jag var nöjd med mitt spelflöde så byggde jag ihop min relationsdatabas med users och history, jag följde dokumentationen som var överraskande lätt att hänga med i och förstå. Det gick 
+snabbt och smidigt att få ihop en databas för mitt ändamål. När jag lägger till data i history går jag via users->addHistory(). Nu när jag kunde lägga till historik hos användare så valde jag 
+att visa upp denna på varje användares profilsida med olika färger beroende på om resultatet var plus eller minus.
+
+Det sista jag gjorde var att bygga administratörens CRUD, detta var precis som det var i library och resulterade i ett väldigt snabbt jobb. Därefter var det bara att fixa mina önskemål från 
+validatorerna.
+
+#### AVSLUTANDE ord
+
+Jag känner mig mycket nöjd med kursen, jag har lärt mig otroligt mycket häftiga och roliga saker. Kursen påminner mycket om Webtec där vi provkörde controllers litegrann. Men nu fick vi 
+dyka lite djupare för att förstå tekniken och dess kraft. PHP har visat sig vara ett av mina favoritspråk hittills med en syntax som jag upplever är enkel att komma in i. Jag personligen 
+är mycket nöjd med kursen och dess upplägg, jag anser att jag har lärt mig otroligt mycket på dessa veckor. Jag har uppfattat i Discord att många inte känner som jag, att kursens moment är 
+för stora och svåra. Jag pratade lite med Mikael om det, och jag står kvar vid att jag tycker det är ett bra tempo med en bra ribba. Ibland känns det som att Mikael har ambitionen att lära ut 
+mer än vad som görs på dessa veckor, och där står jag också kvar vid att kräma på med optionella delar som viktas högre vid slutbetyget.
+
+MVC får en solklar 10/10
+
+}
+------

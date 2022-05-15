@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Poker;
+
 use App\Game\Hand;
 
 class Rules
@@ -8,7 +9,7 @@ class Rules
     private array $hand;
     private array $scores;
     private array $values;
-    public function __construct($player, $community)
+    public function __construct(array $player, array $community)
     {
         $this->hand = [];
         $this->values = [
@@ -26,7 +27,7 @@ class Rules
             "3"     => "3",
             "2"     => "2",
         ];
-        
+
         foreach ($player as $card) {
             array_push($this->hand, $card->getSuit() . $this->values[$card->getFaceValue()]);
         }
@@ -46,7 +47,6 @@ class Rules
             "pair"           => $this->pair(),
             "highCard"       => $this->highCard(),
         ];
-
     }
 
     public function getHand()
@@ -57,7 +57,7 @@ class Rules
     public function getSuits()
     {
         $suits = [];
-        foreach($this->hand as $card) {
+        foreach ($this->hand as $card) {
             array_push($suits, $card[0]);
         }
         return $suits;
@@ -66,7 +66,7 @@ class Rules
     public function getValues()
     {
         $values = [];
-        foreach($this->hand as $card) {
+        foreach ($this->hand as $card) {
             array_push($values, substr($card, 1));
         }
         return $values;
@@ -75,7 +75,7 @@ class Rules
     public function getValuesIntegers()
     {
         $values = [];
-        foreach($this->hand as $card) {
+        foreach ($this->hand as $card) {
             array_push($values, $this->values[substr($card, 1)]);
         }
         return $values;
@@ -89,7 +89,7 @@ class Rules
     public function royalFlush()
     {
         $straight = $this->straight();
-        if($straight == 14 && $this->straight()) {
+        if ($straight == 14 && $this->straight()) {
             $this->scores["royalFlush"] = 1;
             return 1;
         }
@@ -99,7 +99,7 @@ class Rules
     public function straightFlush()
     {
         $straight = $this->straight();
-        if($straight && $this->straight()) {
+        if ($straight && $this->straight()) {
             $this->scores["straightFlush"] = 1;
             return 1;
         }
@@ -129,7 +129,7 @@ class Rules
     public function fullHouse()
     {
         $threeOfAKind = $this->threeOfAKind();
-        if($threeOfAKind && $this->twoPair()) {
+        if ($threeOfAKind && $this->twoPair()) {
             $this->scores["fullHouse"] = $threeOfAKind;
             return $threeOfAKind;
         }
@@ -162,7 +162,7 @@ class Rules
         for ($i = 0; $i < count($cards); $i++) {
             $count = 1;
             for ($j = 1; ($j + $i) < count($cards); $j++) {
-                if ($cards[$i+$j] == $cards[$i] - $j) {
+                if ($cards[$i + $j] == $cards[$i] - $j) {
                     $count += 1;
                     if ($count == 5 || $count == 4 && $cards[$i] == "5" && in_array("14", $cards)) {
                         $this->scores["straight"] = intval($cards[$i]);
@@ -228,7 +228,6 @@ class Rules
                     return intval($cards[$i]);
                 }
             }
-            
         }
 
         return 0;
@@ -238,7 +237,7 @@ class Rules
     {
         $cards = $this->getValues();
         rsort($cards);
-        $this->cards["highCard"] = $cards;
+        $this->scores["highCard"] = $cards;
         return $cards;
     }
 }

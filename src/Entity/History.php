@@ -11,6 +11,7 @@ class History
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    // @phpstan-ignore-next-line
     private $id;
 
     #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'history')]

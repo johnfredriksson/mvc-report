@@ -37,7 +37,7 @@ class Card
         ];
         $this->title = $value . " of " . $suits[$suit];
         if (str_contains("KQJ", $value)) {
-            $this->value = 10;
+            $this->value = "10";
             return;
         }
         $this->value = $value;

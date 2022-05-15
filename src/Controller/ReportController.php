@@ -25,7 +25,7 @@ class ReportController extends AbstractController
         // $session->clear();
         $session->invalidate();
 
-        return redirectToRoute("home");
+        return $this->redirectToRoute("home");
     }
 
     /**

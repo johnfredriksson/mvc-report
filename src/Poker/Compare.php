@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Poker;
+
 use App\Poker\Rules;
 
 class Compare
 {
-    private Array $player;
-    private Array $bank;
+    private array $player;
+    private array $bank;
     private array $rules;
     private array $prettyRules;
     public function __construct($player, $bank)
@@ -62,6 +63,5 @@ class Compare
                 return ["No One", "Draw"];
             }
         }
-
     }
 }

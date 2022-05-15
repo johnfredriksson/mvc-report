@@ -47,7 +47,6 @@ class Poker
 
     public function getPlayer()
     {
-        // return $this->player->getCards();
         return $this->getCardFaces($this->player->getCards());
     }
 

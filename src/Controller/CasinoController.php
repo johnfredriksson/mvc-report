@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Users;
 use App\Entity\History;
 use App\Repository\UsersRepository;
+
 class CasinoController extends AbstractController
 {
     /**
@@ -19,8 +21,7 @@ class CasinoController extends AbstractController
      */
     public function casinoIndex(
         SessionInterface $session
-    ):Response
-    {
+    ): Response {
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
             "user" => $session->get("user") ?? false
@@ -34,8 +35,7 @@ class CasinoController extends AbstractController
      */
     public function casinoLogin(
         SessionInterface $session
-    ):Response
-    {
+    ): Response {
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
             "user" => $session->get("user") ?? false
@@ -52,27 +52,25 @@ class CasinoController extends AbstractController
         Request $request,
         UsersRepository $usersRepository,
         ManagerRegistry $doctrine
-    ): Response
-    {
-
+    ): Response {
         $repository = $doctrine->getRepository(Users::class);
         $user = $repository->findOneBy(["username" => $request->request->get("username")]);
-        
+
         if (!$user || !password_verify($request->request->get("password"), $user->getPassword())) {
             $this->addFlash("notice", "Fel lösenord eller användarnamn");
             return $this->redirectToRoute("casino-login");
         }
 
-        $session->set("loggedInStatus", True);
+        $session->set("loggedInStatus", true);
         $session->set("user", $user);
         $session->set("admin", $user->getAdmin());
 
-        
+
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
             "user" => $session->get("user") ?? false
         ];
-        
+
         return $this->redirectToRoute("casino-index");
     }
 
@@ -81,8 +79,7 @@ class CasinoController extends AbstractController
      */
     public function casinoRegister(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
             "user" => $session->get("user") ?? false
@@ -99,8 +96,7 @@ class CasinoController extends AbstractController
         Request $request,
         ManagerRegistry $doctrine,
         UsersRepository $usersRepository
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
 
         $user = new Users();
@@ -134,8 +130,7 @@ class CasinoController extends AbstractController
      */
     public function casinoLogout(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $session->invalidate();
 
         return $this->redirectToRoute("casino-index");
@@ -147,26 +142,8 @@ class CasinoController extends AbstractController
     public function casinoReset(
         ManagerRegistry $doctrine,
         SessionInterface $session,
-    ): Response
-    {
+    ): Response {
         $session->invalidate();
-
-        // $sqlQueries = [
-        //     "DROP TABLE users;",
-        //     "CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
-        //     username VARCHAR(255) NOT NULL, firstname VARCHAR(255) NOT NULL, 
-        //     lastname VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, 
-        //     email VARCHAR(255) NOT NULL, admin VARCHAR(255) NOT NULL, balance 
-        //     INTEGER NOT NULL, image VARCHAR(255) DEFAULT NULL);",
-        //     "DROP TABLE history;",
-        //     "create table history (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, outcome INTEGER NOT NULL);",
-        //     "create index IDX_27BA704BA76ED395 ON history (user_id)",
-        //     "insert into users VALUES (0, 'admin', 'admin', 
-        //     'admin', '$2y$10$" . "MqvxbAdiC1VKJeksRmhwcOLmDYaZsfbxhFIJ899TI5k8Y0VeDWA0y', 
-        //     'admin', 'admin', '10000', null);",
-        //     "insert into users VALUES (1, 'doe', 'doe', 'doe', 
-        //     '$2y$10$9QH8AWK6qYrkjciAvsVYCeMTAunq.M4qqkU0QB3KIEpaQmDg.tUfu', 'doe', 'user', '1000', null);",
-        // ];
 
         $sqlQueries = [
             "DROP TABLE users;",
@@ -176,21 +153,25 @@ class CasinoController extends AbstractController
             email VARCHAR(255) NOT NULL, admin VARCHAR(255) NOT NULL, balance 
             INTEGER NOT NULL, image VARCHAR(255) DEFAULT NULL);",
             "DROP TABLE history;",
-            "create table history (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id INTEGER NOT NULL, outcome INTEGER NOT NULL);",
+            "create table history (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+            user_id INTEGER NOT NULL, outcome INTEGER NOT NULL);",
             "create index IDX_27BA704BA76ED395 ON history (user_id)",
         ];
 
-        
+
         $entityManager = $doctrine->getManager();
 
         foreach ($sqlQueries as $query) {
             $RAW_QUERY = $query;
+            // @phpstan-ignore-next-line
             $statement = $entityManager->getConnection()->prepare($RAW_QUERY);
             $statement->execute();
         }
 
-        $users = [["admin", "admin", "admin", "$2y$10$" . "MqvxbAdiC1VKJeksRmhwcOLmDYaZsfbxhFIJ899TI5k8Y0VeDWA0y", "admin", 10000, "admin"],
-            ["doe", "doe", "doe", "$2y$10$9QH8AWK6qYrkjciAvsVYCeMTAunq.M4qqkU0QB3KIEpaQmDg.tUfu", "admin", 10000, "user"],
+        $users = [["admin", "admin", "admin", "$2y$10$" .
+        "MqvxbAdiC1VKJeksRmhwcOLmDYaZsfbxhFIJ899TI5k8Y0VeDWA0y", "admin", 10000, "admin"],
+            ["doe", "doe", "doe", "$2y$10$9QH8AWK6qYrkjciAvsVYCeMTAunq.M4qqkU0QB3KIEpaQmDg.tUfu",
+            "admin", 10000, "user"],
         ];
 
         foreach ($users as $userTemp) {
@@ -207,7 +188,7 @@ class CasinoController extends AbstractController
             $entityManager->flush();
         }
 
-        
+
         return $this->redirectToRoute("casino-index");
     }
 
@@ -217,8 +198,7 @@ class CasinoController extends AbstractController
     public function casinoAccount(
         SessionInterface $session,
         ManagerRegistry $doctrine,
-    ): Response
-    {
+    ): Response {
         if (!$session->get("user")) {
             return $this->redirectToRoute("casino-login");
         };
@@ -247,8 +227,7 @@ class CasinoController extends AbstractController
         SessionInterface $session,
         ManagerRegistry $doctrine,
         Request $request
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $user = $entityManager->getRepository(Users::class)->find($session->get("user")->getId());
         $user->setBalance($user->getBalance() + $request->request->get("amount"));
@@ -265,8 +244,7 @@ class CasinoController extends AbstractController
     public function casinoAccountUpdate(
         SessionInterface $session,
         Request $request
-    ): Response
-    {
+    ): Response {
         if (!$session->get("user")) {
             return $this->redirectToRoute("casino-login");
         };
@@ -286,8 +264,7 @@ class CasinoController extends AbstractController
         SessionInterface $session,
         ManagerRegistry $doctrine,
         Request $request
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         // $repository = $doctrine->getRepository(Users::class);
         $user = $entityManager->getRepository(Users::class)->find($session->get("user")->getId());
@@ -312,10 +289,9 @@ class CasinoController extends AbstractController
     public function casinoAbout(
         SessionInterface $session,
         ManagerRegistry $doctrine,
-    )
-    {
+    ) {
         $entityManager = $doctrine->getManager();
-        
+
         $history = new History();
         $history->setOutcome(rand(-100, 100));
         $user = $session->get("user");
@@ -324,7 +300,7 @@ class CasinoController extends AbstractController
         $entityManager->merge($history);
         $entityManager->flush();
 
-        echo ($user->getHistory()[0]->getOutcome());
+        echo($user->getHistory()[0]->getOutcome());
         // var_dump($session->get("user")->getHistory());
 
         $data = [
@@ -341,8 +317,7 @@ class CasinoController extends AbstractController
     public function casinoAdmin(
         SessionInterface $session,
         ManagerRegistry $doctrine
-    )
-    {
+    ) {
         if (!$session->get("user") || $session->get("user")->getAdmin() != "admin") {
             return $this->redirectToRoute("casino-index");
         }
@@ -352,7 +327,7 @@ class CasinoController extends AbstractController
 
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
-            "user" => $session->get("user") ?? false,
+            "user" => $session->get("user"),
             "users" => $users
         ];
 
@@ -365,15 +340,14 @@ class CasinoController extends AbstractController
     public function casinoCreate(
         SessionInterface $session,
         ManagerRegistry $doctrine
-    )
-    {
+    ) {
         if (!$session->get("user") || $session->get("user")->getAdmin() != "admin") {
             return $this->redirectToRoute("casino-index");
         }
 
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
-            "user" => $session->get("user") ?? false,
+            "user" => $session->get("user"),
         ];
 
         return $this->render("casino/create.html.twig", $data);
@@ -385,8 +359,7 @@ class CasinoController extends AbstractController
     public function casinoCreateProcess(
         Request $request,
         ManagerRegistry $doctrine,
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
 
         $user = new Users();
@@ -404,15 +377,14 @@ class CasinoController extends AbstractController
         return $this->redirectToRoute("casino-admin");
     }
 
-     /**
-     * @Route("proj/single/{id}", name="casino-single", methods={"GET"})
-     */
+    /**
+    * @Route("proj/single/{id}", name="casino-single", methods={"GET"})
+    */
     public function casinoSingle(
         SessionInterface $session,
         ManagerRegistry $doctrine,
         int $id
-    )
-    {
+    ) {
         if (!$session->get("user") || $session->get("user")->getAdmin() != "admin") {
             return $this->redirectToRoute("casino-index");
         }
@@ -422,7 +394,7 @@ class CasinoController extends AbstractController
 
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
-            "user" => $session->get("user") ?? false,
+            "user" => $session->get("user"),
             "target" => $target
         ];
 
@@ -436,8 +408,7 @@ class CasinoController extends AbstractController
         SessionInterface $session,
         ManagerRegistry $doctrine,
         int $id
-    )
-    {
+    ) {
         if (!$session->get("user") || $session->get("user")->getAdmin() != "admin") {
             return $this->redirectToRoute("casino-index");
         }
@@ -447,7 +418,7 @@ class CasinoController extends AbstractController
 
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
-            "user" => $session->get("user") ?? false,
+            "user" => $session->get("user"),
             "target" => $target
         ];
 
@@ -461,8 +432,7 @@ class CasinoController extends AbstractController
         Request $request,
         ManagerRegistry $doctrine,
         int $id
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $user = $entityManager->getRepository(Users::class)->find($id);
 
@@ -475,7 +445,7 @@ class CasinoController extends AbstractController
         $user->setUsername($request->request->get("username"));
         $user->setAdmin($request->request->get("admin"));
         $user->setBalance($request->request->get("balance"));
-        
+
         $entityManager->flush();
 
         return $this->redirectToRoute("casino-admin");
@@ -488,8 +458,7 @@ class CasinoController extends AbstractController
         SessionInterface $session,
         ManagerRegistry $doctrine,
         int $id
-    )
-    {
+    ) {
         if (!$session->get("user") || $session->get("user")->getAdmin() != "admin") {
             return $this->redirectToRoute("casino-index");
         }
@@ -499,7 +468,7 @@ class CasinoController extends AbstractController
 
         $data = [
             "loggedInStatus" => $session->get("loggedInStatus") ?? false,
-            "user" => $session->get("user") ?? false,
+            "user" => $session->get("user"),
             "target" => $target
         ];
 
@@ -513,8 +482,7 @@ class CasinoController extends AbstractController
         Request $request,
         ManagerRegistry $doctrine,
         int $id
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $user = $entityManager->getRepository(Users::class)->find($id);
 

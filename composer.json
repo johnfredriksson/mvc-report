@@ -94,7 +94,7 @@
         "phpcs": "tools/php-codesniffer/vendor/bin/phpcs --standard=PSR12 src tests",
         "phpcbf": "tools/php-codesniffer/vendor/bin/phpcbf --standard=PSR12 src",
         "phpmd": "tools/phpmd/vendor/bin/phpmd src text phpmd.xml || true",
-        "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -l 9 src || true",
+        "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -l 5 src || true",
         "phpcpd": "tools/phpcpd/vendor/bin/phpcpd src || true",
         "lint": [
             "@phpcpd",

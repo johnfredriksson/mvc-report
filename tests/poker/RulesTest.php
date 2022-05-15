@@ -17,9 +17,9 @@ class RulesTest extends TestCase
      */
     public function testCreateNewHand()
     {
-        
         $player = new Hand([new Card("H", "A"), new Card("D", "K")]);
-        $community = new Hand([new Card("H", "7"), new Card("D", "10"), new Card("C", "K"), new Card("D", "3"), new Card("D", "9")]);
+        $community = new Hand([new Card("H", "7"), new Card("D", "10"),
+            new Card("C", "K"), new Card("D", "3"), new Card("D", "9")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(["H14", "D13", "H7", "D10", "C13", "D3", "D9"], $hand->getHand());
@@ -30,9 +30,9 @@ class RulesTest extends TestCase
      */
     public function testGetSuits()
     {
-        
         $player = new Hand([new Card("H", "A"), new Card("D", "K")]);
-        $community = new Hand([new Card("H", "7"), new Card("D", "10"), new Card("C", "K"), new Card("D", "3"), new Card("D", "9")]);
+        $community = new Hand([new Card("H", "7"), new Card("D", "10"),
+            new Card("C", "K"), new Card("D", "3"), new Card("D", "9")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(["H", "D", "H", "D", "C", "D", "D"], $hand->getSuits());
@@ -43,9 +43,9 @@ class RulesTest extends TestCase
      */
     public function testGetValues()
     {
-        
         $player = new Hand([new Card("H", "A"), new Card("D", "K")]);
-        $community = new Hand([new Card("H", "7"), new Card("D", "10"), new Card("C", "K"), new Card("D", "3"), new Card("D", "9")]);
+        $community = new Hand([new Card("H", "7"), new Card("D", "10"),
+            new Card("C", "K"), new Card("D", "3"), new Card("D", "9")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(["14", "13", "7", "10", "13", "3", "9"], $hand->getValues());
@@ -56,9 +56,9 @@ class RulesTest extends TestCase
      */
     public function testFourOfAKindTrueAces()
     {
-        
         $player = new Hand([new Card("H", "A"), new Card("D", "A")]);
-        $community = new Hand([new Card("H", "7"), new Card("D", "10"), new Card("C", "A"), new Card("D", "3"), new Card("S", "A")]);
+        $community = new Hand([new Card("H", "7"), new Card("D", "10"),
+            new Card("C", "A"), new Card("D", "3"), new Card("S", "A")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->fourOfAKind());
@@ -69,9 +69,9 @@ class RulesTest extends TestCase
      */
     public function testFourOfAKindTrueFours()
     {
-        
         $player = new Hand([new Card("H", "4"), new Card("D", "4")]);
-        $community = new Hand([new Card("H", "7"), new Card("D", "10"), new Card("C", "4"), new Card("D", "3"), new Card("S", "4")]);
+        $community = new Hand([new Card("H", "7"), new Card("D", "10"),
+            new Card("C", "4"), new Card("D", "3"), new Card("S", "4")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->fourOfAKind());
@@ -82,9 +82,9 @@ class RulesTest extends TestCase
      */
     public function testFourOfAKindTrueTwos()
     {
-        
         $player = new Hand([new Card("H", "2"), new Card("D", "2")]);
-        $community = new Hand([new Card("H", "2"), new Card("D", "A"), new Card("C", "A"), new Card("D", "Q"), new Card("S", "2")]);
+        $community = new Hand([new Card("H", "2"), new Card("D", "A"),
+            new Card("C", "A"), new Card("D", "Q"), new Card("S", "2")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->fourOfAKind());
@@ -95,9 +95,9 @@ class RulesTest extends TestCase
      */
     public function testFourOfAKindFalse()
     {
-        
         $player = new Hand([new Card("H", "A"), new Card("D", "A")]);
-        $community = new Hand([new Card("C", "A"), new Card("D", "10"), new Card("C", "10"), new Card("H", "10"), new Card("S", "2")]);
+        $community = new Hand([new Card("C", "A"), new Card("D", "10"),
+            new Card("C", "10"), new Card("H", "10"), new Card("S", "2")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(false, $hand->fourOfAKind());
@@ -108,9 +108,9 @@ class RulesTest extends TestCase
      */
     public function testTheeOfAKindTrueAces()
     {
-        
         $player = new Hand([new Card("H", "A"), new Card("D", "A")]);
-        $community = new Hand([new Card("H", "7"), new Card("D", "10"), new Card("C", "A"), new Card("D", "3"), new Card("S", "A")]);
+        $community = new Hand([new Card("H", "7"), new Card("D", "10"),
+            new Card("C", "A"), new Card("D", "3"), new Card("S", "A")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->threeOfAKind());
@@ -121,9 +121,9 @@ class RulesTest extends TestCase
      */
     public function testThreeOfAKindTrueNines()
     {
-        
         $player = new Hand([new Card("H", "9"), new Card("D", "9")]);
-        $community = new Hand([new Card("H", "7"), new Card("D", "10"), new Card("C", "9"), new Card("D", "3"), new Card("S", "7")]);
+        $community = new Hand([new Card("H", "7"), new Card("D", "10"),
+            new Card("C", "9"), new Card("D", "3"), new Card("S", "7")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->threeOfAKind());
@@ -134,9 +134,9 @@ class RulesTest extends TestCase
      */
     public function testThreeOfAKindTrueTwos()
     {
-        
         $player = new Hand([new Card("H", "2"), new Card("D", "2")]);
-        $community = new Hand([new Card("H", "2"), new Card("D", "A"), new Card("C", "A"), new Card("D", "Q"), new Card("S", "2")]);
+        $community = new Hand([new Card("H", "2"), new Card("D", "A"),
+            new Card("C", "A"), new Card("D", "Q"), new Card("S", "2")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->threeOfAKind());
@@ -147,9 +147,9 @@ class RulesTest extends TestCase
      */
     public function testThreeOfAKindFalse()
     {
-        
         $player = new Hand([new Card("H", "Q"), new Card("D", "5")]);
-        $community = new Hand([new Card("C", "A"), new Card("D", "10"), new Card("C", "9"), new Card("H", "10"), new Card("S", "2")]);
+        $community = new Hand([new Card("C", "A"), new Card("D", "10"),
+            new Card("C", "9"), new Card("H", "10"), new Card("S", "2")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(false, $hand->threeOfAKind());
@@ -160,9 +160,9 @@ class RulesTest extends TestCase
      */
     public function testPairTrueQueens()
     {
-        
         $player = new Hand([new Card("H", "Q"), new Card("D", "5")]);
-        $community = new Hand([new Card("C", "A"), new Card("D", "Q"), new Card("C", "10"), new Card("H", "10"), new Card("S", "2")]);
+        $community = new Hand([new Card("C", "A"), new Card("D", "Q"),
+            new Card("C", "10"), new Card("H", "10"), new Card("S", "2")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->pair());
@@ -174,9 +174,9 @@ class RulesTest extends TestCase
      */
     public function testPairTrueFives()
     {
-        
         $player = new Hand([new Card("H", "Q"), new Card("D", "5")]);
-        $community = new Hand([new Card("C", "5"), new Card("C", "5"), new Card("C", "J"), new Card("H", "10"), new Card("S", "2")]);
+        $community = new Hand([new Card("C", "5"), new Card("C", "5"),
+            new Card("C", "J"), new Card("H", "10"), new Card("S", "2")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->pair());
@@ -188,9 +188,9 @@ class RulesTest extends TestCase
      */
     public function testPairTrueAces()
     {
-        
         $player = new Hand([new Card("H", "2"), new Card("D", "2")]);
-        $community = new Hand([new Card("C", "A"), new Card("D", "Q"), new Card("C", "2"), new Card("H", "10"), new Card("S", "A")]);
+        $community = new Hand([new Card("C", "A"), new Card("D", "Q"),
+            new Card("C", "2"), new Card("H", "10"), new Card("S", "A")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->pair());
@@ -202,9 +202,9 @@ class RulesTest extends TestCase
      */
     public function testPairFalse()
     {
-        
         $player = new Hand([new Card("H", "2"), new Card("D", "3")]);
-        $community = new Hand([new Card("C", "8"), new Card("D", "Q"), new Card("C", "5"), new Card("H", "10"), new Card("S", "A")]);
+        $community = new Hand([new Card("C", "8"), new Card("D", "Q"),
+            new Card("C", "5"), new Card("H", "10"), new Card("S", "A")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(false, $hand->pair());
@@ -216,9 +216,9 @@ class RulesTest extends TestCase
      */
     public function testFlushTrueQueens()
     {
-        
         $player = new Hand([new Card("C", "Q"), new Card("C", "5")]);
-        $community = new Hand([new Card("C", "A"), new Card("D", "Q"), new Card("C", "J"), new Card("C", "10"), new Card("S", "2")]);
+        $community = new Hand([new Card("C", "A"), new Card("D", "Q"),
+            new Card("C", "J"), new Card("C", "10"), new Card("S", "2")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->flush());
@@ -230,9 +230,9 @@ class RulesTest extends TestCase
      */
     public function testFlushTrueFives()
     {
-        
         $player = new Hand([new Card("H", "Q"), new Card("H", "5")]);
-        $community = new Hand([new Card("H", "5"), new Card("H", "5"), new Card("H", "J"), new Card("H", "10"), new Card("S", "2")]);
+        $community = new Hand([new Card("H", "5"), new Card("H", "5"),
+            new Card("H", "J"), new Card("H", "10"), new Card("S", "2")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->flush());
@@ -244,9 +244,9 @@ class RulesTest extends TestCase
      */
     public function testFlushTrueAces()
     {
-        
         $player = new Hand([new Card("H", "5"), new Card("H", "4")]);
-        $community = new Hand([new Card("H", "3"), new Card("H", "Q"), new Card("H", "2"), new Card("H", "10"), new Card("H", "A")]);
+        $community = new Hand([new Card("H", "3"), new Card("H", "Q"),
+            new Card("H", "2"), new Card("H", "10"), new Card("H", "A")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->flush());
@@ -258,9 +258,9 @@ class RulesTest extends TestCase
      */
     public function testFlushFalse()
     {
-        
         $player = new Hand([new Card("H", "2"), new Card("D", "3")]);
-        $community = new Hand([new Card("D", "8"), new Card("D", "Q"), new Card("S", "5"), new Card("D", "10"), new Card("S", "A")]);
+        $community = new Hand([new Card("D", "8"), new Card("D", "Q"),
+            new Card("S", "5"), new Card("D", "10"), new Card("S", "A")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(false, $hand->flush());
@@ -272,9 +272,9 @@ class RulesTest extends TestCase
      */
     public function testStraightTrueAceHigh()
     {
-        
         $player = new Hand([new Card("H", "Q"), new Card("D", "J")]);
-        $community = new Hand([new Card("D", "K"), new Card("D", "10"), new Card("S", "A"), new Card("D", "7"), new Card("S", "8")]);
+        $community = new Hand([new Card("D", "K"), new Card("D", "10"),
+            new Card("S", "A"), new Card("D", "7"), new Card("S", "8")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->straight());
@@ -286,9 +286,9 @@ class RulesTest extends TestCase
      */
     public function testStraightTrueNineHigh()
     {
-        
         $player = new Hand([new Card("H", "5"), new Card("D", "3")]);
-        $community = new Hand([new Card("D", "K"), new Card("D", "6"), new Card("S", "7"), new Card("D", "9"), new Card("S", "8")]);
+        $community = new Hand([new Card("D", "K"), new Card("D", "6"),
+            new Card("S", "7"), new Card("D", "9"), new Card("S", "8")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->straight());
@@ -300,9 +300,9 @@ class RulesTest extends TestCase
      */
     public function testStraightTrueSixHigh()
     {
-        
         $player = new Hand([new Card("H", "2"), new Card("D", "3")]);
-        $community = new Hand([new Card("D", "4"), new Card("D", "6"), new Card("S", "5"), new Card("D", "K"), new Card("S", "A")]);
+        $community = new Hand([new Card("D", "4"), new Card("D", "6"),
+            new Card("S", "5"), new Card("D", "K"), new Card("S", "A")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->straight());
@@ -314,23 +314,23 @@ class RulesTest extends TestCase
      */
     public function testStraightTrueFiveHigh()
     {
-        
         $player = new Hand([new Card("H", "2"), new Card("D", "3")]);
-        $community = new Hand([new Card("D", "4"), new Card("D", "A"), new Card("S", "5"), new Card("D", "K"), new Card("S", "A")]);
+        $community = new Hand([new Card("D", "4"), new Card("D", "A"),
+            new Card("S", "5"), new Card("D", "K"), new Card("S", "A")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->straight());
         $this->assertEquals(5, $hand->straight());
     }
-    
+
     /**
      * Test to confirm a straight 7,8,9,10,11
      */
     public function testStraightTrueFJackHigh()
     {
-        
         $player = new Hand([new Card("H", "7"), new Card("D", "9")]);
-        $community = new Hand([new Card("D", "8"), new Card("D", "10"), new Card("S", "J"), new Card("H", "10"), new Card("S", "10")]);
+        $community = new Hand([new Card("D", "8"), new Card("D", "10"),
+            new Card("S", "J"), new Card("H", "10"), new Card("S", "10")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->straight());
@@ -338,13 +338,13 @@ class RulesTest extends TestCase
     }
 
     /**
-     * Test to confirm a false straight 
+     * Test to confirm a false straight
      */
     public function testStraightFalse()
     {
-        
         $player = new Hand([new Card("H", "5"), new Card("D", "3")]);
-        $community = new Hand([new Card("D", "K"), new Card("D", "Q"), new Card("S", "7"), new Card("D", "9"), new Card("S", "8")]);
+        $community = new Hand([new Card("D", "K"), new Card("D", "Q"),
+            new Card("S", "7"), new Card("D", "9"), new Card("S", "8")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(false, $hand->straight());
@@ -357,7 +357,8 @@ class RulesTest extends TestCase
     public function testTwoPairTrueTwosTens()
     {
         $player = new Hand([new Card("H", "2"), new Card("D", "10")]);
-        $community = new Hand([new Card("D", "K"), new Card("D", "2"), new Card("S", "7"), new Card("H", "10"), new Card("S", "8")]);
+        $community = new Hand([new Card("D", "K"), new Card("D", "2"),
+            new Card("S", "7"), new Card("H", "10"), new Card("S", "8")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->twoPair());
@@ -370,7 +371,8 @@ class RulesTest extends TestCase
     public function testTwoPairTrueAcesSevens()
     {
         $player = new Hand([new Card("H", "A"), new Card("D", "A")]);
-        $community = new Hand([new Card("D", "7"), new Card("D", "A"), new Card("S", "7"), new Card("H", "10"), new Card("S", "8")]);
+        $community = new Hand([new Card("D", "7"), new Card("D", "A"),
+            new Card("S", "7"), new Card("H", "10"), new Card("S", "8")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->twoPair());
@@ -383,7 +385,8 @@ class RulesTest extends TestCase
     public function testTwoPairFalse()
     {
         $player = new Hand([new Card("H", "Q"), new Card("D", "2")]);
-        $community = new Hand([new Card("D", "7"), new Card("D", "A"), new Card("S", "5"), new Card("H", "10"), new Card("S", "8")]);
+        $community = new Hand([new Card("D", "7"), new Card("D", "A"),
+            new Card("S", "5"), new Card("H", "10"), new Card("S", "8")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(false, $hand->twoPair());
@@ -396,7 +399,8 @@ class RulesTest extends TestCase
     public function testFullHouseTrueAcesSevens()
     {
         $player = new Hand([new Card("H", "A"), new Card("D", "A")]);
-        $community = new Hand([new Card("D", "10"), new Card("D", "A"), new Card("S", "7"), new Card("H", "3"), new Card("S", "7")]);
+        $community = new Hand([new Card("D", "10"), new Card("D", "A"),
+            new Card("S", "7"), new Card("H", "3"), new Card("S", "7")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->fullHouse());
@@ -409,7 +413,8 @@ class RulesTest extends TestCase
     public function testFullHouseTrueKingsTens()
     {
         $player = new Hand([new Card("H", "K"), new Card("D", "Q")]);
-        $community = new Hand([new Card("D", "10"), new Card("D", "K"), new Card("S", "10"), new Card("H", "K"), new Card("S", "10")]);
+        $community = new Hand([new Card("D", "10"), new Card("D", "K"),
+            new Card("S", "10"), new Card("H", "K"), new Card("S", "10")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->fullHouse());
@@ -422,7 +427,8 @@ class RulesTest extends TestCase
     public function testFullHouseTrueFoursThrees()
     {
         $player = new Hand([new Card("H", "4"), new Card("D", "3")]);
-        $community = new Hand([new Card("D", "3"), new Card("D", "4"), new Card("S", "3"), new Card("H", "4"), new Card("S", "4")]);
+        $community = new Hand([new Card("D", "3"), new Card("D", "4"),
+            new Card("S", "3"), new Card("H", "4"), new Card("S", "4")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->fullHouse());
@@ -435,7 +441,8 @@ class RulesTest extends TestCase
     public function testFullHouseFalse()
     {
         $player = new Hand([new Card("H", "4"), new Card("D", "3")]);
-        $community = new Hand([new Card("D", "3"), new Card("D", "4"), new Card("S", "K"), new Card("H", "Q"), new Card("S", "J")]);
+        $community = new Hand([new Card("D", "3"), new Card("D", "4"),
+            new Card("S", "K"), new Card("H", "Q"), new Card("S", "J")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(false, $hand->fullHouse());
@@ -448,7 +455,8 @@ class RulesTest extends TestCase
     public function testHighCard()
     {
         $player = new Hand([new Card("H", "4"), new Card("D", "2")]);
-        $community = new Hand([new Card("D", "3"), new Card("D", "4"), new Card("S", "K"), new Card("H", "Q"), new Card("S", "J")]);
+        $community = new Hand([new Card("D", "3"), new Card("D", "4"),
+            new Card("S", "K"), new Card("H", "Q"), new Card("S", "J")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals($hand->highCard(), ["13", "12", "11", "4", "4", "3", "2"]);
@@ -460,7 +468,8 @@ class RulesTest extends TestCase
     public function testRoyalFlushTrue()
     {
         $player = new Hand([new Card("H", "K"), new Card("H", "10")]);
-        $community = new Hand([new Card("D", "3"), new Card("H", "A"), new Card("S", "K"), new Card("H", "Q"), new Card("H", "J")]);
+        $community = new Hand([new Card("D", "3"), new Card("H", "A"),
+            new Card("S", "K"), new Card("H", "Q"), new Card("H", "J")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $this->assertEquals(true, $hand->royalFlush());
@@ -472,7 +481,8 @@ class RulesTest extends TestCase
     public function testScoreBoard()
     {
         $player = new Hand([new Card("H", "K"), new Card("H", "10")]);
-        $community = new Hand([new Card("D", "3"), new Card("H", "2"), new Card("S", "2"), new Card("H", "Q"), new Card("H", "9")]);
+        $community = new Hand([new Card("D", "3"), new Card("H", "2"),
+            new Card("S", "2"), new Card("H", "Q"), new Card("H", "9")]);
         $hand = new Rules($player->getCards(), $community->getCards());
 
         $scoreboard = [
@@ -490,5 +500,4 @@ class RulesTest extends TestCase
 
         $this->assertEquals($scoreboard, $hand->getScore());
     }
-
 }

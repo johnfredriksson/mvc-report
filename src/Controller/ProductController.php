@@ -60,7 +60,7 @@ class ProductController extends AbstractController
         $product = $productRepository
             ->find($id);
 
-            return $this->json($product);
+        return $this->json($product);
     }
 
     /**

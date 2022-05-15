@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2022-05-05 15:02:13        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2022-05-15 14:37:06        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -93,7 +93,7 @@
                             <path d="M0 0h24v24H0z" fill="none"/>
                             <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
                         </svg>
-                        Violations (5)
+                        Violations (15)
                     </a>
                 </li>
                                     <li>
@@ -273,12 +273,36 @@
         "relations": []
     },
     {
+        "name": "\\App\\Repository\\HistoryRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\History"
+        ]
+    },
+    {
+        "name": "\\App\\Entity\\History",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Repository\\BookRepository",
         "size": 3000,
         "relations": []
     },
     {
         "name": "\\App\\Entity\\Book",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\UsersRepository",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Entity\\Users",
         "size": 3000,
         "relations": []
     },
@@ -294,6 +318,41 @@
     },
     {
         "name": "\\App\\Card\\Deck",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Poker\\Rules",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Poker\\Poker",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Game\\Hand",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Poker\\BankLogic",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Poker\\Compare",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Doctrine\\Common\\Collections\\ArrayCollection",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Doctrine\\Common\\Collections\\Collection",
         "size": 3000,
         "relations": []
     },
@@ -318,23 +377,23 @@
         "relations": []
     },
     {
-        "name": "\\App\\Game\\Hand",
-        "size": 3000,
-        "relations": []
-    },
-    {
         "name": "\\App\\Game\\Game",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\App\\Controller\\FormLoginController",
+        "name": "\\App\\Controller\\CasinoController",
         "size": 3000,
         "relations": [
             "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
             "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "\\Symfony\\Component\\Routing\\Annotation\\Route",
-            "\\Symfony\\Component\\HttpFoundation\\Request"
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\App\\Repository\\UsersRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\Users",
+            "\\App\\Entity\\History"
         ]
     },
     {
@@ -344,6 +403,11 @@
     },
     {
         "name": "\\Symfony\\Component\\HttpFoundation\\Response",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
         "size": 3000,
         "relations": []
     },
@@ -358,6 +422,16 @@
         "relations": []
     },
     {
+        "name": "\\App\\Controller\\FormLoginController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route",
+            "\\Symfony\\Component\\HttpFoundation\\Request"
+        ]
+    },
+    {
         "name": "\\App\\Controller\\CardController",
         "size": 3000,
         "relations": [
@@ -369,11 +443,6 @@
             "\\Symfony\\Component\\HttpFoundation\\Request",
             "\\App\\Card\\Deck2"
         ]
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-        "size": 3000,
-        "relations": []
     },
     {
         "name": "\\App\\Controller\\DiceHandController",
@@ -471,6 +540,23 @@
             "\\App\\Entity\\Product",
             "\\Symfony\\Component\\Routing\\Annotation\\Route",
             "\\App\\Repository\\ProductRepository"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\PokerController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Poker\\BankLogic",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\App\\Poker\\Poker",
+            "\\App\\Poker\\Rules",
+            "\\App\\Poker\\Compare",
+            "\\App\\Entity\\History"
         ]
     },
     {

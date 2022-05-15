@@ -2,15 +2,34 @@
 
 namespace App\Poker;
 
+/**
+ * Class to handle banks decision making
+ */
 class BankLogic
 {
+    /**
+     * Rolls a random number between 0, 100.
+     *
+     * @return integer
+     */
     public function getOdds()
     {
-        return rand(1,100);
+        return rand(1, 100);
     }
-    public function bet()
+
+    /**
+     * Makes choice based upon bet, returns decision.
+     *
+     * @param integer $number An integer to represent the number
+     * @return string
+     *
+     * @return string
+     */
+    public function bet($number = null)
     {
-        $number = $this->getOdds();
+        if (!$number) {
+            $number = $this->getOdds();
+        }
 
         if ($number < 6) {
             return "fold";
@@ -23,6 +42,15 @@ class BankLogic
         return "check";
     }
 
+    /**
+     * In case of a raise, method will adjust the
+     * amount in regard to players balance and the blind.
+     *
+     * @param integer $blind            The current blind amount
+     * @param integer $playerBalance    The players current balance
+     *
+     * @return integer $amount          The calculated amount to raise
+     */
     public function raise($blind, $playerBalance)
     {
         if ($this->getOdds() <= 2 || $playerBalance <= $blind) {

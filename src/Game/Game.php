@@ -33,7 +33,7 @@ class Game
     {
         $this->balance = $balance;
         $this->setDeck();
-        $this->rules = new \App\Game\Rules();
+        $this->rules = new Rules();
     }
 
     /**
@@ -42,7 +42,7 @@ class Game
      */
     public function setDeck(): void
     {
-        $this->deck = new \App\Card\Deck();
+        $this->deck = new Deck();
         $this->deck->shuffleDeck();
     }
 
@@ -51,8 +51,8 @@ class Game
      */
     public function dealCards(): void
     {
-        $this->player = new \App\Game\Hand($this->deck->drawCardFull(2));
-        $this->dealer = new \App\Game\Hand($this->deck->drawCardFull(2));
+        $this->player = new Hand($this->deck->drawCardFull(2));
+        $this->dealer = new Hand($this->deck->drawCardFull(2));
     }
 
     /**

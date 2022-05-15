@@ -15,6 +15,8 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method History|null findOneBy(array $criteria, array $orderBy = null)
  * @method History[]    findAll()
  * @method History[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * 
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 class HistoryRepository extends ServiceEntityRepository
 {

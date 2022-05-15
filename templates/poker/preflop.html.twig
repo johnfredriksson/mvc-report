@@ -21,8 +21,11 @@
             <em class="balance">Balance: {{ user.balance }}</em>
         </div>
         <div class="poker-controls">
+                <form class="fold" action="{{ path("poker-fold") }}">
+                    <input type="submit" value="Fold">
+                </form>
             <form method="POST">
-                <input type="submit" value="Fold" name="fold">
+                {# <input type="submit" value="Fold" name="fold"> #}
                 {% if answer ?? false %}
                     <input readonly>
                     <input type="submit" value="Call {{ callAmount ?? "" }}" name="call">

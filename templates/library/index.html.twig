@@ -12,9 +12,9 @@
         <div class="library-gallery-card" style="background-image: url('{{ book.image }}')">
             <div class="library-gallery-card-controls">
                 <p style="text-align: center">{{ book.name }}</p>
-                <a href="{{ path("book_single", {"id": book.id}) }}">Mer info</a>
-                <a href="{{ path("book_update", {"id": book.id}) }}">Uppdatera</a>
-                <a href="{{ path("book_delete", {"id": book.id}) }}">Ta bort</a>
+                <a href="{{ path("book_single", {"bookid": book.id}) }}">Mer info</a>
+                <a href="{{ path("book_update", {"bookid": book.id}) }}">Uppdatera</a>
+                <a href="{{ path("book_delete", {"bookid": book.id}) }}">Ta bort</a>
             </div>
         </div>
     {% endfor %}

@@ -51,31 +51,31 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/show/{id}", name="product_by_id")
+     * @Route("/product/show/{productid}", name="product_by_id")
      */
     public function showProductById(
         ProductRepository $productRepository,
-        int $id
+        int $productid
     ): Response {
         $product = $productRepository
-            ->find($id);
+            ->find($productid);
 
         return $this->json($product);
     }
 
     /**
-     * @Route("/product/delete/{id}", name="product_delete_by_id")
+     * @Route("/product/delete/{productid}", name="product_delete_by_id")
      */
     public function deleteProductById(
         ManagerRegistry $doctrine,
-        int $id
+        int $productid
     ): Response {
         $entityManager = $doctrine->getManager();
-        $product = $entityManager->getRepository(Product::class)->find($id);
+        $product = $entityManager->getRepository(Product::class)->find($productid);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                "No product found for id " . $id
+                "No product found for id " . $productid
             );
         }
 
@@ -86,19 +86,19 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/update/{id}/{value}", name="product_update")
+     * @Route("/product/update/{productid}/{value}", name="product_update")
      */
     public function updateProduct(
         ManagerRegistry $doctrine,
-        int $id,
+        int $productid,
         int $value
     ): Response {
         $entityManager = $doctrine->getManager();
-        $product = $entityManager->getRepository(Product::class)->find($id);
+        $product = $entityManager->getRepository(Product::class)->find($productid);
 
         if (!$product) {
             throw $this->createNotFoundException(
-                "No product found for id " . $id
+                "No product found for id " . $productid
             );
         }
 

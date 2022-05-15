@@ -10,9 +10,9 @@
     </tr>
     {% for user in users %}
         <tr>
-            <td><a href="{{ path("casino-single", {"id": user.id}) }}">{{ user.username }}</a></td>
-            <td><a href="{{ path("casino-delete", {"id": user.id}) }}">Ta bort</a></td>
-            <td><a href="{{ path("casino-update", {"id": user.id}) }}">Uppdatera</a></td>
+            <td><a href="{{ path("casino-single", {"userid": user.id}) }}">{{ user.username }}</a></td>
+            <td><a href="{{ path("casino-delete", {"userid": user.id}) }}">Ta bort</a></td>
+            <td><a href="{{ path("casino-update", {"userid": user.id}) }}">Uppdatera</a></td>
         </tr>
     {% endfor %}
     </table>

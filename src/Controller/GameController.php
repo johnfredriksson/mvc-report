@@ -13,7 +13,7 @@ class GameController extends AbstractController
 {
     private function setGame(SessionInterface $session): void
     {
-        $session->set("game", new \App\Game\Game(1000));
+        $session->set("game", new Game(1000));
     }
 
     /**
@@ -21,7 +21,7 @@ class GameController extends AbstractController
      */
     public function home(SessionInterface $session): Response
     {
-        $session->set("game", new \App\Game\Game(100));
+        $session->set("game", new Game(100));
         $data = [
             'title' => 'GAME'
         ];
@@ -179,7 +179,6 @@ class GameController extends AbstractController
      * @Route("/game/table/end", name="game-table-end")
      */
     public function gameEnd(
-        Request $request,
         SessionInterface $session,
     ): Response {
         $wage = $session->get("wage");

@@ -6,6 +6,9 @@ use App\Repository\HistoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: HistoryRepository::class)]
+/**
+ * @SuppressWarnings(PHPMD.ShortVariable)
+ */
 class History
 {
     #[ORM\Id]

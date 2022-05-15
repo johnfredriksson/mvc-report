@@ -25,7 +25,7 @@ class Deck
     {
         foreach ($this->suits as $suit) {
             foreach ($this->values as $value) {
-                array_push($this->cards, new \App\Card\Card($suit, $value));
+                array_push($this->cards, new Card($suit, $value));
             }
         }
     }

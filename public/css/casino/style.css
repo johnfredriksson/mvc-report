@@ -335,7 +335,7 @@ input:-webkit-autofill:active{
 .poker-controls {
     position: absolute;
     bottom: 1vh;
-    left: 18vw;
+    left: 22vw;
 }
 
 .flash {
@@ -420,6 +420,9 @@ input:-webkit-autofill:active{
     margin-top: 100px;
 }
 
+.fold {
+    margin-bottom: 1vh;
+}
 
 
 

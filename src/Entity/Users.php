@@ -8,6 +8,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
+/**
+ * @SuppressWarnings(PHPMD.ShortVariable)
+ */
 class Users
 {
     #[ORM\Id]

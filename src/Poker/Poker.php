@@ -17,7 +17,7 @@ class Poker
     protected int $pot;
     /**
      * Constructor
-     * 
+     *
      * Builds a deck and shuffles it, also draws card for bank, player. sets pot to 0.
      */
     public function __construct()
@@ -64,7 +64,7 @@ class Poker
 
     /**
      * Returns array of players card faces
-     * 
+     *
      * @return array containing players card faces
      */
     public function getPlayer()
@@ -74,7 +74,7 @@ class Poker
 
     /**
      * Returns array of banks card faces
-     * 
+     *
      * @return array containing banks card faces
      */
     public function getBank()
@@ -84,7 +84,7 @@ class Poker
 
     /**
      * Returns array of community card faces
-     * 
+     *
      * @return array containing community card faces
      */
     public function getCommunity()
@@ -94,7 +94,7 @@ class Poker
 
     /**
      * Returns array of players card objects
-     * 
+     *
      * @return array containing players card objects
      */
     public function getPlayerFull()
@@ -105,7 +105,7 @@ class Poker
 
     /**
      * Returns array of banks card objects
-     * 
+     *
      * @return array containing banks card objects
      */
     public function getBankFull()
@@ -115,7 +115,7 @@ class Poker
 
     /**
      * Returns array of communitys card objects
-     * 
+     *
      * @return array containing communitys card objects
      */
     public function getCommunityFull()
@@ -125,8 +125,8 @@ class Poker
 
     /**
      * Adds a amount to the total pot
-     * 
-     * @param $amount Amount to be added
+     *
+     * @param int $amount Amount to be added
      */
     public function addToPot(int $amount)
     {
@@ -135,7 +135,7 @@ class Poker
 
     /**
      * Returns the current pot
-     * 
+     *
      * @return int the pot total
      */
     public function getPot()

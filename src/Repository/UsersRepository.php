@@ -15,9 +15,9 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Users|null findOneBy(array $criteria, array $orderBy = null)
  * @method Users[]    findAll()
  * @method Users[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- * 
+ *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
- * 
+ *
  */
 class UsersRepository extends ServiceEntityRepository
 {

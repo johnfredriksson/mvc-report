@@ -6,7 +6,7 @@ use App\Game\Hand;
 
 /**
  * Rules class to calculate how strong a hand is.
- * 
+ *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
@@ -57,7 +57,7 @@ class Rules
 
     /**
      * Returns the hand of cards
-     * 
+     *
      * @return array The array of cards
      */
     public function getHand()
@@ -67,7 +67,7 @@ class Rules
 
     /**
      * Returns the suits of cards in hand
-     * 
+     *
      * @return array The array of suits
      */
     public function getSuits()
@@ -81,7 +81,7 @@ class Rules
 
     /**
      * Returns the values of cards in hand
-     * 
+     *
      * @return array The array of values
      */
     public function getValues()
@@ -104,7 +104,7 @@ class Rules
 
     /**
      * Returns the scoreboards
-     * 
+     *
      * @return array An key value array of all the scores
      */
     public function getScore()
@@ -114,7 +114,7 @@ class Rules
 
     /**
      * Checks if royal flush is true
-     * 
+     *
      * @return int 1 if true, 0 if false
      */
     public function royalFlush()
@@ -129,7 +129,7 @@ class Rules
 
     /**
      * Checks if straight flush is true
-     * 
+     *
      * @return int 1 if true, 0 if false
      */
     public function straightFlush()
@@ -144,7 +144,7 @@ class Rules
 
     /**
      * Checks if four cards match is true
-     * 
+     *
      * @return int value of matching card or 0
      */
     public function fourOfAKind()
@@ -169,7 +169,7 @@ class Rules
 
     /**
      * Checks if full house is true
-     * 
+     *
      * @return int value of the set of 3 matching cards or 0
      */
     public function fullHouse()
@@ -184,7 +184,7 @@ class Rules
 
     /**
      * Checks if flush is true
-     * 
+     *
      * @return int 1 if true, 0 if false
      */
     public function flush()
@@ -208,7 +208,7 @@ class Rules
 
     /**
      * Checks if a straight is true
-     * 
+     *
      * @return int highest card in the straight or 0
      */
     public function straight()
@@ -233,7 +233,7 @@ class Rules
 
     /**
      * Checks if three cards match is true
-     * 
+     *
      * @return int value of matching card or 0
      */
     public function threeOfAKind()
@@ -258,7 +258,7 @@ class Rules
 
     /**
      * Checks if two pair is true
-     * 
+     *
      * @return int value of the highest matching cards or 0
      */
     public function twoPair()
@@ -285,7 +285,7 @@ class Rules
 
     /**
      * Checks if pair is true
-     * 
+     *
      * @return int value of matching card or 0
      */
     public function pair($cards = "")
@@ -308,7 +308,7 @@ class Rules
 
     /**
      * Returns all the cards in order high to low
-     * 
+     *
      * @return array The array of sorted cards
      */
     public function highCard()

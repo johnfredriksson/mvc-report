@@ -209,7 +209,7 @@ class PokerController extends AbstractController
         }
 
         $choice = $this->bankMakeChoice($session);
-        
+
         if ($choice == "fold") {
             $this->depositMoney($session, $doctrine, $session->get("pokerGame")->getPot());
             return $this->redirectToRoute("poker-end");
@@ -532,8 +532,7 @@ class PokerController extends AbstractController
     public function pokerFold(
         SessionInterface $session,
         ManagerRegistry $doctrine
-    )
-    {
+    ) {
         $entityManager = $doctrine->getManager();
 
         $outcome = -$session->get("pokerGame")->getPot() / 2;
@@ -542,7 +541,6 @@ class PokerController extends AbstractController
             $outcome = $session->get("pokerGame")->getPot() / 2;
         } else {
             $this->addFlash("label", "Hand folded, You lost.");
-
         }
 
         $entityManager->clear();

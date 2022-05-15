@@ -6,7 +6,7 @@ use App\Poker\Rules;
 
 /**
  * Class Compare
- * 
+ *
  * Compares to hands in texas hold'em
  */
 class Compare
@@ -17,11 +17,11 @@ class Compare
     private array $prettyRules;
     /**
      * Constructor
-     * 
+     *
      * Calculates
-     * 
-     * @param $player Players scoreboard
-     * @param $bank Banks scoreboard
+     *
+     * @param array $player Players scoreboard
+     * @param array $bank Banks scoreboard
      */
     public function __construct($player, $bank)
     {
@@ -56,10 +56,10 @@ class Compare
     /**
      * Checks from the highest earning scores to the lowest to find a difference in score for the current rule.
      * If one is higher, that hand wins.
-     * 
+     *
      * If all rules are the same winner will be decided by highest card.
      * Two identical hands returns a draw
-     * 
+     *
      * @return array Array of who won, and by what rule
      */
     public function compareHands()
@@ -82,8 +82,8 @@ class Compare
                 if ($player["highCard"] < $bank["highCard"]) {
                     return ["Bank", "High Card"];
                 }
-                return ["No One", "Draw"];
             }
         }
+        return ["No One", "Draw"];
     }
 }

@@ -1,0 +1,18 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+<div class="admin">
+    <p class="warning">Är du säker på att du vill ta bort användaren {{ target.username}}?</p>
+    <form method="POST">
+        <input readonly value="{{ target.firstname }}" type="text">
+        <input readonly value="{{ target.lastname }}" type="text">
+        <input readonly value="{{ target.email }}" type="text">
+        <input readonly value="{{ target.username }}" type="text">
+        <input readonly value="{{ target.image }}" type="text">
+        <input readonly value="{{ target.balance }}" type="text">
+        <input readonly value="{{ target.admin }}" type="text">
+        <div class="warning-div">
+            <input type="submit" value="Ta bort" name="delete">
+        </div>
+    </form>
+</div>
+{% endblock %}

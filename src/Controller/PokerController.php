@@ -12,6 +12,7 @@ use App\Poker\BankLogic;
 use App\Poker\Rules;
 use App\Poker\Compare;
 use App\Entity\Users;
+use App\Entity\History;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\UsersRepository;
 
@@ -509,6 +510,8 @@ class PokerController extends AbstractController
         ManagerRegistry $doctrine,
     ): Response
     {
+        $entityManager = $doctrine->getManager();
+
         $player     = $session->get("pokerGame")->getPlayerFull();
         $bank       = $session->get("pokerGame")->getBankFull();
         $community  = $session->get("pokerGame")->getCommunityFull();
@@ -520,9 +523,20 @@ class PokerController extends AbstractController
         $result = $compare->compareHands();
         $this->addFlash("label", $result[0] . " win with " . $result[1]);
 
+        $outcome = -$session->get("pokerGame")->getPot() / 2;
         if ($result[0] == "You") {
             $this->depositMoney($session, $doctrine, $session->get("pokerGame")->getPot());
+            $outcome = $session->get("pokerGame")->getPot() / 2;
         }
+        
+        $entityManager->clear();
+        $history = new History();
+        $user = $session->get("user");
+        $history->setOutcome($outcome);
+        $user->addHistory($history);
+        $entityManager->merge($history);
+        $entityManager->flush();
+        
 
         return $this->redirectToRoute("poker-end");
     }

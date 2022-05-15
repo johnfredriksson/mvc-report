@@ -1,0 +1,21 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+<div class="admin">
+    <h2>Administrativt gränssnitt</h2>
+    <table>
+    <tr>
+        <th>Användarnamn</th>
+        <th>Radera</th>
+        <th>Uppdatera</th>
+    </tr>
+    {% for user in users %}
+        <tr>
+            <td><a href="{{ path("casino-single", {"id": user.id}) }}">{{ user.username }}</a></td>
+            <td><a href="{{ path("casino-delete", {"id": user.id}) }}">Ta bort</a></td>
+            <td><a href="{{ path("casino-update", {"id": user.id}) }}">Uppdatera</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+    <a href="{{ path("casino-create") }}">Skapa ny användare</a>
+</div>
+{% endblock %}

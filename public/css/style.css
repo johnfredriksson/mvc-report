@@ -273,3 +273,9 @@ h1, h2, h3, h4 ,h5, h6, .title, a, .footer p {
     width: 200px;
     height: 20px;
 }
+
+.history {
+    position: absolute;
+    top: 20vh;
+    right: 30vw;
+}

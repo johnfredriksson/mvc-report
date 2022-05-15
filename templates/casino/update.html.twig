@@ -1,0 +1,25 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+<div class="admin">
+    <form method="POST">
+        <input value="{{ target.firstname }}" type="text" name="firstname" placeholder="Förnamn.." required>
+        <input value="{{ target.lastname }}" type="text" name="lastname" placeholder="Efternamn.." required>
+        <input value="{{ target.email }}" type="text" name="email" placeholder="E-post.." required>
+        <input value="{{ target.username }}" type="text" name="username" placeholder="Användarnamn.." required>
+        <input value="{{ target.image }}" type="text" name="image" placeholder="Bildlänk.." >
+        <input value="{{ target.balance }}" type="text" name="balance" placeholder="Saldo.." required>
+        {% if target.admin == "admin" %}
+            <select name="admin">
+                <option value="admin">Admin</option>
+                <option value="user">Ej admin</option>
+            </select>
+        {% else %}
+            <select name="admin">
+                <option value="user">Ej admin</option>
+                <option value="admin">Admin</option>
+            </select>
+        {% endif %}
+        <input type="submit" value="Uppdatera" name="update">
+    </form>
+</div>
+{% endblock %}

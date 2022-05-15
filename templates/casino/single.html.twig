@@ -1,0 +1,26 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+<div class="admin">
+    <a href="{{ path("casino-admin") }}">Tillbaka</a>
+    <table>
+        <tr>
+            <th>Användarnamn</th>
+            <th>Förnamn</th>
+            <th>Efternamn</th>
+            <th>Email</th>
+            <th>Bildlänk</th>
+            <th>Saldo</th>
+            <th>Rättigheter</th>
+        </tr>
+        <tr>
+            <td>{{ target.username }}</td>
+            <td>{{ target.firstname }}</td>
+            <td>{{ target.lastname }}</td>
+            <td>{{ target.email }}</td>
+            <td><a href="{{ target.image }}">//</a></td>
+            <td>{{ target.balance }}</td>
+            <td>{{ target.admin }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

@@ -12,5 +12,18 @@
         <p>E-post: {{ user.email }}</p>
         <p>Rättigheter: {{ user.admin }}</p>
         <a href="{{ path("casino-account-update") }}">Uppdatera bio</a>
+        {% if user.admin == "admin" %}
+            <a href="{{ path("casino-admin") }}">Administratörskontroll</a>
+        {% endif %}
+        <div class="history">
+        <h2>Latest Games</h2>
+            {% for res in history  %}
+                {% if res < 0 %}
+                    <p style="color: red;">{{ res }}</p>
+                {% else %}
+                    <p style="color: green;">{{ res }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

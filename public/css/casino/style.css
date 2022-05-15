@@ -378,5 +378,50 @@ input:-webkit-autofill:active{
     border: none;
 }
 
+.history {
+    position: absolute;
+    top: 20vh;
+    right: 40vw;
+    border-left: 3px solid purple;
+    padding-left: 30px;
+}
+
+.history h2 {
+    color: purple;
+    text-shadow: 1px 1px #ff0000;
+    margin-bottom: 20px;
+}
+
+.admin {
+    width: 40%;
+    margin: auto;
+}
+
+.admin input, .admin select {
+    display: block;
+    margin-top: 30px;
+    width: 15vw;
+}
+
+.admin select {
+    background-color: purple;
+    color: white;
+    padding: 8px;
+    border-radius: 20px;
+    -webkit-box-shadow: 5px 5px 0px 0px #ff0000; 
+    box-shadow: 5px 5px 0px 0px #ff0000;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out all;
+    text-align: center;
+}
+
+.warning-div {
+    margin-top: 100px;
+}
+
+
+
+
 
 

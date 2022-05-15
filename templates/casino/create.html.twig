@@ -1,0 +1,17 @@
+{% extends "casino/base.html.twig" %}
+{% block content %}
+<div class="admin">
+    <form method="POST">
+        <input type="text" name="firstname" placeholder="Förnamn.." required>
+        <input type="text" name="lastname" placeholder="Efternamn.." required>
+        <input type="text" name="email" placeholder="E-post.." required>
+        <input type="text" name="username" placeholder="Användarnamn.." required>
+        <input type="password" name="password" placeholder="Lösenord.." required>
+        <select name="admin">
+            <option value="user">Ej admin</option>
+            <option value="admin">Admin</option>
+        </select>
+        <input type="submit" value="Skapa" name="register">
+    </form>
+</div>
+{% endblock %}

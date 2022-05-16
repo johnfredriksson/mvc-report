@@ -1,3 +1,7 @@
 MVC Report assignment.
 
 Class project.
+
+DBWegas är produkten av ett slutprojekt i kursen MVC hos BTH där vi lär oss om objektorienterade webbteknologier. Syftet med min webbplats är att visa upp kunskap i ämnet för modeller, vyer och kontroller. Projektet använder sig av PHP med ramverket Symfony, mycket session samt ORM Doctrine.
+
+En användare kan registrera sig på hemsidan för att kunna spela kortspelet texas hold'em mot banken som sägs sitta på ett starkt pokeransikte. Användaren kan även sätta in låtsaspengar, uppdatera sin information och profilbild.

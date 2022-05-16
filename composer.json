@@ -102,7 +102,7 @@
             "@phpstan",
             "@phpcs"
         ],
-        "phpdoc": "tools/phpdoc/phpdoc",
+        "phpdoc": "tools/phpdoc/phpdoc -d ./src -t ./docs/api",
         "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=phpmetrics.json",
         "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
     },
